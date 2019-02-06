@@ -5,8 +5,7 @@ O objetivo da Clickcall é projetar uma interface disruptiva a fim de melhorar a
 ## Primeiros passos
 Siga estes passos caso queira ter uma cópia do projeto configurada e executando no seu host local para propósitos de desenvolvimento e testes. Veja a seção `Realizando Deploy` para entender como fazer a instalação em um ambiente de produção.
 
-### Prerequisitos
-## Ubuntu e derivados
+### Ubuntu e derivados
 Você precisará ter instalado os seguintes softwares:
 - Python 3
 - Pip
@@ -19,8 +18,9 @@ Que podem ser instalados pelo seguinte comando:
 ```
 sudo apt install python python3 python-pip virtualenv && sudo pip install pipenv 
 ```
+### Windows
 
-### Instalação em ambiente de desenvolvimento
+## Instalação em ambiente de desenvolvimento
 Após clonar e acessar a pasta raiz do repositório, crie o ambiente virtual usando o pipenv:
 
 ```
