@@ -60,7 +60,13 @@ Para realizar deploy na Heroku, basta criar um novo app, configurar as mesmas va
 * [Heroku](https://www.heroku.com) - Cloud Application Platform
 
 ## Autores
-* **Júnior Mendes** - ** - [jrmmendes](https://github.com/jrmmendes)
+* **Arthur Henrique** - *Gerente* - [ahtlc](https://github.com/ahtlc)
+* **Júnior Mendes** - *Desenvolvimento* - [jrmmendes](https://github.com/jrmmendes)
+* **Eulália Aires** - *Desenvolvimento* - [eulaliaaires](https://github.com/eulaliaaires)
+* **Marco Santana** - *Desenvolvimento* - [marcoafsantana](https://github.com/marcoafsantana)
+* **Eduarda Senna** - *Desenvolvimento* - [dudasenna](https://github.com/dudasenna)
 * **Carolina Vieira** - *Mockup*
 
+```markdown
 Made with `markdown` and love by CITi
+```
