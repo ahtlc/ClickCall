@@ -43,7 +43,7 @@ python manage.py migrate
 exportar as seguintes variáveis de ambiente:
 - `DJANGO_SECRET_KEY`, que deve receber como valor uma [chave secreta](https://www.miniwebtool.com/django-secret-key-generator/) para o Django;
 - `EMAIL_HOST_ACCOUNT`, que deve receber como valor uma conta de email para ser utilizada no [templated_email](https://djangopackages.org/packages/p/django-templated-email/);
-- `EMAIL_HOST_PASSWORD`, que deve receber como valor a senha da conta de email.
+- `EMAIL_HOST_PASSWORD`, que deve receber como valor a senha da conta de email. (se tiver problemas com email, veja [isso](http://citi.org.br/library/learning/3ipytWKuZJuB50WcJ3rp))
 
 *Protip: Você pode colocar as variáveis em um arquivo `.env` e elas serão carregadas ao ativar o ambiente virtual*
 
