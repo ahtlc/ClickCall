@@ -8,6 +8,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     Custom model to users of clickcall
     """
 
+    created = models.DateTimeField(auto_now_add=True,)
+    updated = models.DateTimeField(auto_now=True)
+
     email = models.EmailField(unique=True)
     username = models.CharField(unique=True, max_length=50,
                                 verbose_name="Login")
