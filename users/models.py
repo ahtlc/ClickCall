@@ -14,3 +14,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     avatar = models.ImageField(blank=True, default='default.avatar.png')
     is_staff = models.BooleanField(default=False)
     objects = UserManager()
+
+    USERNAME_FIELD = 'email'
+
+    class Meta:
+        verbose_name = "Usuário"
+        verbose_name_plural = "Usuários"
+
+    def __str__(self):
+        return self.username + " (" + self.email + ") "
