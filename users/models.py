@@ -12,7 +12,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(unique=True, max_length=50,
                                 default='Undefined')
     avatar = models.ImageField(blank=True, default='default.avatar.png')
+    function = models.CharField(max_length=50, default='Colaborador')
+    phone = models.CharField(max_length=15)
+    ramal = models.CharField(max_legth=15)
+    sector = models.CharField(max_length=50)
     is_staff = models.BooleanField(default=False)
+    
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
