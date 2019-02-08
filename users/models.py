@@ -10,14 +10,15 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(unique=True)
     username = models.CharField(unique=True, max_length=50,
-                                default='Undefined')
+                                verbose_name="Login")
     avatar = models.ImageField(blank=True, default='default.avatar.png')
-    function = models.CharField(max_length=50, default='Colaborador')
-    phone = models.CharField(max_length=15)
-    ramal = models.CharField(max_legth=15)
-    sector = models.CharField(max_length=50)
+    function = models.CharField(max_length=50, default='Colaborador',
+                                verbose_name="Função")
+    phone = models.CharField(max_length=15, verbose_name="Telefone")
+    ramal = models.CharField(max_length=15, verbose_name="Ramal")
+    sector = models.CharField(max_length=50, verbose_name="Área")
     is_staff = models.BooleanField(default=False)
-    
+
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
