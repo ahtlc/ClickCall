@@ -10,16 +10,12 @@
     mainInput.classList.add('main-input');
     mainInput.addEventListener('input', function () {
         let enteredTags = mainInput.value.split(',');
-        
-        
         if (enteredTags.length > 1) {
-            if(tags.length < 3){
-                enteredTags.forEach(function (t) {
-                    let filteredTag = filterTag(t);
-                    if (filteredTag.length > 0)
-                        addTag(filteredTag);
-                });
-            }
+            enteredTags.forEach(function (t) {
+                let filteredTag = filterTag(t);
+                if (filteredTag.length > 0)
+                    addTag(filteredTag);
+            });
             mainInput.value = '';
         }
     });
@@ -39,7 +35,6 @@
             text: text,
             element: document.createElement('span'),
         };
-        
         tag.element.classList.add('tag');
         tag.element.textContent = tag.text;
 
