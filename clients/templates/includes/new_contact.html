@@ -1,0 +1,65 @@
+<form action="" class="new-contact">
+    {% csrf_token %}
+    <!-- Name -->
+    <div class="new-contact-input">
+        <label for="new-contact-name">
+            <span class="new-contact-number">1</span> Nome do Contato
+        </label>
+        <input type="text" name="name" id="new-contact-name">
+    </div>
+
+    <!-- Company -->
+    <div class="new-contact-input">
+        <label for="new-contact-company">
+            <span class="new-contact-number">2</span> Nome da Empresa
+        </label>
+        <input type="text" name="company" id="new-contact-company">
+    </div>
+
+    <!-- Email -->
+    <div class="new-contact-input">
+        <label for="new-contact-email">
+            <span class="new-contact-number">3</span> Email
+        </label>
+        <input type="email" name="email" id="new-contact-email">
+    </div>
+
+    <!-- Phones -->
+    <div class="row">
+        <!-- Cellphone -->
+        <div class="new-contact-input">
+            <label for="new-contact-cellphone">
+                <span class="new-contact-number">4</span> Celular
+            </label>
+            <input type="tel" name="cellphone" id="new-contact-cellphone">
+        </div>
+        
+        <!-- Landline -->
+        <div class="new-contact-input">
+            <label for="new-contact-landline">
+                <span class="new-contact-number">5</span> Tel. Fixo
+            </label>
+            <input type="tel" name="landline" id="new-contact-landline">
+        </div>
+    </div>
+
+    <!-- Address -->
+    <div class="new-contact-input">
+        <label for="new-contact-address">
+            <span class="new-contact-number">6</span> Endereço
+        </label>
+        <input type="text" name="address" id="new-contact-address">
+    </div>
+    
+    <!-- Tags (WIP)
+        <div class="new-contact-input">
+        <label for="new-contact-address">
+            <span class="new-contact-number">6</span> Endereço
+        </label>
+        <input type="text" name="address" id="new-contact-address">
+    </div>
+    -->
+
+    <button type="submit" class="new-contact-submit"> Cadastrar </button>
+
+</form>
