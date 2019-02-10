@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href={% static 'css/new_contact.css' %}>
+{% endblock links %}
+
+{% block title %}
+    Teste Novo Contato (front)
+{% endblock title %}
+
+{% block content %}
+    <div class="popup">
+        {% include "includes/new_contact.html" %}
+    </div>
+{% endblock content %}
