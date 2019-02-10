@@ -88,6 +88,8 @@
     border: none;
     background: #27B2FF; 
     padding: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     width: auto;
     margin-top: auto;
     color: white;
