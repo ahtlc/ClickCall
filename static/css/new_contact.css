@@ -52,14 +52,14 @@
 
 .new-contact-number{
     display: inline-flex;
-    border-radius: 100%;
-    width: 1rem;
-    height: 1rem;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
     border: 1px solid rgba(39, 178, 255, 1);
     color:  rgba(39, 178, 255, 1);
-    font-size: 0.9em;
+    font-size: 0.7em;
     font-weight: 600;
 }
 
@@ -97,4 +97,5 @@
 
 .new-contact-submit:hover{
     cursor: pointer;
+    background: rgb(33, 147, 209);
 }
