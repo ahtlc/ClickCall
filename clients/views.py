@@ -3,4 +3,4 @@ from django.views import generic
 
 
 class NewContactView(generic.TemplateView):
-    template_name='new_contact.html'
+    template_name='tests.html'
