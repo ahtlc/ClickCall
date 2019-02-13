@@ -1,0 +1,88 @@
+{% load staticfiles %} <!--ver qual a configuraçao (static ou staticfiles)-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/call-history.css" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700" rel="stylesheet">
+    <script src="../static/js/change-indicator.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="title-and-search">
+            <div class="title">Agenda</div>
+            <div class="search">
+                <input class="input-search">
+                <button type="submit"></button>
+            </div>
+        </div>
+        <table class="table2">
+            <tr>
+                <th class="contact">Contato</th>
+                <th class="date-hour">Data/Hora</th>
+                <th class="last-contact">Último Contato</th>
+                <th class="value">Valor</th>
+                <th class="status">Status</th>
+            </tr>
+            <tr>
+                <td>Nome do contato</td>
+                <td>13/06/18 - 17:24h</td>
+                <td class="last-contact-cell">
+                    <button id="call-1" onclick="changeIndicator('call', '1')">A</button>
+                    <button id="pay-1" onclick="changeIndicator('pay', '1')">B</button>
+                    <button id="email-1" onclick="changeIndicator('email', '1')">C</button>
+                </td>
+                <td>R$ 3500,00</td>
+                {%if status == Ocupado%}
+                <td class="status-busy">Ocupado</td>
+                <!-- {%elif status == Em Andamento%}
+                <td class="status-in-progress">Em Andamento</td>
+                {%else%}
+                <td class="status-pendent">Pendente</td>
+                {%endif%} -->
+            </tr>
+            <tr>
+                <td>Nome do contato</td>
+                <td>13/06/18 - 17:24h</td>
+                <td class="last-contact-cell">
+                    <button id="call-2" onclick="changeIndicator('call', '2')">A</button>
+                    <button id="pay-2" onclick="changeIndicator('pay', '2')">B</button>
+                    <button id="email-2" onclick="changeIndicator('email', '2')">C</button>
+                </td>
+                <td>R$ 3500,00</td>
+                <!-- {%if status == Ocupado%}
+                <td class="status-busy">Ocupado</td> -->
+                {% elif status == Em Andamento %}
+                <td class="status-in-progress">Em Andamento</td>
+                <!-- {%else%}
+                <td class="status-pendent">Pendente</td>
+                {%endif%} -->
+            </tr>
+            <tr>
+                <td>Nome do contato</td>
+                <td>13/06/18 - 17:24h</td>
+                <td class="last-contact-cell">
+                    <button id="call-3" onclick="changeIndicator('call', '3')">A</button> <!--copiar fonte do fontelo estilo font awesome-->
+                    <button id="pay-3" onclick="changeIndicator('pay', '3')">B</button>
+                    <button id="email-3" onclick="changeIndicator('email', '3')">C</button>
+                </td>
+                <td>R$ 3500,00</td>
+                <!-- {%if status == Ocupado%}
+                <td class="status-busy">Ocupado</td> -->
+                <!-- {%elif status == Em Andamento%}
+                <td class="status-in-progress">Em Andamento</td> -->
+                {%else%}
+                <td class="status-pendent">Pendente</td>
+                {%endif%}
+            </tr>
+        </table>
+        
+        
+
+    </div>
+    
+</body>
+</html>
