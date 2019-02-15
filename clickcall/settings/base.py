@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'common.apps.CommonConfig',
     'calls.apps.CallsConfig',
     'activities.apps.ActivitiesConfig',
+    
 ]
 
 MIDDLEWARE = [
