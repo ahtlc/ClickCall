@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Clickcall-Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/login.css' %}" />
+  <script src="{% static 'js/show-password.js' %}"></script>
+</head>
+<body>
+  <div class="full-screen">
+      <div class="container">
+          <img class="logo" src="{% static 'img/logo1.png' %}">
+          <div class="form-container">
+            <input type="email" placeholder="exemplo@clickcall.org.br">
+            <div class="password">
+              <input id="pwd" type="password" placeholder="•••••••••">
+              <button onclick="showPassword()"><img id="eye" class="show" src="{% static 'img/eyes-closed.png' %}"></button>
+            </div>
+          </div>
+          <button class="login-button">Login</button>
+          <a href="" class="forget-password">Esqueceu sua senha?</a>
+          <a href="" class="register">Cadastre-se</a>
+      </div>
+  </div>
+  
+  
+</body>
+</html>

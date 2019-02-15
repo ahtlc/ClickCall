@@ -1,0 +1,119 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; 
+}
+.logo{
+  width: 155px;
+  margin-bottom: 25px;
+}
+.form-container{
+  width: 300px;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  border-radius: 17px;
+  border: solid 1px #DEDEDE;
+  padding: 35px 20px 35px 20px;
+  margin-bottom: 25px;
+}
+.form-container input{
+  border: 0;
+  border-bottom: solid 1px #DEDEDE;
+  margin-bottom: 15px;
+  height: 20px;
+  width: 235px;
+  color: #AAAAAA;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.075rem;
+  position: relative;
+  outline: none;
+}
+.password{
+  position: relative;
+  display: inline-flex;
+  float: right;
+  justify-content: flex-end;
+}
+.password input{
+  letter-spacing: 2px;
+  outline: none;
+  color: #AAAAAA;
+}
+.password button{
+  position: absolute;
+  float: right;
+  background-color: transparent;
+  width: 26px;
+  height: 16px;
+  border: none;
+  outline: none;
+  display: inline-flex;
+  cursor: pointer;
+}
+.show{
+  height: 18.33px;
+}
+.show2{
+  height: 13.33px;
+}
+.login-button{
+  color: #ffffff;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.075rem;
+  background-color: #27B2FF;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  display:flex;
+  outline: none;
+  border: none;
+  width: 188px; 
+  height: 45px;
+  margin-bottom: 20px;
+  cursor: pointer;
+
+}
+.forget-password{
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: #AAAAAA;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+.register{
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: #AAAAAA;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+.full-screen{
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+@media(max-width: 360px){
+  .form-container {
+    width: 236px;
+    height: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 17px;
+    border: solid 1px #DEDEDE;
+    padding: 35px 20px 35px 20px;
+    margin-bottom: 25px;
+}
+}
