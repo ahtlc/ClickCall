@@ -12,12 +12,12 @@
 <body>
   <div class="full-screen">
       <div class="container">
-          <img class="logo" src="../../static/img/logo1.png">
+          <img class="logo" src="{% static 'img/logo1.png' %}">
           <div class="form-container">
             <input type="email" placeholder="exemplo@clickcall.org.br">
             <div class="password">
               <input id="pwd" type="password" placeholder="•••••••••">
-              <button onclick="showPassword()"><img id="eye" class="show" src="../../static/img/eyes-closed.png"></button>
+              <button onclick="showPassword()"><img id="eye" class="show" src="{% static 'img/eyes-closed.png' %}"></button>
             </div>
           </div>
           <button class="login-button">Login</button>
