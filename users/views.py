@@ -67,3 +67,5 @@ class LoginView(auth_views.LoginView):
 class ProfileView(generic.TemplateView):
     template_name = 'profile.html'
     model = User
+
+# Create your views here.
