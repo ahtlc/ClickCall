@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import TestView, PasswordTestView, ConfirmPasswordView
 
+
 app_name = 'users'
 
 urlpatterns = [
