@@ -68,6 +68,7 @@ class ProfileView(generic.TemplateView):
     template_name = 'profile.html'
     model = User
 
+
 class ConfirmPasswordView (generic.TemplateView):
     template_name = "confirm-password-reset.html"
 
