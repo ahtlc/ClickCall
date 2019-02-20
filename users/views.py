@@ -21,7 +21,7 @@ class LogoutView(views.LogoutView):
 
 
 class LoginView(views.LoginView):
-    success_url = 'common:test'
+    success_url = 'profile'
     template_name = 'login.html'
     redirect_authenticated_user = True
 
@@ -30,3 +30,7 @@ class LoginView(views.LoginView):
             return HttpResponseRedirect(reverse('common:home'))
         return super(LoginView, self).get(request)
 
+
+class ProfileView(generic.TemplateView):
+    template_name = 'profile.html'
+    model = User
