@@ -1,3 +1,12 @@
 from django.shortcuts import render
+from .forms import contactForm
 
-# Create your views here.
+def contact_new(request):
+    if request.method == "POST":
+         form = contactForm(request.POST)
+         if form.is_valid():
+             contact = form.save(commit=False)
+             contact.save()
+    else:
+        form = contactForm()
+    return render(request, '.html', {'form': form})
