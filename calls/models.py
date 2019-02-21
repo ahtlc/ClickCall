@@ -1,7 +1,7 @@
+from __future__ import unicode_literals
 from django.core.validators import RegexValidator
 from django.db import models
 import os
-from __future__ import unicode_literals
 
 
 class Contact(models.Model):
@@ -28,16 +28,16 @@ class Contact(models.Model):
   tag = models.ForeignKey('Tag', on_delete = models.CASCADE, verbose_name = "Tag")
 
   class Meta:
-        verbose_name_plural = "Contatos"
+    verbose_name_plural = "Contatos"
     def __str__(self):
         return self.name
 
 
 class Tag(models.Model):
-  name = models.Charfield(max_length = 50, primary_key = True, verbose_name = "Nome")
+  name = models.CharField(max_length = 50, primary_key = True, verbose_name = "Nome")
 
   class Meta:
-        verbose_name_plural = "Tags"
+    verbose_name_plural = "Tags"
     def __str__(self):
         return self.name
 
@@ -52,7 +52,7 @@ class Call(models.Model):
   subject = models.ForeignKey('Subject', on_delete = models.CASCADE, verbose_name = "Assunto")
 
   class Meta:
-        verbose_name_plural = "Ligações"
+    verbose_name_plural = "Ligações"
     def __str__(self):
         return self.call_id
 
@@ -60,7 +60,7 @@ class Subject(models.Model):
   name = models.CharField(max_length = 256, primary_key = True, verbose_name = "Nome")
 
   class Meta:
-        verbose_name_plural = "Assuntos"
+    verbose_name_plural = "Assuntos"
     def __str__(self):
         return self.name
 
