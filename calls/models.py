@@ -52,12 +52,12 @@ class Call(models.Model):
   email_sended = models.BooleanField(default = False, verbose_name = "Email enviado")
   paid = models.BooleanField(default = False, verbose_name = "Pagamento efetuado")
   notes = models.TextField(max_length = 256, verbose_name = "Anotações")
-
+ 
   class Meta:
     verbose_name = "Chamada"
     verbose_name_plural = "Chamadas"
   def __str__(self):
-    return self.call_id
+    return str(self.call_id)
 
 class Subject(models.Model):
   name = models.CharField(max_length = 256, primary_key = True, verbose_name = "Nome")
