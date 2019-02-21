@@ -30,8 +30,8 @@ class Contact(models.Model):
   class Meta:
     verbose_name = "Contato"
     verbose_name_plural = "Contatos"
-    def __str__(self):
-      return self.name
+  def __str__(self):
+    return self.name
 
 
 class Tag(models.Model):
@@ -40,8 +40,8 @@ class Tag(models.Model):
   class Meta:
     verbose_name = "Tag"
     verbose_name_plural = "Tags"
-    def __str__(self):
-      return self.name
+  def __str__(self):
+    return self.name
 
 class Call(models.Model):
 
@@ -56,8 +56,8 @@ class Call(models.Model):
   class Meta:
     verbose_name = "Chamada"
     verbose_name_plural = "Chamadas"
-    def __str__(self):
-      return self.call_id
+  def __str__(self):
+    return self.call_id
 
 class Subject(models.Model):
   name = models.CharField(max_length = 256, primary_key = True, verbose_name = "Nome")
@@ -65,7 +65,7 @@ class Subject(models.Model):
   class Meta:
     verbose_name = "Assunto"
     verbose_name_plural = "Assuntos"
-    def __str__(self):
-      return self.name
+  def __str__(self):
+    return self.name
 
 
