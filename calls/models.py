@@ -13,8 +13,8 @@ class Contact(models.Model):
     ('INACTIVE', 'Inativo'),
   )
 
-  cellphone_regex = RegexValidator(regex=r'^\(\d{2}\)\d{1}\s\d{4}-\d{4}$', message = "O número deve ser cadastrado da seguinte forma: (DD) 9 9999-9999")
-  phone_regex = RegexValidator(regex=r'^\(\d{2}\)\d{4}-\d{4}$', message = "O número deve ser cadastrado da seguinte forma: (DD) 9999-9999")
+  cellphone_regex = RegexValidator(regex=r'^\(\d{2}\)\d{1}-\d{4}-\d{4}$', message = "O número deve ser cadastrado da seguinte forma: (DD)9-9999-9999")
+  phone_regex = RegexValidator(regex=r'^\(\d{2}\)\d{4}-\d{4}$', message = "O número deve ser cadastrado da seguinte forma: (DD)9999-9999")
   email_regex = RegexValidator(regex=r'^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$', message = "O email deve ser cadastrado da seguinte forma: email@email.com")
 
   name = models.CharField(max_length = 256, blank=False, verbose_name = "Nome")
