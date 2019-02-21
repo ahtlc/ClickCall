@@ -6,9 +6,9 @@ from __future__ import unicode_literals
 
 class Contact(models.Model):
 
+  ACTIVE = 'AC'
+  INACTIVE = 'IN'
   STATUS_CHOICES = (
-    ACTIVE = 'AC'
-    INACTIVE = 'IN'
     ('ACTIVE', 'Ativo'),
     ('INACTIVE', 'Inativo'),
   )
