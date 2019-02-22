@@ -3,6 +3,9 @@ from django.core.validators import RegexValidator
 from django.db import models
 import datetime
 
+
+
+
 import os
 
 
@@ -27,7 +30,7 @@ class Contact(models.Model):
   adress = models.CharField(max_length = 256, verbose_name = "Endereço")
   last_update = models.DateTimeField(auto_now = False, verbose_name = "Última atualização")
   status = models.CharField(max_length = 8, choices = STATUS_CHOICES, default = ACTIVE, verbose_name = "Status")
-  tag = models.ForeignKey('Tag', on_delete = models.CASCADE, verbose_name = "Tag")
+  tag = models.ManyToManyField('Tag', verbose_name = "Tag")
 
   class Meta:
     verbose_name = "Contato"
@@ -48,13 +51,13 @@ class Tag(models.Model):
 class Call(models.Model):
 
   call_id = models.AutoField(primary_key = True, verbose_name = "Número da Ligação")
-  subject = models.ForeignKey('Subject', on_delete = models.CASCADE, verbose_name = "Assunto")
-  duration = models.TimeField(auto_now = False , verbose_name = "Duração")
+  duration = models.TimeField(auto_now = False, verbose_name = "Duração")
   call_24_hours = models.BooleanField(default = False, verbose_name = "Chamada adiada")
   email_sended = models.BooleanField(default = False, verbose_name = "Email enviado")
   paid = models.BooleanField(default = False, verbose_name = "Pagamento efetuado")
-  notes = models.TextField(max_length = 256, verbose_name = "Anotações")
   contact =  models.ForeignKey('Contact', on_delete = models.CASCADE, verbose_name = "Contato")
+  notes = models.TextField(max_length = 256, verbose_name = "Anotações")
+  subject = models.ManyToManyField('Subject', verbose_name = "Assunto", max_length = 3)
  
   class Meta:
     verbose_name = "Chamada"
