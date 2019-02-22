@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 from django.core.validators import RegexValidator
 from django.db import models
+import datetime
+
 import os
 
 
@@ -52,12 +54,15 @@ class Call(models.Model):
   email_sended = models.BooleanField(default = False, verbose_name = "Email enviado")
   paid = models.BooleanField(default = False, verbose_name = "Pagamento efetuado")
   notes = models.TextField(max_length = 256, verbose_name = "Anotações")
+  contact =  models.ForeignKey('Contact', on_delete = models.CASCADE, verbose_name = "Contato")
  
   class Meta:
     verbose_name = "Chamada"
     verbose_name_plural = "Chamadas"
+  
   def __str__(self):
-    return str(self.call_id)
+    return self.contact.name + " " + datetime.datetime.strftime(self.contact.last_update, "%d/%m/%Y")
+  
 
 class Subject(models.Model):
   name = models.CharField(max_length = 256, primary_key = True, verbose_name = "Nome")
