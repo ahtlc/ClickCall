@@ -1,5 +1,6 @@
-<form action="" class="new-contact">
+<form method="POST" class="new-contact">
     {% csrf_token %}
+    {{ form.as_p }}
 
     <h1 class="new-contact-title">Cadastrar Contato</h1>
 
@@ -8,7 +9,7 @@
         <label for="new-contact-name">
             <span class="new-contact-number">1</span> Nome do Contato
         </label>
-        <input type="text" name="name" id="new-contact-name">
+        <input type="text" name="name" id="new-contact-name" required>
     </div>
 
     <!-- Company -->
@@ -16,7 +17,7 @@
         <label for="new-contact-company">
             <span class="new-contact-number">2</span> Nome da Empresa
         </label>
-        <input type="text" name="company" id="new-contact-company">
+        <input type="text" name="company" id="new-contact-company" required>
     </div>
 
     <!-- Email -->
@@ -24,7 +25,7 @@
         <label for="new-contact-email">
             <span class="new-contact-number">3</span> Email
         </label>
-        <input type="email" name="email" id="new-contact-email">
+        <input type="email" name="email" id="new-contact-email" required>
     </div>
 
     <!-- Phones -->
@@ -34,7 +35,7 @@
             <label for="new-contact-cellphone">
                 <span class="new-contact-number">4</span> Celular
             </label>
-            <input type="tel" name="cellphone" id="new-contact-cellphone">
+            <input type="tel" name="cellphone" id="new-contact-cellphone" required>
         </div>
         
         <!-- Landline -->
@@ -42,7 +43,7 @@
             <label for="new-contact-landline">
                 <span class="new-contact-number">5</span> Tel. Fixo
             </label>
-            <input type="tel" name="landline" id="new-contact-landline">
+            <input type="tel" name="landline" id="new-contact-landline" required>
         </div>
     </div>
 
@@ -51,7 +52,7 @@
         <label for="new-contact-address">
             <span class="new-contact-number">6</span> Endereço
         </label>
-        <input type="text" name="address" id="new-contact-address">
+        <input type="text" name="address" id="new-contact-address" required>
     </div>
     
     <!-- Tags (WIP) -->
