@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model, authenticate, views
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
+from django.contrib.auth.views import LoginView
 
 from .models import User
 
@@ -17,17 +18,17 @@ class ConfirmPasswordResetView (generic.TemplateView):
 
 
 class LogoutView(views.LogoutView):
-    next_page = 'login'
+    next_page = 'users:login'
 
 
-class LoginView(views.LoginView):
-    success_url = 'profile'
+class UserLoginView(views.LoginView):
+    success_url = 'users:profile'
     template_name = 'login.html'
     redirect_authenticated_user = True
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return HttpResponseRedirect(reverse('common:home'))
+            return HttpResponseRedirect(reverse('users:profile'))
         return super(LoginView, self).get(request)
 
 
