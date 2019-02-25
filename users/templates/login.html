@@ -14,14 +14,24 @@ Login
 <div class="full-screen">
   <div class="container">
     <img class="logo" src="{% static 'img/logo1.png' %}">
-    <div class="form-container">
-      <input type="email" placeholder="exemplo@clickcall.org.br">
-      <div class="password">
-        <input id="pwd" type="password" placeholder="•••••••••">
-        <button onclick="showPassword()"><img id="eye" class="show" src="{% static 'img/eyes-closed.png' %}"></button>
+     
+    <form method="post" class="container">
+      {% csrf_token %}
+      <div class="form-container">
+        {{ form.non_field_errors }}
+
+        {{ form.email }}
+        {{ form.email.errors }}
+        <div class="password">
+          {{ form.password }}
+          {{ form.password.errors }}
+          <button type="button" onclick="showPassword()">
+            <img id="eye" class="show" src={% static 'img/eyes-closed.png' %}>
+          </button>
+        </div>
       </div>
-    </div>
-    <button class="login-button">Login</button>
+    <button class="login-button" type="submit">Login</button>
+    </form>
     <a href="" class="forget-password">Esqueceu sua senha?</a>
     <a href="" class="register">Cadastre-se</a>
   </div>
