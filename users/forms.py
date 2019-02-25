@@ -4,6 +4,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from .models import User
 
 
+class SignupForm(forms.Form):
+    pass
+
+
 class LoginForm(AuthenticationForm):
     email = forms.EmailField(widget=forms.EmailInput(
         attrs={
