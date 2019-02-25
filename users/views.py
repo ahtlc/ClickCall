@@ -5,15 +5,14 @@ from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse_lazy
 
 from .models import User
-from .forms import LoginForm #, ResetPasswordForm, SignupForm
+from .forms import LoginForm
 
 
-class PasswordResetView (generic.TemplateView):
+class PasswordResetView (auth_views.PasswordResetView):
     template_name = 'password-reset.html'
 
 
-
-class ConfirmPasswordResetView (generic.TemplateView):
+class ConfirmPasswordResetView (auth_views.PasswordResetConfirmView):
     template_name = 'confirm-password-reset.html'
 
 

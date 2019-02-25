@@ -32,8 +32,8 @@ Login
       </div>
     <button class="login-button" type="submit">Login</button>
     </form>
-    <a href="" class="forget-password">Esqueceu sua senha?</a>
-    <a href="" class="register">Cadastre-se</a>
+    <a href={% url 'users:password-reset' %} class="forget-password">Esqueceu sua senha?</a>
+    <a href="#">Cadastre-se</a>
   </div>
 </div>
 {% endblock %}
