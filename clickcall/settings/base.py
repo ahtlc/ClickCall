@@ -132,3 +132,5 @@ MEDIA_URL = '/media/'
 
 # Django-heroku configuration
 django_heroku.settings(locals())
+
+
