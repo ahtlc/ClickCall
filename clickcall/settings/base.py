@@ -25,6 +25,7 @@ SECRET_KEY="ch#up2*^tildnn7h!*_b5a1^9rg-mo3x%afq9=q_)u06un4hh0"
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'users.User'
+LOGIN_REDIRECT_URL = 'users:profile'
 
 # Application definition
 

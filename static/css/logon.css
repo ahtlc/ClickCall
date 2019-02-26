@@ -1,0 +1,350 @@
+.all {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logo{
+    width: 130px;
+    height: 180px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 850px;
+    height: 580px;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: space-between;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid #DEDEDE;
+}
+
+.fields-box {
+    margin-top: 2.9em;
+}
+
+.side-1 {
+    margin-top: 1.8em;
+    margin-left: 1em;
+}
+
+#divisor-line {
+    align-self: center;
+    width: 1px;
+    height: 450px;
+    background-color: #DEDEDE;
+    margin: 0;
+    padding: 0;
+}
+
+.side-2 {
+    margin-top: 2.5em;
+    text-align: center;
+    margin-right: 1em;
+}
+
+.field {
+    border: 0;
+    font-size: 19px;
+    border-bottom: 1px solid #DEDEDE;
+    padding-bottom: 10px;
+    width: 300px;
+}
+
+#logon-button {
+    font-size: 19px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: 0;
+    margin-top: 40px;
+    background-color: #27B2FF;
+    color: #FFFFFF;
+}
+
+#upload-image {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+
+/* Responsividade */
+
+@media(max-width: 1200px){
+
+    .field {
+        border: 0;
+        font-size: 19px;
+        border-bottom: 1px solid #DEDEDE;
+        padding-bottom: 10px;
+        width: 290px;
+    }
+    
+}
+
+@media(max-width: 1150px){
+
+    .logo{
+        width: 130px;
+        height: 170px;
+        margin-left: 130px;
+        margin-right: 130px;
+    }
+
+    .field {
+        border: 0;
+        font-size: 18px;
+        border-bottom: 1px solid #DEDEDE;
+        padding-bottom: 10px;
+        width: 270px;
+    }
+    
+}
+
+@media(max-width: 1080px){
+
+    .logo{
+        width: 130px;
+        height: 170px;
+        margin-left: 130px;
+        margin-right: 130px;
+    }
+    
+
+    .field {
+        border: 0;
+        font-size: 18px;
+        border-bottom: 1px solid #DEDEDE;
+        padding-bottom: 10px;
+        width: 240px;
+    }
+    
+}
+
+@media(max-width: 1030px){
+
+    .logo{
+        width: 130px;
+        height: 170px;
+        margin-left: 120px;
+        margin-right: 120px;
+    }
+
+    .field {
+        border: 0;
+        font-size: 17px;
+        border-bottom: 1px solid #DEDEDE;
+        padding-bottom: 10px;
+        width: 220px;
+    }
+    
+}
+
+@media(max-width: 1000px){
+
+    .logo{
+        width: 120px;
+        height: 160px;
+        margin-left: 110px;
+        margin-right: 110px;
+    }
+
+    .field {
+        border: 0;
+        font-size: 17px;
+        border-bottom: 1px solid #DEDEDE;
+        padding-bottom: 10px;
+        width: 220px;
+    }
+    
+}
+
+@media(max-width: 940px){
+
+    .logo{
+        width: 120px;
+        height: 160px;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    .field {
+        border: 0;
+        font-size: 17px;
+        border-bottom: 1px solid #DEDEDE;
+        padding-bottom: 10px;
+        width: 210px;
+    }
+    
+}
+
+@media(max-width: 890px){
+
+    .all {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .form {
+        width: 500px;
+        height: 950px;
+    }
+
+    .side-1, .side-2 {
+        margin: 0;
+    }
+
+    .form-fields {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo{
+        width: 120px;
+        height: 160px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    #divisor-line {
+        display: none;
+    }
+
+    .field {
+        font-size: 19px;
+        width: 300px;
+    }
+
+    #last-field {
+        margin-bottom: 10px;
+    }
+    
+}
+
+@media(max-width: 650px){
+
+    .form {
+        width: 450px;
+    }
+    
+    #logon-button {
+        font-size: 18px;
+        width: 180px;
+    }
+
+}
+
+@media(max-width: 560px){
+
+    .form {
+        width: 400px;
+    }
+
+    .field {
+        width: 280px;
+    }
+    
+}
+
+@media(max-width: 470px){
+
+    .logo{
+        width: 110px;
+        height: 150px;
+    }
+
+    .form {
+        width: 370px;
+    }
+
+    .field {
+        width: 270px;
+    }
+    
+}
+
+@media(max-width: 430px){
+
+    .logo{
+        width: 100px;
+        height: 140px;
+    }
+
+    .form {
+        width: 350px;
+    }
+
+    .field {
+        width: 250px;
+        font-size: 18px;
+    }
+
+    #logon-button {
+        font-size: 18px;
+        width: 160px;
+    }
+    
+}
+
+@media(max-width: 400px){
+
+    .logo{
+        width: 100px;
+        height: 140px;
+    }
+
+    .form {
+        width: 300px;
+    }
+
+    .field {
+        width: 220px;
+    }
+
+    #logon-button {
+        width: 150px;
+    }
+    
+}
+
+@media(max-width: 350px){
+
+    .logo{
+        width: 90px;
+        height: 123px;
+    }
+
+    .form {
+        width: 250px;
+    }
+
+    .field {
+        width: 180px;
+        font-size: 17px;
+    }
+
+    #logon-button {
+        font-size: 17px;
+        width: 130px;
+    }
+    
+}
