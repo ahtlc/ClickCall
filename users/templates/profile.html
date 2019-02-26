@@ -1,10 +1,59 @@
 {% extends "app.html" %}
 {% load static %}
 
+{% block title %}
+  Meu Perfil
+{% endblock %}
+
 {% block links %}
 <link rel="stylesheet" href={% static 'css/profile.css' %} type="text/css" media="all"> 
 {% endblock %}
 
 {% block app_content %}
-  TESTE
+
+<div class="profile-container">
+  <div class="column">
+    <div class="profile-info">
+      <div>
+        <h1>Nome Completo</h1>
+        <h2>{{ user.name }}</h2>
+      </div>
+    
+      <div>
+        <h1>Email</h1>
+        <h2>{{ user.email }}</h2>
+      </div>
+    
+      <div>
+        <h1>Função</h1>
+        {% if user.is_colaborator %}
+        <h2>Colaborador</h2>
+        {% elif user.is_supervisor %}
+        <h2>Supervisor</h2>
+        {% else %}
+        <h2>Dev trolando</h2>
+        {% endif %}
+      </div>
+    
+      <div>
+        <h1>Ramal</h1>
+        <h2>{{ user.ramal }}</h2>
+      </div>
+    
+      <div>
+        <h1>Telefone</h1>
+        <h2>{{ user.phone }}</h2>
+      </div>
+    
+      <div>
+        <h1>Setor</h1>
+        <h2>{{ user.sector }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="profile-image">
+    <img src={{user.avatar.url}} alt="User Image">
+  </div>
+</div>
+
 {% endblock %}
