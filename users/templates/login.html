@@ -33,7 +33,7 @@ Login
     <button class="login-button" type="submit">Login</button>
     </form>
     <a href={% url 'users:password-reset' %} class="forget-password">Esqueceu sua senha?</a>
-    <a href="#">Cadastre-se</a>
+    <a href={% url 'users:signup' %}>Cadastre-se</a>
   </div>
 </div>
 {% endblock %}
