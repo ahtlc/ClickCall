@@ -11,6 +11,24 @@ class SignupForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     confirm_password = forms.CharField(widget=forms.PasswordInput())
 
+class ProfileForm(forms.Form):
+    pass
+
+class LoginForm(AuthenticationForm):
+    email = forms.EmailField(widget=forms.EmailInput(
+        attrs={
+           "placeholder": "exemplo@clickcall.org.br",
+        }
+    ), help_text="Insira um e-mail válido")
+
+    password = forms.CharField(widget=forms.PasswordInput(
+            attrs={
+                "id": "pwd",
+                "placeholder": "senha",
+            }
+        )
+    )
+
     class Meta:
         model = User
         fields = [
