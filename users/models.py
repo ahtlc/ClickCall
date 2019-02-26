@@ -22,6 +22,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     function = models.CharField(max_length=50, default='Colaborador',
                                 verbose_name="Função")
+    ramal = models.CharField(max_length=15, verbose_name="Ramal")
     phone = models.CharField(max_length=15, verbose_name="Telefone")
 
     ramal = models.CharField(max_length=15, verbose_name="Ramal")
@@ -30,6 +31,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    is_supervisor = models.BooleanField(default=False)
+    is_colaborator = models.BooleanField(default=False)
 
     COLABORATOR = 'CO'
     SUPERVISOR = 'SU'
