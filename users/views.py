@@ -58,8 +58,7 @@ class LoginView(auth_views.LoginView):
                             password=request.POST.get('password'))
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse_lazy(self.success_url,
-                                                     kwargs={'pk': user.pk}))
+            return HttpResponseRedirect(reverse_lazy(self.success_url))
         else:
             return HttpResponseRedirect(reverse_lazy('users:login'))
 
