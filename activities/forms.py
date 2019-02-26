@@ -7,7 +7,4 @@ class contactForm(forms.ModelForm):
     model = Contact
     fields = '__all__'
 
-  def clean(self):
-    cleaned_data = super().clean()
-    content = self.cleaned_data.get('content')
-    return cleaned_data
+  
