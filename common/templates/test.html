@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  Teste
+{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href={% static 'css/navbar.css' %}/>
+{% endblock %}
+
+{% block content %}
+{% include "navbar.html" %}
+{% endblock %}
