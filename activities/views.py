@@ -3,4 +3,7 @@ from django.views import generic
 
 
 class TestView(generic.TemplateView):
-    template_name = "call-history.html"
+    template_name = "tests.html"
+
+class HistoryView(generic.TemplateView):
+    template_name = "history-test.html"
