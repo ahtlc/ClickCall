@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}
 Cadastrar conta
-{% endblock title %}
+{% endblock %}
 
 {% block links %}
 <link rel="stylesheet" href={% static 'css/logon.css' %}>
@@ -15,27 +16,34 @@ Cadastrar conta
     <img class="logo" src={% static 'img/logo1.png' %} />
   </div>
 
-  <form action="" method="post" class="form">
+  <form method="post" class="form">
+    {{ form.non_field_errors }}
+    {% csrf_token %}
     <div class="form-fields">
       <div class="side-1">
         <div class="fields-box">
-          <input type="text" class="field" name="name" placeholder="Nome completo" required />
+          {{ form.name.errors }}
+          {% render_field form.name class="field" placeholder="Nome"%}
         </div>
 
         <div class="fields-box">
-          <input type="tel" class="field" name="cellphone" placeholder="Telefone" required />
+          {{ form.phone.errors }}
+          {% render_field form.phone class="field" placeholder="Telefone"%}
         </div>
 
         <div class="fields-box">
-          <input type="tel" class="field" name="ramal" placeholder="Ramal" required />
+          {{ form.ramal.errors }}
+          {% render_field form.ramal class="field" placeholder="Ramal"%}
         </div>
 
         <div class="fields-box">
-          <input type="text" class="field" name="function" placeholder="Função" required />
+          {{ form.function.errors }}
+          {% render_field form.function class="field" placeholder="Função"%}
         </div>
 
         <div class="fields-box">
-          <input type="text" class="field" name="sector" placeholder="Setor" required />
+          {{ form.sector.errors }}
+          {% render_field form.sector class="field" placeholder="Setor"%}
         </div>
       </div>
 
@@ -43,24 +51,29 @@ Cadastrar conta
 
       <div>
         <div class="side-2">
-          <input type="file" id="upload-image" name="image" required >
-          <label for="upload-image" id="image"><img src="../../static/img/user.png"/></label>
+          {{ form.avatar }}
+          <label for="upload-image" 
+                 id="image">
+            <img src={% static 'img/user.png' %}/>
+          </label>
         </div>
 
         <div class="fields-box">
-          <input type="email" class="field" name="email" placeholder="Email" required >
+          {{ form.email.errors }}
+          {% render_field form.email class="field" placeholder="E-mail"%}
         </div>
 
         <div class="fields-box">
-          <input type="password" class="field" name="password" placeholder="Senha" required >
+          {{ form.password.errors }}
+          {% render_field form.password class="field" placeholder="Senha"%}
         </div>
 
         <div class="fields-box">
-          <input type="password" class="field" id="last-field" name="password" placeholder="Confirme a senha" required >
+          {% render_field form.confirm_password class="field" id="last-field" placeholder="Confirme sua senha"%}
         </div>
       </div>
     </div>
-    <button type="Submit" id="logon-button">Cadastre-se</button>
+    <button type="submit" id="logon-button">Cadastre-se</button>
   </form>
 </div>
 {% endblock %}
