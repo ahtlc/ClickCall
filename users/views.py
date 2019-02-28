@@ -23,11 +23,7 @@ class SignupView(generic.FormView):
 
     def form_valid(self, form):
         self.object = form.save()
-        user = authenticate(username=self.object.email,
-                            password=form.cleaned_data['password'])
-        login(self.request, user)
-
-        return redirect('users:profile')
+        return redirect('users:login')
 
 
 class PasswordResetView(auth_views.PasswordResetView):
