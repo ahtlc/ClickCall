@@ -3,6 +3,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    min-height: 100vh;
 }
 
 .logo{
@@ -72,6 +73,7 @@
     margin-top: 40px;
     background-color: #27B2FF;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 #upload-image {
