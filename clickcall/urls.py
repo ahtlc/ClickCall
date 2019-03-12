@@ -24,9 +24,8 @@ urlpatterns = [
     path('', include('common.urls')),
     path('admin/', admin.site.urls),
     path('activities/', include('activities.urls')),
-    path('users/', include('users.urls')),
+    path('u/', include('users.urls')),
     path('c/', include('clients.urls')),
-    path('activities/', include('activities.urls')),
     # path('test/', )
 ]
 

@@ -1,9 +1,6 @@
 from django.urls import path
 from .views import (ConfirmPasswordResetView, PasswordResetView,
                     LoginView, LogoutView, ProfileView, SignupView)
-from .views import TestView
-
-from .views import TestView, PasswordTestView, ConfirmPasswordView
 
 app_name = 'users'
 

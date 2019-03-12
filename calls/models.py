@@ -58,6 +58,7 @@ class Call(models.Model):
   contact =  models.ForeignKey('Contact', on_delete = models.CASCADE, verbose_name = "Contato")
   notes = models.TextField(max_length = 256, verbose_name = "Anotações")
   subject = models.ManyToManyField('Subject', verbose_name = "Assunto", max_length = 3)
+  date = models.DateField(default=datetime.date.today, verbose_name = "Data da Ligação")
  
   class Meta:
     verbose_name = "Chamada"
