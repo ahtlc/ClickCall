@@ -17,11 +17,11 @@
     text-align: start;
 }
 .expand{
-    -webkit-transition: max-height 1s; 
-    -moz-transition: max-height 1s; 
-    -ms-transition: max-height 1s; 
-    -o-transition: max-height 1s; 
-    transition: max-height 1s;
+    -webkit-transition: max-height 0.8s; 
+    -moz-transition: max-height 0.8s; 
+    -ms-transition: max-height 0.8s; 
+    -o-transition: max-height 0.8s; 
+    transition: max-height 0.8s;
     border: 1px solid #DEDEDE;
     padding: 0px;
     overflow: hidden;
@@ -122,4 +122,7 @@
     .history-box{
         width: 45%;
     }
+}
+.activated{
+    color:#27B2FF !important;
 }
