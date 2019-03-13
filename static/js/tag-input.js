@@ -1,10 +1,12 @@
 [].forEach.call(document.getElementsByClassName('tags-input'), function (el) {
-    let hiddenInput = document.createElement('input'),
-        mainInput = document.createElement('input'),
-        tags = [];
-    
-    hiddenInput.setAttribute('type', 'hidden');
-    hiddenInput.setAttribute('name', el.getAttribute('data-name'));
+    // let hiddenInput = document.createElement('input'),
+    let mainInput = document.createElement('input'),
+    tags = [];
+
+    let hiddenInput = document.querySelector("#hidden-tag-input")
+
+    // hiddenInput.setAttribute('type', 'hidden');
+    // hiddenInput.setAttribute('name', el.getAttribute('data-name'));
 
     mainInput.setAttribute('type', 'text');
     mainInput.classList.add('main-input');
@@ -32,7 +34,7 @@
     });
 
     el.appendChild(mainInput);
-    el.appendChild(hiddenInput);
+    // el.appendChild(hiddenInput);
 
     function addTag (text) {
         let tag = {
