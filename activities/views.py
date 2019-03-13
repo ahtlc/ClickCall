@@ -7,7 +7,7 @@ from calls.models import Call
 from activities.objects import Year
 
 from calls.models import Contact
-from .forms import contactForm
+from .forms import ContactForm
 from django.views. generic import CreateView
 from django.urls import reverse_lazy
 
@@ -123,19 +123,19 @@ class HistoryActivitiesView(generic.ListView):
         })
         return context
 
-class contactRegisterView(CreateView):
 
+class ContactRegisterView(CreateView):
     model = Contact
     template_name = 'new_contact.html'
-    form_class = contactForm
-    success_url = reverse_lazy('test')
+    form_class = ContactForm
+    success_url = reverse_lazy('activities:contact_new')
 
     def form_valid(self, form):
-        import ipdb
-        ipdb.set_trace()
-        return super(contactRegisterView, self).form_valid(form)
-    
+        # import ipdb
+        # ipdb.set_trace()
+        return super(ContactRegisterView, self).form_valid(form)
+
     def form_invalid(self,form):
-        import ipdb
-        ipdb.set_trace()
-        return super(contactRegisterView, self).form_invalid(form)
+        # import ipdb
+        # ipdb.set_trace()
+        return super(ContactRegisterView, self).form_invalid(form)
