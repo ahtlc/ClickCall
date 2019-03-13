@@ -30,7 +30,7 @@ class PasswordResetView(auth_views.PasswordResetView):
     template_name = 'password-reset.html'
 
 
-class ConfirmPasswordResetView (auth_views.PasswordResetConfirmView):
+class ConfirmPasswordResetView (generic.TemplateView):
     template_name = 'confirm-password-reset.html'
 
 

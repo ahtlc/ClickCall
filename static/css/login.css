@@ -26,12 +26,14 @@
   margin-bottom: 15px;
   height: 20px;
   width: 235px;
-  color: #AAAAAA;
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   font-size: 1.075rem;
   position: relative;
   outline: none;
+}
+.form-container input:placeholder{
+  color: #282828;
 }
 .password{
   position: relative;
@@ -42,8 +44,12 @@
 .password input{
   letter-spacing: 2px;
   outline: none;
-  color: #AAAAAA;
 }
+
+.password input:placeholder{
+  color: #282828;
+}
+
 .password button{
   position: absolute;
   float: right;
@@ -79,6 +85,18 @@
   cursor: pointer;
 
 }
+.transition{
+  transition: all 200ms ease-in-out;
+}
+
+.transition:hover{
+  transition: all 200ms ease-in-out;
+}
+
+.login-link:hover{
+  color: black;
+}
+
 .forget-password{
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
@@ -115,5 +133,5 @@
     border: solid 1px #DEDEDE;
     padding: 35px 20px 35px 20px;
     margin-bottom: 25px;
-}
+  }
 }
