@@ -14,8 +14,12 @@ class ContactForm(forms.ModelForm):
         # TODO: create the m2m relationship
         for tag_name in tags_name:
             if Tag.objects.filter(name=tag_name).exists():
+                pass
+            # create the relationship if the tag exists
+            else:
                 Tag.objects.create(
                     name=tag_name)
+            # create the relationship if the tag doesn't exists
 
         return super().save()
 
