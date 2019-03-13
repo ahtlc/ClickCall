@@ -25,13 +25,7 @@ Meu Perfil
 
     <div class="profile-info-block">
       <h1 class="profile-info-label">Função</h1>
-      {% if user.is_colaborator %}
-      <h2 class="profile-info">Colaborador</h2>
-      {% elif user.is_supervisor %}
-      <h2 class="profile-info">Supervisor</h2>
-      {% else %}
-      <h2 class="profile-info">Nenhum</h2>
-      {% endif %}
+      <h2 class="profile-info">{{ user.get_function_display }}</h2>
     </div>
 
     <div class="profile-info-block">

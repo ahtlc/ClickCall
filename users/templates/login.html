@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-Login  
+Entrar
 {% endblock title %}
 
 {% block links %}
@@ -32,8 +32,8 @@ Login
       </div>
     <button class="login-button" type="submit">Login</button>
     </form>
-    <a href={% url 'users:password-reset' %} class="forget-password">Esqueceu sua senha?</a>
-    <a href={% url 'users:signup' %}>Cadastre-se</a>
+    <a href={% url 'users:password-reset' %} class="login-link forget-password transition">Esqueceu sua senha?</a>
+    <a href={% url 'users:signup' %} class="login-link register transition">Cadastre-se</a>
   </div>
 </div>
 {% endblock %}
