@@ -5,7 +5,7 @@ from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from .models import User
-from .forms import LoginForm, SignupForm
+from .forms import SignupForm
 
 
 class SignupView(generic.FormView):
@@ -40,23 +40,25 @@ class LogoutView(auth_views.LogoutView):
 
 class LoginView(auth_views.LoginView):
     """
-    For POST requests, tests the user credentials and return: a) the user
-    object if it exists or b) None on the other case.
-    For GET request, renders the authentication form.
+    View that handles the login process
     """
     success_url = 'users:profile'
     template_name = 'login.html'
-    redirect_authenticated_user = True
-    authentication_form = LoginForm
+    redirect_authenticated_user = False
 
-    def post(self, request):
-        user = authenticate(email=request.POST.get('email'),
-                            password=request.POST.get('password'))
-        if user is not None:
-            login(request, user)
-            return HttpResponseRedirect(reverse_lazy(self.success_url))
-        else:
-            return HttpResponseRedirect(reverse_lazy('users:login'))
+    def get(self, request, *arg, **kwargs):
+        if(request.user.is_authenticated):
+            return HttpResponseRedirect(reverse_lazy('users:profile'))
+        return super(LoginView, self).get(request)
+
+    # def post(self, request):
+    #     user = authenticate(email=request.POST.get('email'),
+    #                         password=request.POST.get('password'))
+    #     if user is not None:
+    #         login(request, user)
+    #         return HttpResponseRedirect(reverse_lazy(self.success_url))
+    #     else:
+    #         return HttpResponseRedirect(reverse_lazy('users:login'))
 
 
 class ProfileView(generic.TemplateView):
