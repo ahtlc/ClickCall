@@ -19,8 +19,6 @@ Entrar
     <form method="post" class="container">
       {% csrf_token %}
       <div class="form-container">
-        {{ form.non_field_errors }}
-
         {% render_field form.username placeholder="exemplo@clickcall.com.br" %}
         {% render_field form.username.errors %}
 
@@ -32,6 +30,7 @@ Entrar
           </button>
         </div>
       </div>
+        {{ form.non_field_errors }}
     <button class="login-button" type="submit">Login</button>
     </form>
     <a href={% url 'users:password-reset' %} 
