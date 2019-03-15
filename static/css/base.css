@@ -46,3 +46,21 @@ body{
   font-weight: 300;
   color: #4D4D4D;
 }
+
+.errorlist{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    height: 3em;
+    background-color: #C0392B;
+}
+
+.errorlist li{
+}

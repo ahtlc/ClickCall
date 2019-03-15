@@ -51,15 +51,6 @@ class LoginView(auth_views.LoginView):
             return HttpResponseRedirect(reverse_lazy('users:profile'))
         return super(LoginView, self).get(request)
 
-    # def post(self, request):
-    #     user = authenticate(email=request.POST.get('email'),
-    #                         password=request.POST.get('password'))
-    #     if user is not None:
-    #         login(request, user)
-    #         return HttpResponseRedirect(reverse_lazy(self.success_url))
-    #     else:
-    #         return HttpResponseRedirect(reverse_lazy('users:login'))
-
 
 class ProfileView(generic.TemplateView):
     template_name = 'profile.html'
