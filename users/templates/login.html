@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}
 Entrar
@@ -20,11 +21,12 @@ Entrar
       <div class="form-container">
         {{ form.non_field_errors }}
 
-        {{ form.email }}
-        {{ form.email.errors }}
+        {% render_field form.username placeholder="exemplo@clickcall.com.br" %}
+        {% render_field form.username.errors %}
+
         <div class="password">
-          {{ form.password }}
-          {{ form.password.errors }}
+          {% render_field form.password id="pwd" placeholder="Senha" %}
+          {% render_field form.password.errors %}
           <button type="button" onclick="showPassword()">
             <img id="eye" class="show" src={% static 'img/eyes-closed.png' %}>
           </button>
@@ -32,8 +34,10 @@ Entrar
       </div>
     <button class="login-button" type="submit">Login</button>
     </form>
-    <a href={% url 'users:password-reset' %} class="login-link forget-password transition">Esqueceu sua senha?</a>
-    <a href={% url 'users:signup' %} class="login-link register transition">Cadastre-se</a>
+    <a href={% url 'users:password-reset' %} 
+        class="login-link forget-password transition">Esqueceu sua senha?</a>
+    <a href={% url 'users:signup' %} 
+        class="login-link register transition">Cadastre-se</a>
   </div>
 </div>
 {% endblock %}
