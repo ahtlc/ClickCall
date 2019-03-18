@@ -24,8 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('activities/', include('activities.urls')),
     path('u/', include('users.urls')),
+    # path('test/', )
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
