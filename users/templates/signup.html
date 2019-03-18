@@ -16,7 +16,7 @@ Cadastrar conta
     <img class="logo" src={% static 'img/logo1.png' %} />
   </div>
 
-  <form method="post" class="form">
+  <form method="post" enctype="multipart/form-data" class="form">
     {{ form.non_field_errors }}
     {% csrf_token %}
     <div class="form-fields">
@@ -54,7 +54,7 @@ Cadastrar conta
           <!-- {{ form.avatar }} -->
           <label for="upload-image" 
                  id="image">
-            <img src={% static 'img/user.png' %}/>
+              {% render_field form.avatar id="image" %}
           </label>
         </div>
 
