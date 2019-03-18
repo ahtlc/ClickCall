@@ -52,10 +52,10 @@ Cadastrar conta
       <div>
         <div class="side-2">
           <!-- {{ form.avatar }} -->
-          <label for="upload-image" 
-                 id="image">
-              {% render_field form.avatar id="image" %}
+          <label for="upload-image" id="image">
+            <img src={% static 'img/user.png' %} alt="">
           </label>
+              {% render_field form.avatar id="upload-image" %}
         </div>
 
         <div class="fields-box">
