@@ -77,6 +77,10 @@
   cursor: pointer;
 }
 
+#image:hover{
+    cursor: pointer;
+}
+
 #upload-image {
   width: 0.1px;
   height: 0.1px;

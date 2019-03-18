@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from .models import User
 from .forms import SignupForm
+from django import forms
 
 
 class SignupView(generic.FormView):
@@ -28,6 +29,7 @@ class SignupView(generic.FormView):
 
 class PasswordResetView(auth_views.PasswordResetView):
     template_name = 'password-reset.html'
+    form_class = forms.PasswordChangeForm
 
 
 class ConfirmPasswordResetView (generic.TemplateView):
