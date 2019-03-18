@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href={% static 'css/call-modal.css' %}>
+{% endblock links %}
+
+{% block title %}
+    Teste Call Modal (front)
+{% endblock title %}
+
+{% block content %}
+    <div class="back-modal">
+        <div class="back">
+            
+        </div>
+        {% include "includes/call.html" %}
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src={% static 'js/tags-checkboxes.js' %}></script>
+{% endblock scripts %}

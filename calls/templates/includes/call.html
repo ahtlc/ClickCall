@@ -1,0 +1,46 @@
+{% load static %}
+<div class="modal">
+    <div class="left">
+        <img src="{% static 'img/user.png' %}">
+        <h2 class="no-margin-bottom">Nome do Contato</h2>
+        <p class="no-margin-top enterprise">Nome da empresa</p>
+        <p class="timer no-margin">03:30</p>
+        <p class="client-number no-margin"> 81- XXXXX-XXXX</p>
+        <div class="icons">
+
+        </div>
+    </div>
+    <div class="division">
+
+    </div>
+    <div class="right">
+        <div class="call-info">
+            <input class="data" type="date">
+            <input class="valor" step="0.5" min="0" value="Adicionar Preço" type="number" placeholder="Adicionar Preço">
+            <div class="tags">
+                {% for i in range %}
+                    <div class="check-pill">
+                        <button class="tag-button" onclick="changeCheckbox('check-{{i}}', 'button-{{i}}')" id="button-{{i}}">tag: {{i}}</button>
+                        <input type="checkbox" class="check-hidden" id="check-{{i}}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="call-booleans">
+            <img id="call-black" src = "{% static 'img/call24.png' %}" onclick="swapCheck('call-black','call-blue','check-call')">
+            <img id="call-blue" src = "{% static 'img/call24-blue.png' %}" onclick="swapCheck('call-blue','call-black','check-call')">
+            <input class="check-hidden" type="checkbox" id="check-call">
+            <img id="pay-black" src = "{% static 'img/payment.png' %}" onclick="swapCheck('pay-black','pay-blue','check-pay')">
+            <img id="pay-blue" src = "{% static 'img/pay-blue.png' %}" onclick="swapCheck('pay-blue','pay-black','check-pay')">
+            <input class="check-hidden" type="checkbox" id="check-pay">
+            <img id="email-black" src = "{% static 'img/email.png' %}" onclick="swapCheck('email-black','email-blue','check-email')">
+            <img id="email-blue" src = "{% static 'img/email-blue.png' %}" onclick="swapCheck('email-blue','email-black','check-email')">
+            <input class="check-hidden" type="checkbox" id="check-email">
+        </div>
+        <div class="notes">
+            <p class="no-top">Anotações:</p>
+            <textarea></textarea>
+            <input value="Salvar"class="button" type="submit">
+        </div>
+    </div>
+</div>
