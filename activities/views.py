@@ -8,7 +8,7 @@ import datetime
 class TestView(generic.TemplateView):
     template_name = "tests.html"
 
-class HistoryView(generic.ListView):
+class HistoryActivitiesView(generic.ListView):
     template_name = "history-agenda.html"
     model = Call
     context_object_name = 'call'
@@ -26,7 +26,7 @@ class HistoryView(generic.ListView):
                                         date__day= yesterday.day)
 
     def get_context_data(self, **kwargs):
-        context = super(HistoryView, self).get_context_data(**kwargs)
+        context = super(HistoryActivitiesView, self).get_context_data(**kwargs)
         context.update({
             'today': self.today,
             'today_calls': self.today_calls,
