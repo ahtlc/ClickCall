@@ -15,7 +15,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     name = models.CharField(max_length=256,
                             verbose_name="Login")
-    avatar = models.ImageField(blank=True, default='default.avatar.png')
+    avatar = models.ImageField(
+            blank=True,
+            upload_to='users/avatars/',
+            default='users/avatars/default.png')
 
     function = models.CharField(max_length=50, default='Colaborador',
                                 verbose_name="Função")
