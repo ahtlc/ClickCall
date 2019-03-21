@@ -5,6 +5,7 @@ from .views import (
     LogoutView,
     ProfileView,
     SignupView,
+    CollaboratorProfileView,
 )
 
 from django.contrib.auth.views import (
@@ -48,4 +49,7 @@ urlpatterns = [
             template_name='users/password-reset-complete.html'
         ),
         name="password-reset-complete"),
+
+    path('collaborator-profile/', CollaboratorProfileView.as_view(),
+        name='collaborator-profile'),
 ]

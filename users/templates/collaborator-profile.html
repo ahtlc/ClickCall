@@ -1,0 +1,57 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{%static 'css/collaborator-profile.css'%}">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="personal-informations">
+            <div class="avatar-and-goals">
+                <img src="../../static/img/user.png" class="avatar">
+                <button class="add-goals" type="button">Atribuir metas</button>
+            </div>
+            <div class="personal-informations-text">
+                <div>
+                    <span class="title-name">Nome Completo</span>
+                    <span class="name">José Augusto da Silva</span>
+                </div>
+                <div>
+                    <div class="email-and-phone">
+                        <div class="email">
+                            <span class="title">Email</span>
+                            <span class="subtitle">joseaugusto20@exemplo.com</span>
+                        </div>
+                        <div class="ramal">
+                            <span class="title">Ramal</span>
+                            <span class="subtitle">XXX</span>
+                        </div>
+                        <div class="phone">
+                            <span class="title">Telefone</span>
+                            <span class="subtitle">(81) X XXXX-XXX</span>
+                        </div>
+                    </div>
+                    <div class="function-and-sector">
+                        <div class="function">
+                            <span class="title">Funçao</span>
+                            <span class="subtitle">Colaborador</span>
+                        </div>
+                        <div class="sector">
+                            <span class="title">Setor</span>
+                            <span class="subtitle">Nome do setor</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="history and performance"></div>
+        <div class="completed goals"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.personal-informations{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.avatar-and-goals{
+    display: flex;
+    flex-direction: column;
+}
+.avatar{
+    vertical-align: middle;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.add-goals{
+    width: 120px;
+    background-color: #27B2FF;
+    border-radius: 5px;
+    color:#ffffff;
+    outline: none;
+    border: none;
+    height: 27px;
+}

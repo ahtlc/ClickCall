@@ -6,7 +6,9 @@ from django.urls import reverse_lazy
 from django.shortcuts import redirect
 
 from .models import User
-from .forms import SignupForm
+from .forms import LoginForm, SignupForm
+from django.views.generic import TemplateView
+
 
 
 class SignupView(generic.FormView):
@@ -43,4 +45,8 @@ class LoginView(auth_views.LoginView):
 
 class ProfileView(generic.TemplateView):
     template_name = 'users/profile.html'
+    model = User
+
+class CollaboratorProfileView(TemplateView):
+    template_name = 'collaborator-profile.html'
     model = User
