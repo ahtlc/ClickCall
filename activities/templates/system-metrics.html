@@ -1,18 +1,56 @@
+{% extends "base.html" %}
 {% load static %}
 <!DOCTYPE html>
-<html>
-<head>
+
+{% block title %}
+System Metrics
+{% endblock title %}
+
+{% block links %}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>System metrics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/system-metrics.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/fontello.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static '../static/css/system-metrics.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static '../static/css/fontello.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700" rel="stylesheet">
-</head>
-<body>
+{% endblock links %}
+
+{% block content %}
     <div class="container">
-        <div id="title">Métricas do sistema</div>
+        <div id="centralize-title-select">
+            <div id="title" class="gray-font">Métricas do Sistema</div>
+            <select name="filter-colab" id="filter-colab">
+                <option>Here is the unstyled select box</option>
+                <option>The second option</option>
+                <option>The third option</option>
+            </select>
+        </div>
+        <div id="sub-title" class="gray-font">Total de Chamadas</div>
+        <div class="block-container1">
+            <div class="number-blocks">
+                <div class="number-blocks-center">
+                    <div class="block-text" id="received">Recebidas</div>
+                    <div class="block-number" id="received">920</div>
+                </div>
+            </div>
+            <div class="number-blocks">
+                <div class="number-blocks-center">
+                    <div class="block-text" id="answered">Atendidas</div>
+                    <div class="block-number" id="answered">1056</div>
+                </div>
+            </div>
+            <div class="number-blocks">
+                <div class="number-blocks-center">
+                    <div class="block-text" id="not-answered">Não Atendidas</div>
+                    <div class="block-number" id="not-answered">45</div>
+                </div>
+            </div>
+            <div class="number-blocks">
+                <div class="number-blocks-center">
+                    <div class="block-text" id="abandoned">Abandonadas</div>
+                    <div class="block-number" id="abandoned">62</div>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+{% endblock %}
