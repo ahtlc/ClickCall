@@ -1,22 +1,38 @@
+body{
+    font-family: 'Work Sans', sans-serif;
+}
 .container{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: baseline; */
+    background-color:#FDFDFD;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* width: 80%; */
 }
 .personal-informations{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /* width: 45%; */
+    padding-top: 30px;
+    padding-bottom: 30px;
+    flex-wrap: wrap;
 }
 .avatar-and-goals{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
 }
 .avatar{
     vertical-align: middle;
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
+    margin-bottom: auto;
+    object-fit: cover;
+    object-position: center;
 }
 .add-goals{
     width: 120px;
@@ -26,4 +42,193 @@
     outline: none;
     border: none;
     height: 27px;
+    justify-content: space-around;
+}
+.add-goals{
+    width: 120px;
+    background-color: #27B2FF;
+    border-radius: 5px;
+    color:#ffffff;
+    outline: none;
+    border: none;
+    height: 27px;
+    justify-content: space-around;
+}
+.add-goals i{
+    margin-right: 3px;
+}
+.personal-informations-text{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.full-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: #4D4D4D;
+}
+.email-and-phone{
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+    color: #4D4D4D;
+}
+.email{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.ramal{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.phone{
+    display: flex;
+    flex-direction: column;
+    
+}
+.icon-plus-button i{
+    color: white;
+}
+.function-and-sector{
+    display: flex;
+    flex-direction: column;
+    color: #4D4D4D;
+}
+.function{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.sector{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    
+}
+.double{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.title{
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+.subtitle{
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+.title-name{
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+.name{
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+.history-performance{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.history{
+    display: flex;
+    flex-direction: column;
+    /* background-color: #ffffff; */
+}
+.history-title{
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+.history-content{
+    display: flex;
+    border-radius: 8px;
+    border: 1px solid #DEDEDE;
+    height: 230px;
+    width: 230px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    flex-direction: column;
+    padding: 6px;
+    padding-top: 20px;
+}
+.day{
+    display: flex;
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+.date{
+    display: flex;
+    font-size: 0.7rem;
+    font-weight: 300;
+    align-items: center;
+    color:#AAAAAA;
+    /* margin-bottom: 20px; */
+}
+.pendent-goals{
+    display: flex;
+    color: #27B2FF;
+    font-size: 0.76rem;
+    font-weight: 400;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+.pendent-goals-cross{
+    display: flex;
+    color: #AAAAAA;
+    font-size: 0.76rem;
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-bottom: 15px;
+}
+.performance{
+    display: flex;
+    flex-direction: column;
+    /* background-color: #ffffff; */
+}
+.performance-and-period{
+    display: flex;
+    flex-direction: row;
+}
+.performance-title{
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+    margin-right: 30px;
+}
+.performance-subtitle{
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+.frame{
+    display: flex;
+    border-radius: 8px;
+    border: 1px solid #DEDEDE;
+    height: 300px;
+    width: 400px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    /* flex-direction: column; */
+    padding: 6px;
+    padding-top: 20px;
+}
+iframe{
+    border: none;
+    height: 300px;
+    width: 400px;
 }
