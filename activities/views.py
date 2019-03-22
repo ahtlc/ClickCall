@@ -41,7 +41,6 @@ class GetTotalCallsView(generic.View):
         count = 0
         month = this_month
         year = this_year
-        import ipdb; ipdb.set_trace()
         while(count!=13):
             month_object = {}
             if(month == 0):
