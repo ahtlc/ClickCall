@@ -14,17 +14,27 @@ import os
 import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY="ch#up2*^tildnn7h!*_b5a1^9rg-mo3x%afq9=q_)u06un4hh0"
+SECRET_KEY = "ch#up2*^tildnn7h!*_b5a1^9rg\
+-mo3x%afq9=q_)u06un4hh0"
 
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'users.User'
+
+# Email config
+
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'templatedmailtest@gmail.com'
+EMAIL_HOST_PASSWORD = 'templated@test@1234A'
 LOGIN_REDIRECT_URL = 'users:profile'
 
 # Application definition
@@ -36,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'users.apps.UsersConfig',
     'common.apps.CommonConfig',
     'calls.apps.CallsConfig',
