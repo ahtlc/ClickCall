@@ -29,6 +29,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     sector = models.CharField(max_length=50, verbose_name="Área")
 
     is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     COLABORATOR = 'CO'
     SUPERVISOR = 'SU'
