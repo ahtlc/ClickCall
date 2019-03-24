@@ -1,0 +1,51 @@
+{% extends "app.html" %}
+{% load static %}
+
+{% block title %}
+Meu Perfil
+{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href={% static 'css/profile.css' %} type="text/css" media="all"> 
+{% endblock %}
+
+{% block app_content %}
+<h1 class="app-title">Meu Perfil</h1>
+<div class="profile-container">
+  <div class="profile-infos">
+    <div class="profile-info-block">
+      <h1 class="profile-info-label">Nome Completo</h1>
+      <h2 class="profile-info">{{ user.name }}</h2>
+    </div>
+
+    <div class="profile-info-block">
+      <h1 class="profile-info-label">Email</h1>
+      <h2 class="profile-info">{{ user.email }}</h2>
+    </div>
+
+    <div class="profile-info-block">
+      <h1 class="profile-info-label">Função</h1>
+      <h2 class="profile-info">{{ user.get_function_display }}</h2>
+    </div>
+
+    <div class="profile-info-block">
+      <h1 class="profile-info-label">Ramal</h1>
+      <h2 class="profile-info" >{{ user.ramal }}</h2>
+    </div>
+
+    <div class="profile-info-block">
+      <h1 class="profile-info-label">Telefone</h1>
+      <h2 class="profile-info">{{ user.phone }}</h2>
+    </div>
+
+    <div class="profile-info-block">
+      <h1 class="profile-info-label">Setor</h1>
+      <h2 class="profile-info">{{ user.sector }}</h2>
+    </div>
+  </div>
+  <div class="profile-image">
+    <!-- <img src={{user.avatar.url}} alt="User Image"> -->
+  </div>
+</div>
+
+{% endblock %}

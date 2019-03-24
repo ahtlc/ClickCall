@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Entrar
+{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/login.css' %}" />
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700" rel="stylesheet">
+{% endblock links %}
+
+{% block content %}
+<div class="full-screen">
+  <div class="container">
+    <img class="logo" src="{% static 'img/logo1.png' %}">
+     
+    <form method="post" class="container">
+      {% csrf_token %}
+      <div class="form-container">
+        {% render_field form.username placeholder="exemplo@clickcall.com.br" %}
+        {% render_field form.username.errors %}
+
+        <div class="password">
+          {% render_field form.password id="pwd" placeholder="Senha" %}
+          {% render_field form.password.errors %}
+          <button type="button" onclick="showPassword()">
+            <img id="eye" class="show" src={% static 'img/eyes-closed.png' %}>
+          </button>
+        </div>
+      </div>
+        {{ form.non_field_errors }}
+    <button class="login-button" type="submit">Login</button>
+    </form>
+    <a href={% url 'users:password-reset' %} 
+        class="login-link forget-password transition">Esqueceu sua senha?</a>
+    <a href={% url 'users:signup' %} 
+        class="login-link register transition">Cadastre-se</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/show-password.js' %}"></script>
+{% endblock scripts %}
