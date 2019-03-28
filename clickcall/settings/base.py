@@ -36,7 +36,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'templatedmailtest@gmail.com'
 EMAIL_HOST_PASSWORD = 'templated@test@1234A'
 LOGIN_REDIRECT_URL = 'users:profile'
-
+TEMPLATED_EMAIL_BACKEND = 'templated_email.backends.vanilla_django'
 # Application definition
 
 INSTALLED_APPS = [
@@ -102,16 +102,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation\
+.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation\
+.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation\
+.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation\
+.NumericPasswordValidator',
     },
 ]
 
@@ -145,5 +149,3 @@ MEDIA_URL = '/media/'
 
 # Django-heroku configuration
 django_heroku.settings(locals())
-
-
