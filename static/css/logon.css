@@ -78,9 +78,10 @@
 }
 
 #image:hover{
-    cursor: pointer;
+  cursor: pointer;
 }
 
+/* TODO: Refatorar */
 #upload-image {
   width: 0.1px;
   height: 0.1px;
@@ -160,7 +161,6 @@
     padding-bottom: 10px;
     width: 220px;
   }
-
 }
 
 @media(max-width: 1000px){

@@ -11,8 +11,22 @@ class SignupForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     confirm_password = forms.CharField(widget=forms.PasswordInput())
 
+    class Meta:
+        model = User
+        fields = [
+            'name',
+            'email',
+            'avatar',
+            'function',
+            'phone',
+            'ramal',
+            'sector',
+            ]
+
+
 class ProfileForm(forms.Form):
     pass
+
 
 class LoginForm(AuthenticationForm):
     email = forms.EmailField(widget=forms.EmailInput(

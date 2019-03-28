@@ -43,9 +43,12 @@ Meu Perfil
       <h2 class="profile-info">{{ user.sector }}</h2>
     </div>
   </div>
-  <div class="profile-image">
-    <!-- <img src={{user.avatar.url}} alt="User Image"> -->
+  <div class="profile-image" data-img-src="{{user.avatar.url}}">
   </div>
 </div>
+{% endblock %}
 
+{% block scripts %}
+  <script src={% static "js/bg-data.js" %} charset="utf-8">
+  </script>  
 {% endblock %}
