@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 
 
 class TestView(generic.TemplateView):
-    template_name = 'login.html'
+    template_name = 'profile.html'
 
 
 class IndexView(generic.RedirectView):
