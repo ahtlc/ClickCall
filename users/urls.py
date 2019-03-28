@@ -27,6 +27,7 @@ urlpatterns = [
             template_name='users/password-reset.html',
             success_url=reverse_lazy('users:password-reset-done'),
             email_template_name='users/password-reset-email.html',
+            html_email_template_name='users/email-clickcall.html',
             subject_template_name='users/password-reset-subject.txt',
             from_email='Suporte Clickcall <templatedmailtest@gmail.com>'
         ),
