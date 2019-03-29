@@ -1,12 +1,11 @@
-from django.shortcuts import render
 from django.views import generic
 from calls.models import Call
 import datetime
 
 
-
 class TestView(generic.TemplateView):
     template_name = "tests.html"
+
 
 class HistoryActivitiesView(generic.ListView):
     template_name = "history-agenda.html"
@@ -15,15 +14,19 @@ class HistoryActivitiesView(generic.ListView):
     queryset = Call.objects.all()
 
     today = datetime.datetime.now()
-    yesterday = today -  datetime.timedelta(days=1)
+    yesterday = today - datetime.timedelta(days=1)
 
-    today_calls = Call.objects.filter(date__year=today.year, 
-                                        date__month=today.month,
-                                        date__day= today.day)
+    today_calls = Call.objects.filter(
+            date__year=today.year,
+            date__month=today.month,
+            date__day=today.day
+    )
 
-    yesterday_calls = Call.objects.filter(date__year=yesterday.year, 
-                                        date__month=yesterday.month,
-                                        date__day= yesterday.day)
+    yesterday_calls = Call.objects.filter(
+            date__year=yesterday.year,
+            date__month=yesterday.month,
+            date__day=yesterday.day
+    )
 
     def get_context_data(self, **kwargs):
         context = super(HistoryActivitiesView, self).get_context_data(**kwargs)
