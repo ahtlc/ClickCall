@@ -66,7 +66,7 @@ class Call(models.Model):
     verbose_name_plural = "Chamadas"
   
   def __str__(self):
-    return self.contact.name + " " + datetime.datetime.strftime(self.contact.last_update, "%d/%m/%Y")
+    return self.contact.name + " " + datetime.datetime.strftime(self.date, "%d/%m/%Y")
   
 
 class Subject(models.Model):

@@ -1,3 +1,5 @@
+
+{% load static from staticfiles %}
 <div class="history">
     <h1>Histórico de Atividades</h1>
     <button id="today-expand" class="button-expand" onclick="expandHistory('today')">
@@ -23,22 +25,21 @@
                     </div>
                     <div class="history-box__right">
                         {% if call.call_24_hours %}
-                            <i class="fas fa-phone activated"></i>
+                            <i class="icon-call activated"></i>
                         {% else %}
-                            <i class="fas fa-phone"></i>
+                            <i class="icon-call"></i>
                         {% endif %}
                         {% if call.paid %}
-                            <i class="fas fa-dollar-sign activated"></i>
+                            <i class="icon-pay activated"></i>
                         {% else %}
-                            <i class="fas fa-dollar-sign"></i>
+                            <i class="icon-pay"></i>
                         {% endif %}
                         {% if call.email_sended %}
-                            <i class="fas fa-envelope activated"></i>
+                            <i class="icon-email activated"></i>
                         {% else %}
-                            <i class="fas fa-envelope"></i>
+                            <i class="icon-email"></i>
                         {% endif %}
-                        
-                        <i class="fas fa-volume-up"></i>
+                        <img class="call-icons" style="height: 36px" src="{% static 'img/call.png' %}">
                     </div>
                 </div>
                 <div class="history-box__notes">
@@ -74,22 +75,21 @@
                     </div>
                     <div class="history-box__right">
                         {% if call.call_24_hours %}
-                            <i class="fas fa-phone activated"></i>
+                            <i class="icon-call activated"></i>
                         {% else %}
-                            <i class="fas fa-phone"></i>
+                            <i class="icon-call"></i>
                         {% endif %}
                         {% if call.paid %}
-                            <i class="fas fa-dollar-sign activated"></i>
+                            <i class="icon-pay activated"></i>
                         {% else %}
-                            <i class="fas fa-dollar-sign"></i>
+                            <i class="icon-pay"></i>
                         {% endif %}
                         {% if call.email_sended %}
-                            <i class="fas fa-envelope activated"></i>
+                            <i class="icon-email activated"></i>
                         {% else %}
-                            <i class="fas fa-envelope"></i>
+                            <i class="icon-email"></i>
                         {% endif %}
-                        
-                        <i class="fas fa-volume-up"></i>
+                        <img class="call-icons" style="height: 36px" src="{% static 'img/call.png' %}">
                     </div>
                 </div>
                 <div class="history-box__notes">
