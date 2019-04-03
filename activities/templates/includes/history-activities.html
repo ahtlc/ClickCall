@@ -1,0 +1,105 @@
+
+{% load static from staticfiles %}
+<div class="history">
+    <h1>Histórico de Atividades</h1>
+    <button id="today-expand" class="button-expand" onclick="expandHistory('today')">
+        Hoje, {{today.day}}/{{today.month}}/{{today.year}}
+    </button>
+    <div id="today" class="expand" style="max-height: 0px;">
+        {% for call in today_calls %}
+        <div class="history-box">
+                <div class="history-box__content">
+                    <div class="history-box__left">
+                        <h3>{{call.contact.company_name}}</h3>
+                        <p>{{call.contact.name}}</p>
+                        <p>{{call.contact.email}}</p>
+                        <p>{{call.contact.cellphone}}</p>
+                        <div class="last-contact">
+                            <div class="last-contact__header">
+                                <div class="last-contact__sign">
+                                </div>
+                                <p>último contato:</p>
+                            </div>
+                            <p>{{call.contact.last_update}}</p>
+                        </div>
+                    </div>
+                    <div class="history-box__right">
+                        {% if call.call_24_hours %}
+                            <i class="icon-call activated"></i>
+                        {% else %}
+                            <i class="icon-call"></i>
+                        {% endif %}
+                        {% if call.paid %}
+                            <i class="icon-pay activated"></i>
+                        {% else %}
+                            <i class="icon-pay"></i>
+                        {% endif %}
+                        {% if call.email_sended %}
+                            <i class="icon-email activated"></i>
+                        {% else %}
+                            <i class="icon-email"></i>
+                        {% endif %}
+                        <img class="call-icons" style="height: 36px" src="{% static 'img/call.png' %}">
+                    </div>
+                </div>
+                <div class="history-box__notes">
+                    <h4>Anotações:</h4>
+                    <i class="far fa-edit"></i>
+                    <p>{{call.notes}}</p>
+                </div>
+            </div>
+        {% empty %}
+            Até o momento nenhuma ligação foi realizada hoje.
+        {% endfor %}
+    </div>
+    <button id="today-expand" class="button-expand" onclick="expandHistory('yesterday')">
+        Ontem, {{yesterday.day}}/{{yesterday.month}}/{{yesterday.year}}
+    </button>
+    <div id="yesterday" class="expand" style="max-height: 0px;">
+        {% for call in yesterday_calls %}
+        <div class="history-box">
+                <div class="history-box__content">
+                    <div class="history-box__left">
+                        <h3>{{call.contact.company_name}}</h3>
+                        <p>{{call.contact.name}}</p>
+                        <p>{{call.contact.email}}</p>
+                        <p>{{call.contact.cellphone}}</p>
+                        <div class="last-contact">
+                            <div class="last-contact__header">
+                                <div class="last-contact__sign">
+                                </div>
+                                <p>último contato:</p>
+                            </div>
+                            <p>{{call.contact.last_update}}</p>
+                        </div>
+                    </div>
+                    <div class="history-box__right">
+                        {% if call.call_24_hours %}
+                            <i class="icon-call activated"></i>
+                        {% else %}
+                            <i class="icon-call"></i>
+                        {% endif %}
+                        {% if call.paid %}
+                            <i class="icon-pay activated"></i>
+                        {% else %}
+                            <i class="icon-pay"></i>
+                        {% endif %}
+                        {% if call.email_sended %}
+                            <i class="icon-email activated"></i>
+                        {% else %}
+                            <i class="icon-email"></i>
+                        {% endif %}
+                        <img class="call-icons" style="height: 36px" src="{% static 'img/call.png' %}">
+                    </div>
+                </div>
+                <div class="history-box__notes">
+                    <h4>Anotações:</h4>
+                    <i class="far fa-edit"></i>
+                    <p>{{call.notes}}</p>
+                </div>
+            </div>
+        {% empty %}
+            Nenhuma ligação foi realizada ontem.
+        {% endfor %}
+    </div>    
+</div>

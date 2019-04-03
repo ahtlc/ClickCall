@@ -31,6 +31,7 @@ class Contact(models.Model):
   last_update = models.DateTimeField(auto_now = False, verbose_name = "Última atualização")
   status = models.CharField(max_length = 8, choices = STATUS_CHOICES, default = ACTIVE, verbose_name = "Status")
   tag = models.ManyToManyField('Tag', verbose_name = "Tag")
+  
 
   class Meta:
     verbose_name = "Contato"
@@ -58,13 +59,14 @@ class Call(models.Model):
   contact =  models.ForeignKey('Contact', on_delete = models.CASCADE, verbose_name = "Contato")
   notes = models.TextField(max_length = 256, verbose_name = "Anotações")
   subject = models.ManyToManyField('Subject', verbose_name = "Assunto", max_length = 3)
- 
+  date = models.DateField(default=datetime.date.today, verbose_name = "Data da Ligação")
+
   class Meta:
     verbose_name = "Chamada"
     verbose_name_plural = "Chamadas"
   
   def __str__(self):
-    return self.contact.name + " " + datetime.datetime.strftime(self.contact.last_update, "%d/%m/%Y")
+    return self.contact.name + " " + datetime.datetime.strftime(self.date, "%d/%m/%Y")
   
 
 class Subject(models.Model):
