@@ -5,6 +5,7 @@ class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **kwargs):
         email = self.normalize_email(email)
         user = self.model(email=email, **kwargs)
+        user.is_active = True
         user.set_password(password)
         user.save(self._db)
         return user

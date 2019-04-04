@@ -1,9 +1,6 @@
 from django.views import generic
-
-
-class TestView(generic.TemplateView):
-    template_name = 'login.html'
+from django.urls import reverse_lazy
 
 
 class IndexView(generic.RedirectView):
-    url = 'u/login/'
+    url = reverse_lazy('users:login')

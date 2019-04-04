@@ -12,15 +12,38 @@ class User(AbstractBaseUser, PermissionsMixin):
     updated = models.DateTimeField(auto_now=True)
 
     email = models.EmailField(unique=True)
-    username = models.CharField(unique=True, max_length=50,
-                                verbose_name="Login")
-    avatar = models.ImageField(blank=True, default='default.avatar.png')
+
+    name = models.CharField(max_length=256,
+                            verbose_name="Login")
+    avatar = models.ImageField(
+            blank=True,
+            upload_to='users/avatars/',
+            default='users/avatars/default.png')
+
     function = models.CharField(max_length=50, default='Colaborador',
                                 verbose_name="Função")
     phone = models.CharField(max_length=15, verbose_name="Telefone")
+
     ramal = models.CharField(max_length=15, verbose_name="Ramal")
+
     sector = models.CharField(max_length=50, verbose_name="Área")
+
     is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+
+    COLABORATOR = 'CO'
+    SUPERVISOR = 'SU'
+
+    FUNCTION_CHOICES = (
+        (COLABORATOR, 'Colaborador'),
+        (SUPERVISOR, 'Supervisor'),
+    )
+
+    function = models.CharField(
+        max_length=2,
+        choices=FUNCTION_CHOICES,
+        default=COLABORATOR,
+    )
 
     objects = UserManager()
 
@@ -31,4 +54,4 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = "Usuários"
 
     def __str__(self):
-        return self.username + " (" + self.email + ") "
+        return self.email + "("+self.phone+" r "+self.ramal+")"

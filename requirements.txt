@@ -4,6 +4,7 @@ decorator==4.3.2
 dj-database-url==0.5.0
 Django==2.1.5
 django-heroku==0.3.1
+django-widget-tweaks==1.4.3
 entrypoints==0.3
 flake8==3.7.5
 gunicorn==19.9.0

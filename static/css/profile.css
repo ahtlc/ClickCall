@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.profile-container{ 
+  font-size: 0.8rem;
+  display: flex;
+  width: 50%;
+  padding: 2rem;
+  border: 1px solid #DEDEDE;
+  border-radius: 7px;
+  background: white;
+}
+
+.profile-info-label{
+  font-size: 1em;
+  font-weight: 500;
+  color: #4D4D4D;
+  margin: 0;
+}
+
+.profile-info{
+  margin: 0.3em 0;
+  font-size: 1.3em;
+  font-weight: 300;
+}
+
+.profile-info-block{
+  margin: 1.8em 0;
+}
