@@ -9,6 +9,7 @@
     font-weight: 300;
 }
 
+
 .navbar-item{
     display: flex;
     flex-direction: column;
@@ -17,12 +18,13 @@
     box-sizing: border-box;
     width: 100%;
     padding: 2em;
-    border: 1px solid #2E2E2E;
+    border-bottom: 1px solid #2E2E2E;
     border-left: 0;
     border-right: 0;
 }
 
 .navbar-item:hover{
+    background: #111;
     cursor: pointer;
 }
 
@@ -32,6 +34,14 @@
     font-size: 0.8em;
     padding: 1em;
     background: #3E3E3E;
+    border-bottom: 1px solid #4A4A4A;
+    border-left: 0;
+    border-right: 0;
+}
+
+.navbar-item-subitem:hover{
+    background: #393939;
+    cursor: pointer;
 }
 
 .navbar-brand{
@@ -50,6 +60,11 @@
     background: #27B2FF;    
     font-weight: 500;
     cursor: default;
+}
+
+.navbar-item-active:hover{
+    cursor: default;
+    background: #27B2FF;    
 }
 
 @media screen and (max-width: 600px){
