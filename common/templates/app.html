@@ -14,31 +14,61 @@
                      src={% static 'img/clickcall_icon_white.png' %}
                      alt="Brand Mobile"/>
             </div>
-            
+
             <div id="activities" class="navbar-item navbar-item-active">
-                Item 
-            </div>
-            
-            <div id="activities-child" class="navbar-subitem-list">
-                <div class="navbar-item-subitem">
-                    Subitem
-                </div>
-                
-                <div class="navbar-item-subitem">
-                    Subitem
-                </div>
-                
-                <div class="navbar-item-subitem">
-                    Subitem
-                </div>
-            </div>
-            
-            <div class="navbar-item">
-                Item
+                Atividades
             </div>
 
-            <div class="navbar-item">
-                Item
+            <div id="activities-child" class="navbar-subitem-list">
+                <div class="navbar-item-subitem
+                 {% if request.path == '/activities/metrics' %}
+                     navbar-item-active 
+                 {% endif %}"/>
+                    Métricas do Sistema
+                </div>
+
+                <div class="navbar-item-subitem
+                 {% if request.path == '/activities/ranking' %}
+                     navbar-item-active 
+                 {% endif %}"/>
+                    Ranking dos Funcionários
+                </div>
+            </div>
+
+            <div class="navbar-item
+                 {% if request.path == '/metas' %}
+                     navbar-item-active 
+                 {% endif %}"/>
+                <a href="#">
+                    Metas
+                </a>
+            </div>
+
+            <div class="navbar-item
+                 {% if request.path == '/clients' %}
+                     navbar-item-active 
+                 {% endif %}"/>
+                <a href="#">
+                    Clientes 
+                </a>
+            </div>
+
+            <div class="navbar-item
+            {% if request.path == '/users/profile' %}
+                navbar-item-active 
+            {% endif %}"/>
+                <a href="#">
+                    Meu Perfil
+                </a>
+            </div>
+
+            <div class="navbar-item
+            {% if request.path == '/tutorials' %}
+                navbar-item-active 
+            {% endif %}"/>
+                <a href="#">
+                    Treinamentos
+                </a>
             </div>
         </div>
 
@@ -49,7 +79,6 @@
                 <a href={% url 'users:logout' %}>Sair</a></div>
             <div class="app-viewport">
                 {% block app_content %}
-
                 {% endblock %}  
             </div>
         </div>
