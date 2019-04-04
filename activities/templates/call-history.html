@@ -1,15 +1,15 @@
-{% load static %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Call History</title>
+    <title>Click Call - Call History</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/call-history.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/fontello.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/call-history.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/fontello.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700" rel="stylesheet">
-    <script src="../static/js/change-indicator.js"></script>
+    <script src="{% static 'js/change-indicator.js' %}"></script>
 </head>
 <body>
     <div class="container">
@@ -37,13 +37,9 @@
                     <button id="email-1" onclick="changeIndicator('email', '1')"><i class="icon-email"></i></button>
                 </td>
                 <td>R$ 3500,00</td>
-                {%if status == Ocupado%}
+                
                 <td class="status-busy">Ocupado</td>
-                <!-- {%elif status == Em Andamento%}
-                <td class="status-in-progress">Em Andamento</td>
-                {%else%}
-                <td class="status-pendent">Pendente</td>
-                {%endif%} -->
+                
             </tr>
             <tr>
                 <td>Nome do contato</td>
@@ -54,13 +50,10 @@
                     <button id="email-2" onclick="changeIndicator('email', '2')"><i class="icon-email"></i></button>
                 </td>
                 <td>R$ 3500,00</td>
-                <!-- {%if status == Ocupado%}
-                <td class="status-busy">Ocupado</td> -->
-                {% elif status == Em Andamento %}
+               
+               
                 <td class="status-in-progress">Em Andamento</td>
-                <!-- {%else%}
-                <td class="status-pendent">Pendente</td>
-                {%endif%} -->
+               
             </tr>
             <tr>
                 <td>Nome do contato</td>
@@ -71,13 +64,10 @@
                     <button id="email-3" onclick="changeIndicator('email', '3')"><i class="icon-email"></i></button>
                 </td>
                 <td>R$ 3500,00</td>
-                <!-- {%if status == Ocupado%}
-                <td class="status-busy">Ocupado</td> -->
-                <!-- {%elif status == Em Andamento%}
-                <td class="status-in-progress">Em Andamento</td> -->
-                {%else%}
+                
+                
                 <td class="status-pendent">Pendente</td>
-                {%endif%}
+                
             </tr>
         </table>
         

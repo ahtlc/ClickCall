@@ -85,6 +85,9 @@ class GetTotalCallsView(generic.View):
             json_response.append(day_object)
         return simplejson.dumps(json_response)
 
+class TestScheduleView(generic.TemplateView):
+    template_name = "call-history.html"
+
 
 class HistoryActivitiesView(generic.ListView):
     template_name = "history-agenda.html"
