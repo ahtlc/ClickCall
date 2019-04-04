@@ -22,6 +22,10 @@
     border-right: 0;
 }
 
+.navbar-item:hover{
+    cursor: pointer;
+}
+
 .navbar-item-subitem{
     display: flex;
     justify-content: center;
@@ -45,6 +49,7 @@
 .navbar-item-active{
     background: #27B2FF;    
     font-weight: 500;
+    cursor: default;
 }
 
 @media screen and (max-width: 600px){
