@@ -6,6 +6,7 @@ from .views import (
     ProfileView,
     SignupView,
     CollaboratorProfileView,
+    CollaboratorListView,
 )
 
 from django.contrib.auth.views import (
@@ -52,4 +53,7 @@ urlpatterns = [
 
     path('collaborator-profile/', CollaboratorProfileView.as_view(),
         name='collaborator-profile'),
+
+    path('collaborator-list/', CollaboratorListView.as_view(), 
+        name='collaborator-list'),
 ]
