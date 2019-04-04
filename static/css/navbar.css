@@ -1,6 +1,62 @@
-#navigation{
-   height: 100vh; 
+.navbar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 15rem;
+    height: 100vh;
+    background: black;
+    color: white;
+    font-weight: 300;
 }
 
+.navbar-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2em;
+    border: 1px solid #2E2E2E;
+    border-left: 0;
+    border-right: 0;
+}
 
+.navbar-item-subitem{
+    display: flex;
+    justify-content: center;
+    font-size: 0.8em;
+    padding: 1em;
+    background: #3E3E3E;
+}
 
+.navbar-brand{
+    max-width: 100%;
+}
+
+.navbar-brand-desktop{
+    display: block;
+}
+
+.navbar-brand-mobile{
+    display: none;
+}
+
+.navbar-item-active{
+    background: #27B2FF;    
+    font-weight: 500;
+}
+
+@media screen and (max-width: 600px){
+    .navbar-brand-mobile{
+        display: block;
+    }
+
+    .navbar-brand-desktop{
+        display: none;
+    }
+
+    .navbar-item:first-child{
+        padding: 1em;
+    }
+}
