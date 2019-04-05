@@ -85,8 +85,10 @@ class GetTotalCallsView(generic.View):
             json_response.append(day_object)
         return simplejson.dumps(json_response)
 
-class TestScheduleView(generic.TemplateView):
+class ScheduleView(generic.ListView):
+    model = Call
     template_name = "call-history.html"
+    context_object_name = 'call'
 
 
 class HistoryActivitiesView(generic.ListView):
