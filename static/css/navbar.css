@@ -1,6 +1,96 @@
-#navigation{
-   height: 100vh; 
+.navbar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    width: 15rem;
+    min-height: 100vh;
+    background: black;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
 }
 
 
+.navbar-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2em 1em;
+    border-bottom: 1px solid #2E2E2E;
+    border-left: 0;
+    border-right: 0;
+}
 
+.navbar-item:hover{
+    background: #111;
+    cursor: pointer;
+}
+
+.navbar-item-subitem{
+    display: flex;
+    justify-content: center;
+    font-size: 0.8em;
+    padding: 1em;
+    background: #3E3E3E;
+    border-bottom: 1px solid #4A4A4A;
+    border-left: 0;
+    border-right: 0;
+}
+
+.navbar-item-subitem:hover{
+    background: #393939;
+    cursor: pointer;
+}
+
+.navbar-brand{
+    max-width: 100%;
+}
+
+.navbar-brand-desktop{
+    display: block;
+}
+
+.navbar-brand-mobile{
+    display: none;
+}
+
+.navbar-item-active{
+    background: #27B2FF;    
+    font-weight: 500;
+    cursor: default;
+}
+
+.navbar-item-active:hover{
+    cursor: default;
+    background: #27B2FF;    
+}
+
+@media screen and (max-width: 600px){
+    .navbar{
+        width: 6rem;
+    }
+    .navbar-brand-mobile{
+        display: block;
+    }
+
+    .navbar-brand{
+        width: 80%;
+    }
+
+    .navbar-brand-desktop{
+        display: none;
+    }
+
+    .navbar-item:first-child{
+        padding: 1em;
+    }
+}
