@@ -84,3 +84,35 @@ class GetTotalCallsView(generic.View):
             day_object['not_answered'] = day_calls.filter(status='NAO_ATENDIDA').count()
             json_response.append(day_object)
         return simplejson.dumps(json_response)
+
+
+class HistoryActivitiesView(generic.ListView):
+    template_name = "history-agenda.html"
+    model = Call
+    context_object_name = 'call'
+    queryset = Call.objects.all()
+
+    today = datetime.datetime.now()
+    yesterday = today - datetime.timedelta(days=1)
+
+    today_calls = Call.objects.filter(
+            date__year=today.year,
+            date__month=today.month,
+            date__day=today.day
+    )
+
+    yesterday_calls = Call.objects.filter(
+            date__year=yesterday.year,
+            date__month=yesterday.month,
+            date__day=yesterday.day
+    )
+
+    def get_context_data(self, **kwargs):
+        context = super(HistoryActivitiesView, self).get_context_data(**kwargs)
+        context.update({
+            'today': self.today,
+            'today_calls': self.today_calls,
+            'yesterday': self.yesterday,
+            'yesterday_calls': self.yesterday_calls
+        })
+        return context
