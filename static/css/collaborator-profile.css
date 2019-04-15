@@ -58,6 +58,7 @@ body{
 }
 .add-goals i{
     margin-right: 3px;
+    font-size: 0.8rem;
 }
 .personal-informations-text{
     display: flex;
@@ -96,6 +97,7 @@ body{
 .icon-plus-button i{
     color: white;
 }
+
 .function-and-sector{
     display: flex;
     flex-direction: column;
@@ -229,6 +231,7 @@ body{
     align-items: center;
     padding-bottom: 27px;
     color: #4D4D4D;
+    cursor: pointer;
 }
 .performance-subtitle-blue{
     font-size: 0.75rem;
@@ -239,12 +242,13 @@ body{
     align-items: center;
     padding-bottom: 27px;
     color: #27B2FF;
+    cursor: pointer;
 }
 .frame{
     display: flex;
     border-radius: 8px;
     border: 1px solid #DEDEDE;
-    height: 235px;
+    height: 249px;
     width: 400px;
     background-color: #ffffff;
     /* flex-direction: column; */
@@ -324,7 +328,7 @@ body{
 iframe{
     overflow: auto;
     border: none;
-    height: 235px;
+    height: 249px;
     width: 400px;
     background-color: #ffffff;
 }
