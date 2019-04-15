@@ -111,6 +111,16 @@ class Tag(models.Model):
 
 
 class Call (models.Model):
+    RECEBIDA = 'RC'
+    ATENDIDA = 'AT'
+    NAO_ATENDIDA = 'NA'
+    ABANDONADA = 'AB'
+    STATUS_CHOICES = (
+        ('RECEBIDA', 'Recebida'),
+        ('ATENDIDA', 'Atendida'),
+        ('NAO_ATENDIDA', 'Não Atendida'),
+        ('ABANDONADA', 'Abandonada'),
+    )
 
     call_id = models.AutoField(
         primary_key=True,
@@ -158,6 +168,12 @@ class Call (models.Model):
         default=datetime.date.today,
         verbose_name="Data da Ligação"
     )
+    status = models.CharField(
+        max_length = 12, 
+        choices = STATUS_CHOICES, 
+        default = RECEBIDA, 
+        verbose_name = "Status")
+
 
     class Meta:
         verbose_name = "Chamada"
