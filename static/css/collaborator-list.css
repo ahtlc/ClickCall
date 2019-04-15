@@ -63,3 +63,6 @@ tr:nth-child(even){
     background-color: #ffffff;
     
 }
+.icon-plus-button{
+    font-size: 0.8rem;
+}
