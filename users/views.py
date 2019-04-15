@@ -50,3 +50,6 @@ class ProfileView(generic.TemplateView):
 class CollaboratorProfileView(TemplateView):
     template_name = 'users/collaborator-profile.html'
     model = User
+
+class CollaboratorListView(generic.TemplateView):
+    template_name = 'users/collaborator-list.html'
