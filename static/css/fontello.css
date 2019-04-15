@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'fontello';
-  src: url('../font/fontello.eot?71581028');
-  src: url('../font/fontello.eot?71581028#iefix') format('embedded-opentype'),
-       url('../font/fontello.woff2?71581028') format('woff2'),
-       url('../font/fontello.woff?71581028') format('woff'),
-       url('../font/fontello.ttf?71581028') format('truetype'),
-       url('../font/fontello.svg?71581028#fontello') format('svg');
+  src: url('../font/fontello.eot?86863418');
+  src: url('../font/fontello.eot?86863418#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff2?86863418') format('woff2'),
+       url('../font/fontello.woff?86863418') format('woff'),
+       url('../font/fontello.ttf?86863418') format('truetype'),
+       url('../font/fontello.svg?86863418#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?71581028#fontello') format('svg');
+    src: url('../font/fontello.svg?86863418#fontello') format('svg');
   }
 }
 */
@@ -26,17 +26,23 @@
   font-weight: normal;
   speak: none;
  
- 
-  text-decoration: none;
+  display: inline-block;
+  text-decoration: inherit;
   width: 1em;
-  
+  margin-right: .2em;
   text-align: center;
-  
+  /* opacity: .8; */
  
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
  
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
  
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
@@ -49,6 +55,11 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-pay:before { content: '\e800'; font-size:19px;} /* '' */
-.icon-email:before { content: '\e801'; font-size:18px;} /* '' */
-.icon-call:before { content: '\e802'; font-size:21px; } /* '' */
+.icon-call:before { content: '\e801'; font-size:21px;} /* '' */
+.icon-email-white-blue:before { content: '\e802'; } /* '' */
+.icon-pay:before { content: '\e803'; font-size:19px; } /* '' */
+.icon-trash-white:before { content: '\e807'; } /* '' */
+.icon-phone-blue:before { content: '\e808'; } /* '' */
+.icon-email:before { content: '\e809'; font-size:18px; } /* '' */
+.icon-wait-call:before { content: '\e80c'; } /* '' */
+.icon-plus-button:before { content: '\e80d'; } /* '' */
