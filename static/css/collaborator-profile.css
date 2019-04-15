@@ -1,6 +1,7 @@
 body{
     font-family: 'Work Sans', sans-serif;
 }
+
 .container{
     display: flex;
     /* align-items: baseline; */
@@ -8,6 +9,7 @@ body{
     flex-direction: column;
     /* justify-content: center; */
     width: 900px;
+    padding: 12px;
 }
 .personal-informations{
     display: flex;
@@ -181,7 +183,7 @@ body{
     align-items: center;
     color: #AAAAAA;
     /* margin-bottom: 20px; */
-    padding-top: 11px;
+    padding-top: 3px;
     padding-left: 3px;
 }
 .pendent-goals{
@@ -326,8 +328,8 @@ iframe{
     width: 400px;
     background-color: #ffffff;
 }
-/* .background{
+.background{
     display: flex;
     justify-content: center;
-    background-color: #FDFDFD;
-} */
+    
+}
