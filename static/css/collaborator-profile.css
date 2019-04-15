@@ -45,6 +45,7 @@ body{
     border: none;
     height: 27px;
     justify-content: space-around;
+    cursor: pointer;
 }
 .add-goals{
     width: 120px;
