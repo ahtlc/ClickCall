@@ -72,6 +72,7 @@ class Contact(models.Model):
 
     last_update = models.DateTimeField(
         auto_now=False,
+        default = datetime.datetime.now,
         verbose_name="Última atualização"
     )
 
