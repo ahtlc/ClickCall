@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic import DetailView
 from calls.models import Call
 from activities.objects import Year
 import datetime
@@ -88,7 +89,11 @@ class GetTotalCallsView(generic.View):
 class ScheduleView(generic.ListView):
     model = Call
     template_name = "call-history.html"
-    context_object_name = 'call'
+    context_object_name = 'calls'
+
+class ScheduleDetailView(DetailView):
+    model = Call
+    template_name = "call-history-detail.html"
 
 
 class HistoryActivitiesView(generic.ListView):

@@ -24,53 +24,28 @@
             <tr>
                 <th class="contact">Contato</th>
                 <th class="date-hour">Data/Hora</th>
-                <th class="last-contact">Último Contato</th>
+                <th class="last-contact-table">Último Contato</th>
                 <th class="value">Valor</th>
                 <th class="status">Status</th>
             </tr>
-            <tr>
-                <td>Nome do contato</td>
-                <td>13/06/18 - 17:24h</td>
-                <td class="last-contact-cell">
-                    <button id="call-1" onclick="changeIndicator('call', '1')"><i class="icon-call"></i></button>
-                    <button id="pay-1" onclick="changeIndicator('pay', '1')"><i class="icon-pay"></i></button>
-                    <button id="email-1" onclick="changeIndicator('email', '1')"><i class="icon-email"></i></button>
-                </td>
-                <td>R$ 3500,00</td>
-                
-                <td class="status-busy">Ocupado</td>
-                
-            </tr>
-            <tr>
-                <td>Nome do contato</td>
-                <td>13/06/18 - 17:24h</td>
-                <td class="last-contact-cell">
-                    <button id="call-2" onclick="changeIndicator('call', '2')"><i class="icon-call"></i></button>
-                    <button id="pay-2" onclick="changeIndicator('pay', '2')"><i class="icon-pay"></i></button>
-                    <button id="email-2" onclick="changeIndicator('email', '2')"><i class="icon-email"></i></button>
-                </td>
-                <td>R$ 3500,00</td>
-               
-               
-                <td class="status-in-progress">Em Andamento</td>
-               
-            </tr>
-            <tr>
-                <td>Nome do contato</td>
-                <td>13/06/18 - 17:24h</td>
-                <td class="last-contact-cell">
-                    <button id="call-3" onclick="changeIndicator('call', '3')"><i class="icon-call"></i></button> <!--copiar fonte do fontelo estilo font awesome-->
-                    <button id="pay-3" onclick="changeIndicator('pay', '3')"><i class="icon-pay"></i></button>
-                    <button id="email-3" onclick="changeIndicator('email', '3')"><i class="icon-email"></i></button>
-                </td>
-                <td>R$ 3500,00</td>
-                
-                
-                <td class="status-pendent">Pendente</td>
-                
-            </tr>
+            {% for call in calls %}
+                <tr onclick="location.href = '{% url 'activities:schedule_detail' call.pk %}'">
+                    <td>{{call.contact.name | title}}</td>
+                    <td>{{call.date | date:'d/m/y'}} - {{call.hour}}h</td>
+                    <td class="last-contact-cell">
+                        <button id="call-1"  onclick="changeIndicator('call', '1')"><i class="icon-call"></i></button>
+                        <button id="pay-1" onclick="changeIndicator('pay', '1')"><i class="icon-pay"></i></button>
+                        <button id="email-1" onclick="changeIndicator('email', '1')"><i class="icon-email"></i></button>
+                    </td>
+                    <td>R$ {{call.value}}</td>
+                    <td class="status-busy">{{call.status|lower|title}}</td>
+                    
+                </tr>
+            {% endfor %}
+           
         </table>
-        {% comment %} {% include "call-history-detail.html" %} {% endcomment %}
+        {% include "call-history-detail.html" %}
+        {% include "history-agenda.html" %}
         
 
     </div>

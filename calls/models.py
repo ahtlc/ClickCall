@@ -115,17 +115,17 @@ class Call (models.Model):
     ATENDIDA = 'AT'
     NAO_ATENDIDA = 'NA'
     ABANDONADA = 'AB'
-    BUSY= 'BU'
-    IN_PROGRESS = 'IN'
-    PENDING = 'PN'
+    OCUPADO = 'BU'
+    EM_PROGRESSO = 'IN'
+    PENDENTE = 'PN'
     STATUS_CHOICES = (
         ('RECEBIDA', 'Recebida'),
         ('ATENDIDA', 'Atendida'),
         ('NAO_ATENDIDA', 'Não Atendida'),
         ('ABANDONADA', 'Abandonada'),
-        ('BUSY', 'Ocupado'),
-        ('IN_PROGRESS', 'Em Progresso'),
-        ('PENDING', 'Pendente'),
+        ('OCUPADO', 'Ocupado'),
+        ('EM PROGRESSO', 'Em Progresso'),
+        ('PENDENTE', 'Pendente'),
     )
 
     call_id = models.AutoField(
@@ -178,7 +178,19 @@ class Call (models.Model):
         max_length = 12, 
         choices = STATUS_CHOICES, 
         default = RECEBIDA, 
-        verbose_name = "Status")
+        verbose_name = "Status"
+    )
+
+    hour = models.TimeField(
+        default=datetime.time,
+        verbose_name= "Hora da Ligação"
+    )
+    value = models.DecimalField(
+        default=0,
+        max_digits=8,
+        decimal_places=2,
+        verbose_name="Valor"
+    )
 
 
     class Meta:
