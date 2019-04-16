@@ -50,7 +50,6 @@ class Contact(models.Model):
     )
 
     cellphone = models.CharField(
-<<<<<<< HEAD
         max_length=20,
         validators=[cellphone_regex],
         verbose_name="Celular",
@@ -64,23 +63,6 @@ class Contact(models.Model):
         verbose_name="Telefone",
         help_text="O número deve ser cadastrado da seguinte forma:\
                 (DD)9999-9999"
-=======
-            max_length=20,
-            blank=False,
-            # validators=[cellphone_regex],
-            verbose_name="Celular",
-            help_text="O número deve ser cadastrado da seguinte forma:\
-                    (DD)9-9999-9999"
-    )
-
-    phone = models.CharField(
-            max_length=20,
-            blank=False,
-            # validators=[phone_regex],
-            verbose_name="Telefone",
-            help_text="O número deve ser cadastrado da seguinte forma:\
-                    (DD)9999-9999"
->>>>>>> feature(contact-backend): remove phone validators
     )
 
     adress = models.CharField(
@@ -89,7 +71,6 @@ class Contact(models.Model):
     )
 
     last_update = models.DateTimeField(
-<<<<<<< HEAD
         auto_now=False,
         verbose_name="Última atualização"
     )
@@ -105,22 +86,6 @@ class Contact(models.Model):
         'Tag',
         verbose_name="Tag"
     )
-=======
-            auto_now=True,
-            verbose_name="Última atualização"
-    )
-
-    status = models.CharField(
-            max_length=8,
-            choices=STATUS_CHOICES,
-            default=ACTIVE,
-            verbose_name="Status",            
-    )
-
-    tag = models.ManyToManyField('Tag',
-            verbose_name="Tag",
-            related_name="tags")
->>>>>>> feature(contact-backend): remove phone validators
 
     class Meta:
         verbose_name = "Contato"
@@ -144,7 +109,6 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-<<<<<<< HEAD
 
 class Call (models.Model):
     RECEBIDA = 'RC'
@@ -157,10 +121,7 @@ class Call (models.Model):
         ('NAO_ATENDIDA', 'Não Atendida'),
         ('ABANDONADA', 'Abandonada'),
     )
-=======
->>>>>>> feature(contact-backend): remove phone validators
 
-class Call(models.Model):
     call_id = models.AutoField(
         primary_key=True,
         verbose_name="Número da Ligação"
