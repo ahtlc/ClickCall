@@ -61,14 +61,17 @@ class CallFactory(factory.django.DjangoModelFactory):
 
 def create():
     print('Tags:')
+    tagV = ['pessoa', 'empresa', 'socio']
     if(len(Tag.objects.all())==0):
-        tag = TagFactory.create()
-        print(tag)
+        for i in range(3):
+            tag = Tag()
+            tag.name = tagV[i]
+            tag.save()
+
     else:
         print('tag ja criada')
     print('Contatos:')
     for i in range(10):
-        print('i')
         contact = ContactFactory.create(tags = factory.Iterator(models.Tag.objects.all()))
         print(contact)
     print('Assuntos:')
@@ -79,4 +82,4 @@ def create():
     for i in range(200):
         created = CallFactory.create(subjects = factory.Iterator(models.Subject.objects.all()))
         print(created.date)
-    return HttpResponse("Seu banco de dados está populado por XxAvengeDxX - Marquinho Hacker")
+    return HttpResponse("Seu banco de dados está populado por XxAvengeDxX(add la no lol) - Marquinho Hacker")
