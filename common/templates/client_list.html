@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+   
+{% endblock links %}
+
+{% block title %}
+    Lista de Clientes
+{% endblock title %}
+
+{% block content %}
+    <table style="text-align: center">
+        <tr style="background-color:lightslategray;">
+            <th>Tags</th>
+            <th>Nome Do contato</th>
+            <th>Número</th>
+            <th>Status</th>
+            <th>Última Atualização</th>
+            <th>Email</th>
+        </tr>
+        {% for client in object_list %}
+            <tr style="background-color:lightgray;">
+                <td>
+                    {% for tag in client.tag.all %}
+                        {{tag.name}}
+                    {% endfor %}
+                </td>
+                <td>
+                    {{client.name}}
+                </td>
+                <td>
+                    {{client.cellphone}}
+                </td>
+                <td>
+                    {{client.status}}
+                </td>
+                <td>
+                    {{client.last_update | date:"d/m/Y - H:i"}}h
+                </td>
+                <td>
+                    {{client.email}}
+                </td>
+            </tr>
+        {% empty %}
+        {% endfor %}
+    </table>
+
+    {% if is_paginated %}
+    <ul class="pagination">
+    {% if page_obj.has_previous %}
+        <li>
+            <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+        </li>
+    {% endif %}
+        <li class="">
+            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+        </li>
+    {% if page_obj.has_next %}
+        <li>
+            <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+        </li>
+    {% endif %}
+    </ul>
+    {% else %}
+        <h3>Your File Exam</h3>
+        <p>File not yet available</p>
+    {% endif %}
+
+
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %} 
