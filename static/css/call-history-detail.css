@@ -4,7 +4,7 @@ body{
     justify-content: center;
 }
 .container-detail{
-    display: flex;
+    display: none;
     justify-content: space-around;
     /* width: 95.6%; */
     background-color: #EFEFEF;
@@ -12,7 +12,7 @@ body{
     font-family: 'Work Sans', sans-serif;
     height: 197px;
     flex-wrap: wrap;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 .information{
     display: flex;

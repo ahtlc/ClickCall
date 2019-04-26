@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/call-history.css' %}" />
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/fontello.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700" rel="stylesheet">
-    <script src="{% static 'js/change-indicator.js' %}"></script>
+    
 </head>
 <body>
     <div class="container">
@@ -29,7 +29,7 @@
                 <th class="status">Status</th>
             </tr>
             {% for call in calls %}
-                <tr onclick="location.href = '{% url 'activities:schedule_detail' call.pk %}'">
+                <tr id="call-{{call.pk}}" onclick="showDetail()" class="table-row">
                     <td>{{call.contact.name | title}}</td>
                     <td>{{call.date | date:'d/m/y'}} - {{call.hour}}h</td>
                     <td class="last-contact-cell">
@@ -41,14 +41,25 @@
                     <td class="status-busy">{{call.status|lower|title}}</td>
                     
                 </tr>
-            {% endfor %}
-           
-        </table>
-        {% include "call-history-detail.html" %}
-        {% include "history-agenda.html" %}
-        
-
+                {% endfor %}
+                
+            </table>
+            
+            
+            
+            {% include "call-history-detail.html" %}
     </div>
-    
+    {% include "history-agenda.html" %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/change-indicator.js' %}"></script>
+    <script src="{% static 'js/show-detail.js' %}"></script>
+    <script> 
+        $(document).ready(function(){
+          $(".table-row").click(function(){
+            $(".container-detail").slideToggle("slow");
+            $(".container-detail").css("display", "flex");
+          });
+        });
+    </script>
 </body>
 </html>

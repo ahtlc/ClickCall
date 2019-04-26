@@ -10,7 +10,7 @@
     {% endblock %}
 
     {% block content %}
-    <div class="container-detail">
+    <div class="container-detail" id="container-detail-a">
         <div class="information">
             <span class="company-name">Nome da Empresa</span>
             <span class="basic-information">Telefone:(81) X XXXX-XXXX</span>
@@ -43,5 +43,6 @@
             </div>
         </div>
     </div>
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
+    <script src="{% static 'js/show-detail.js' %}"></script>
     {% endblock %}
