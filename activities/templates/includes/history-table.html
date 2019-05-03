@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+    <div class="title-and-search">
+        <div class="title">Agenda</div>
+        <div class="search">
+            <input class="input-search">
+            <button type="submit"></button>
+        </div>
+    </div>
+    <table class="table2">
+        <tr>
+            <th class="contact">Contato</th>
+            <th class="date-hour">Data/Hora</th>
+            <th class="last-contact-table">Último Contato</th>
+            <th class="value">Valor</th>
+            <th class="status">Status</th>
+        </tr>
+        {% for call in calls %}
+            <tr id="call-{{call.pk}}" onclick="showDetail()" class="table-row">
+                <td>{{call.contact.name | title}}</td>
+                <td>{{call.date | date:'d/m/y'}} - {{call.hour}}h</td>
+                <td class="last-contact-cell">
+                    <button id="call-1"  onclick="changeIndicator('call', '1')"><i class="icon-call"></i></button>
+                    <button id="pay-1" onclick="changeIndicator('pay', '1')"><i class="icon-pay"></i></button>
+                    <button id="email-1" onclick="changeIndicator('email', '1')"><i class="icon-email"></i></button>
+                </td>
+                <td>R$ {{call.value}}</td>
+                <td class="status-busy">{{call.status|lower|title}}</td>
+                
+            </tr>
+            {% endfor %}
+            
+        </table>
+        
+        
+        
+        {% include "call-history-detail.html" %}
+</div>
+{% endblock %}
