@@ -13,8 +13,10 @@ from django.urls import reverse_lazy
 
 import datetime
 
-class TestView(generic.TemplateView):
-    template_name = "call-history.html"
+
+class ClientsView(generic.TemplateView):
+    template_name = "clients.html"
+
 
 class GetTotalCallsView(generic.View):
     def get(self, request, *args, **kwargs):
@@ -122,7 +124,6 @@ class HistoryActivitiesView(generic.ListView):
             'yesterday_calls': self.yesterday_calls
         })
         return context
-
 
 class ContactRegisterView(CreateView):
     model = Contact
