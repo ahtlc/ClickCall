@@ -7,8 +7,13 @@ from calls.models import Call
 from activities.objects import Year
 import datetime
 
-class TestView(generic.TemplateView):
-    template_name = "call-history.html"
+
+class ClientsView(generic.TemplateView):
+    template_name = "clients.html"
+
+    def get(self, request, *args, **kwargs):
+        pass
+
 
 class GetTotalCallsView(generic.View):
     def get(self, request, *args, **kwargs):
