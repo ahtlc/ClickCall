@@ -11,9 +11,6 @@ import datetime
 class ClientsView(generic.TemplateView):
     template_name = "clients.html"
 
-    def get(self, request, *args, **kwargs):
-        pass
-
 
 class GetTotalCallsView(generic.View):
     def get(self, request, *args, **kwargs):
