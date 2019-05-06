@@ -23,6 +23,7 @@ class PopulateView(generic.View):
     def get(self, request, *args, **kwargs):
         return create()
 
+
 class GetTotalCallsView(generic.View):
     def get(self, request, *args, **kwargs):
         wish = request.GET.get('filterby')
@@ -32,6 +33,7 @@ class GetTotalCallsView(generic.View):
             return HttpResponse(self.monthly())
         if(wish == 'daily'):
             return HttpResponse(self.daily())
+
     def yearly(self, *args, **kwargs):
         json_response = []
         this_year = datetime.datetime.now().year
@@ -48,6 +50,7 @@ class GetTotalCallsView(generic.View):
             year_object['not_answered'] = this_year_calls.filter(status='NAO_ATENDIDA').count()
             json_response.append(year_object)
         return simplejson.dumps(json_response)
+
     def monthly(self, *args, **kwargs):
         json_response = []
         this_year = datetime.datetime.now().year
@@ -73,15 +76,17 @@ class GetTotalCallsView(generic.View):
                 month-=1
             count+=1
         return simplejson.dumps(json_response)
+    
     def daily(self, *args, **kwargs):
         today = datetime.datetime.now()
         days_ago = today - datetime.timedelta(days=31)
         days_and_months = []
         end_loop_date = today + datetime.timedelta(days=1)
-        while(days_ago.day != end_loop_date.day or days_ago.month!=end_loop_date.month):
+
+        while(days_ago.day != end_loop_date.day or days_ago.month != end_loop_date.month):
             days_and_months.append({
                 'day': days_ago.day,
-                'month':days_ago.month,
+                'month': days_ago.month,
                 'year': days_ago.year
             })
             days_ago = days_ago + datetime.timedelta(days=1)
@@ -130,7 +135,7 @@ class HistoryActivitiesView(generic.ListView):
         })
         return context
 
-      
+
 class ContactRegisterView(CreateView):
     model = Contact
     template_name = 'new_contact.html'
@@ -142,7 +147,7 @@ class ContactRegisterView(CreateView):
         # ipdb.set_trace()
         return super(ContactRegisterView, self).form_valid(form)
 
-    def form_invalid(self,form):
+    def form_invalid(self, form):
         # import ipdb
         # ipdb.set_trace()
         return super(ContactRegisterView, self).form_invalid(form)
