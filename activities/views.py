@@ -5,6 +5,12 @@ from django.shortcuts import render
 from django.views import generic
 from calls.models import Call
 from activities.objects import Year
+
+from calls.models import Contact
+from .forms import ContactForm
+from django.views. generic import CreateView
+from django.urls import reverse_lazy
+
 import datetime
 
 
@@ -118,3 +124,19 @@ class HistoryActivitiesView(generic.ListView):
             'yesterday_calls': self.yesterday_calls
         })
         return context
+
+class ContactRegisterView(CreateView):
+    model = Contact
+    template_name = 'new_contact.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('activities:contact_new')
+
+    def form_valid(self, form):
+        # import ipdb
+        # ipdb.set_trace()
+        return super(ContactRegisterView, self).form_valid(form)
+
+    def form_invalid(self,form):
+        # import ipdb
+        # ipdb.set_trace()
+        return super(ContactRegisterView, self).form_invalid(form)
