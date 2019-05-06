@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.views import generic
 from calls.models import Call
 from activities.objects import Year
+from activities.factory import create
 
 from calls.models import Contact
 from .forms import ContactForm
@@ -17,6 +18,10 @@ import datetime
 class ClientsView(generic.TemplateView):
     template_name = "clients.html"
 
+
+class PopulateView(generic.View):
+    def get(self, request, *args, **kwargs):
+        return create()
 
 class GetTotalCallsView(generic.View):
     def get(self, request, *args, **kwargs):
@@ -33,6 +38,7 @@ class GetTotalCallsView(generic.View):
         for year in range(this_year, this_year-10,-1):
             year_object = {}
             this_year_calls = Call.objects.filter(date__year=year)
+            import ipdb ; ipdb.set_trace()
             number_of_calls = this_year_calls.count()
             year_object['year'] = year
             year_object['calls'] = number_of_calls
@@ -49,7 +55,6 @@ class GetTotalCallsView(generic.View):
         count = 0
         month = this_month
         year = this_year
-        import ipdb; ipdb.set_trace()
         while(count!=13):
             month_object = {}
             if(month == 0):
@@ -125,6 +130,7 @@ class HistoryActivitiesView(generic.ListView):
         })
         return context
 
+      
 class ContactRegisterView(CreateView):
     model = Contact
     template_name = 'new_contact.html'
