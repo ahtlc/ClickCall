@@ -12,23 +12,23 @@ class Contact(models.Model):
         ('INACTIVE', 'Inativo'),
     )
 
-    cellphone_regex = RegexValidator(
-        regex=r'^\(\d{2}\)\d{1}-\d{4}-\d{4}$',
-        message="O número deve ser cadastrado da seguinte forma:\
-                (DD)9-9999-9999"
-    )
+    # cellphone_regex = RegexValidator(
+    #     regex=r'^\(\d{2}\)\d{1}-\d{4}-\d{4}$',
+    #     message="O número deve ser cadastrado da seguinte forma:\
+    #             (DD)9-9999-9999"
+    # )
 
-    phone_regex = RegexValidator(
-        regex=r'^\(\d{2}\)\d{4}-\d{4}$',
-        message="O número deve ser cadastrado da seguinte forma:\
-                (DD)9999-9999"
-    )
+    # phone_regex = RegexValidator(
+    #     regex=r'^\(\d{2}\)\d{4}-\d{4}$',
+    #     message="O número deve ser cadastrado da seguinte forma:\
+    #             (DD)9999-9999"
+    # )
 
-    email_regex = RegexValidator(
-        regex=r'^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$',
-        message="O email deve ser cadastrado da seguinte forma:\
-                 email@email.com"
-    )
+    # email_regex = RegexValidator(
+    #     regex=r'^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$',
+    #     message="O email deve ser cadastrado da seguinte forma:\
+    #              email@email.com"
+    # )
 
     name = models.CharField(
         max_length=256,
@@ -45,24 +45,17 @@ class Contact(models.Model):
     email = models.EmailField(
         max_length=256,
         blank=False,
-        validators=[email_regex],
         verbose_name="Email"
     )
 
     cellphone = models.CharField(
         max_length=20,
-        validators=[cellphone_regex],
         verbose_name="Celular",
-        help_text="O número deve ser cadastrado da seguinte forma:\
-                  (DD)9-9999-9999"
     )
 
     phone = models.CharField(
         max_length=20,
-        validators=[phone_regex],
         verbose_name="Telefone",
-        help_text="O número deve ser cadastrado da seguinte forma:\
-                (DD)9999-9999"
     )
 
     adress = models.CharField(
@@ -72,6 +65,7 @@ class Contact(models.Model):
 
     last_update = models.DateTimeField(
         auto_now=False,
+        default=datetime.datetime.now,
         verbose_name="Última atualização"
     )
 
@@ -191,7 +185,6 @@ class Call (models.Model):
         decimal_places=2,
         verbose_name="Valor"
     )
-
 
     class Meta:
         verbose_name = "Chamada"

@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body{
+    font-family: 'Work Sans', sans-serif;
+}
+
 .new-contact-title{
     text-align: center;
     font-size: 1.9rem;
