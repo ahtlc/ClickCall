@@ -53,6 +53,13 @@ e iniciar o servidor de desenvolvimento com
 python manage.py runserver
 ``` 
 
+## Populando o DB:
+* Rode o projeto e vá para a url:
+```
+localhost:8000/activities/populate-db/
+```
+* Aguarde pois o processo demora. Quando o povoamento terminar, irá aparecer uma mensagem no browser.
+
 ## Realizando Deploy
 ### Heroku
 Para realizar deploy na Heroku, basta criar um novo app, configurar as mesmas variáveis de ambiente na aba `settings`, colocando também a variável `DJANGO_SETTINGS_MODULE` com valor `clickcall.settings.production` e associar a este repositório na aba de `deploy`.

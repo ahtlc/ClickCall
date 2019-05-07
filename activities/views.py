@@ -6,6 +6,7 @@ from django.views import generic
 from django.views.generic import DetailView
 from calls.models import Call
 from activities.objects import Year
+from activities.factory import create
 
 from calls.models import Contact
 from .forms import ContactForm
@@ -19,6 +20,11 @@ class ClientsView(generic.TemplateView):
     template_name = "clients.html"
 
 
+class PopulateView(generic.View):
+    def get(self, request, *args, **kwargs):
+        return create()
+
+
 class GetTotalCallsView(generic.View):
     def get(self, request, *args, **kwargs):
         wish = request.GET.get('filterby')
@@ -28,12 +34,14 @@ class GetTotalCallsView(generic.View):
             return HttpResponse(self.monthly())
         if(wish == 'daily'):
             return HttpResponse(self.daily())
+
     def yearly(self, *args, **kwargs):
         json_response = []
         this_year = datetime.datetime.now().year
         for year in range(this_year, this_year-10,-1):
             year_object = {}
             this_year_calls = Call.objects.filter(date__year=year)
+            import ipdb ; ipdb.set_trace()
             number_of_calls = this_year_calls.count()
             year_object['year'] = year
             year_object['calls'] = number_of_calls
@@ -43,6 +51,7 @@ class GetTotalCallsView(generic.View):
             year_object['not_answered'] = this_year_calls.filter(status='NAO_ATENDIDA').count()
             json_response.append(year_object)
         return simplejson.dumps(json_response)
+
     def monthly(self, *args, **kwargs):
         json_response = []
         this_year = datetime.datetime.now().year
@@ -50,7 +59,6 @@ class GetTotalCallsView(generic.View):
         count = 0
         month = this_month
         year = this_year
-        import ipdb; ipdb.set_trace()
         while(count!=13):
             month_object = {}
             if(month == 0):
@@ -69,15 +77,17 @@ class GetTotalCallsView(generic.View):
                 month-=1
             count+=1
         return simplejson.dumps(json_response)
+    
     def daily(self, *args, **kwargs):
         today = datetime.datetime.now()
         days_ago = today - datetime.timedelta(days=31)
         days_and_months = []
         end_loop_date = today + datetime.timedelta(days=1)
-        while(days_ago.day != end_loop_date.day or days_ago.month!=end_loop_date.month):
+
+        while(days_ago.day != end_loop_date.day or days_ago.month != end_loop_date.month):
             days_and_months.append({
                 'day': days_ago.day,
-                'month':days_ago.month,
+                'month': days_ago.month,
                 'year': days_ago.year
             })
             days_ago = days_ago + datetime.timedelta(days=1)
@@ -135,6 +145,7 @@ class HistoryActivitiesView(generic.ListView):
         })
         return context
 
+
 class ContactRegisterView(CreateView):
     model = Contact
     template_name = 'new_contact.html'
@@ -146,7 +157,7 @@ class ContactRegisterView(CreateView):
         # ipdb.set_trace()
         return super(ContactRegisterView, self).form_valid(form)
 
-    def form_invalid(self,form):
+    def form_invalid(self, form):
         # import ipdb
         # ipdb.set_trace()
         return super(ContactRegisterView, self).form_invalid(form)

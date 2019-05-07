@@ -1,5 +1,4 @@
 from django.urls import path
-from . import views
 from .views import (
         ClientsView,
         HistoryActivitiesView,
@@ -7,6 +6,7 @@ from .views import (
         ScheduleView,
         ScheduleDetailView,
         ContactRegisterView,
+        PopulateView,
 )
 
 app_name = 'activities'
@@ -18,4 +18,6 @@ urlpatterns = [
     path('schedule/', ScheduleView.as_view(), name="schedule"),
     path('schedule/<int:pk>', ScheduleDetailView.as_view(), name="schedule_detail"),
     path('contact_new/', ContactRegisterView.as_view(), name="contact_new")
+    path('populate-db/', PopulateView.as_view(), name="populate-db"),
+    path('contact_new/', ContactRegisterView.as_view(), name="contact_new"),
 ]
