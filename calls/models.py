@@ -86,7 +86,7 @@ class Contact(models.Model):
         verbose_name_plural = "Contatos"
 
     def __str__(self):
-        return self.name
+        return self.name.capitalize()
 
 
 class Tag(models.Model):
@@ -101,7 +101,7 @@ class Tag(models.Model):
         verbose_name_plural = "Tags"
 
     def __str__(self):
-        return self.name
+        return self.name.capitalize()
 
 
 class Call (models.Model):
@@ -109,11 +109,17 @@ class Call (models.Model):
     ATENDIDA = 'AT'
     NAO_ATENDIDA = 'NA'
     ABANDONADA = 'AB'
+    OCUPADO = 'BU'
+    EM_PROGRESSO = 'IN'
+    PENDENTE = 'PN'
     STATUS_CHOICES = (
         ('RECEBIDA', 'Recebida'),
         ('ATENDIDA', 'Atendida'),
         ('NAO_ATENDIDA', 'Não Atendida'),
         ('ABANDONADA', 'Abandonada'),
+        ('OCUPADO', 'Ocupado'),
+        ('EM PROGRESSO', 'Em Progresso'),
+        ('PENDENTE', 'Pendente'),
     )
 
     call_id = models.AutoField(
@@ -163,10 +169,21 @@ class Call (models.Model):
         verbose_name="Data da Ligação"
     )
     status = models.CharField(
-        max_length=12,
-        choices=STATUS_CHOICES,
-        default=RECEBIDA,
-        verbose_name="Status"
+        max_length = 12, 
+        choices = STATUS_CHOICES, 
+        default = RECEBIDA, 
+        verbose_name = "Status"
+    )
+
+    hour = models.TimeField(
+        default=datetime.time,
+        verbose_name= "Hora da Ligação"
+    )
+    value = models.DecimalField(
+        default=0,
+        max_digits=8,
+        decimal_places=2,
+        verbose_name="Valor"
     )
 
     class Meta:
@@ -174,10 +191,9 @@ class Call (models.Model):
         verbose_name_plural = "Chamadas"
 
     def __str__(self):
-        return self.contact.name + " " + datetime.datetime.strftime(
+        return self.contact.name.capitalize() + " " + datetime.datetime.strftime(
             self.contact.last_update, "%d/%m/%Y"
         )
-
 
 class Subject(models.Model):
     name = models.CharField(
@@ -191,4 +207,4 @@ class Subject(models.Model):
         verbose_name_plural = "Assuntos"
 
     def __str__(self):
-        return self.name
+        return self.name.capitalize()

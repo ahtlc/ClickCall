@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic import DetailView
 from calls.models import Call
 from activities.objects import Year
 from activities.factory import create
@@ -102,6 +103,15 @@ class GetTotalCallsView(generic.View):
             day_object['not_answered'] = day_calls.filter(status='NAO_ATENDIDA').count()
             json_response.append(day_object)
         return simplejson.dumps(json_response)
+
+class ScheduleView(generic.ListView):
+    model = Call
+    template_name = "call-history.html"
+    context_object_name = 'calls'
+
+class ScheduleDetailView(DetailView):
+    model = Call
+    template_name = "call-history-detail.html"
 
 
 class HistoryActivitiesView(generic.ListView):
