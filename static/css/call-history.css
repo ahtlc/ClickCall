@@ -42,12 +42,20 @@
     cursor: pointer;
     outline: none;
 }
+
+.extern{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20vw;
+    padding-top: 10vh;
+}
+
 .container{
     display: flex;
     /* align-items: center; */
     /* min-height: 100vh; */
     flex-direction: column;
-    /* width: 65%; */
+    width: 70vw;
     padding: 10px;
 }
 table{

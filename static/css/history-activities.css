@@ -1,10 +1,13 @@
 .history{
     color:#4D4D4D;
     padding:10px;
+    width: 70vw;
+    margin-top: 10vh;
 }
 .history h1{
     font-weight: 100;
     margin-top: 5px;
+    margin-left:10px;
 }
 .button-expand{
     border:none;
