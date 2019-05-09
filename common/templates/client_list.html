@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "app.html" %}
 
 {% load static %}
 
@@ -11,7 +11,7 @@
     Lista de Clientes
 {% endblock title %}
 
-{% block content %}
+{% block app_content %}
     <div class="content">
         <div class="client-header">
             <div>
@@ -102,7 +102,7 @@
         {% endif %}
 
     </div>
-{% endblock content %}
+{% endblock app_content %}
 
 {% block scripts %}
 {% endblock scripts %} 
