@@ -17,7 +17,7 @@ urlpatterns = [
     path('getdata/', GetTotalCallsView.as_view(), name="getdata"),
     path('schedule/', ScheduleView.as_view(), name="schedule"),
     path('schedule/<int:pk>', ScheduleDetailView.as_view(), name="schedule_detail"),
-    path('contact_new/', ContactRegisterView.as_view(), name="contact_new")
+    path('contact_new/', ContactRegisterView.as_view(), name="contact_new"),
     path('populate-db/', PopulateView.as_view(), name="populate-db"),
     path('contact_new/', ContactRegisterView.as_view(), name="contact_new"),
 ]
