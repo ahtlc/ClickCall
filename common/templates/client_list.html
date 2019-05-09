@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+
 {% load static %}
 
 {% block links %}
-   
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/client-list.css' %}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 {% endblock links %}
 
 {% block title %}
@@ -10,64 +12,96 @@
 {% endblock title %}
 
 {% block content %}
-    <table style="text-align: center">
-        <tr style="background-color:lightslategray;">
-            <th>Tags</th>
-            <th>Nome Do contato</th>
-            <th>Número</th>
-            <th>Status</th>
-            <th>Última Atualização</th>
-            <th>Email</th>
-        </tr>
-        {% for client in object_list %}
-            <tr style="background-color:lightgray;">
-                <td>
-                    {% for tag in client.tag.all %}
-                        {{tag.name}}
-                    {% endfor %}
-                </td>
-                <td>
-                    {{client.name}}
-                </td>
-                <td>
-                    {{client.cellphone}}
-                </td>
-                <td>
-                    {{client.status}}
-                </td>
-                <td>
-                    {{client.last_update | date:"d/m/Y - H:i"}}h
-                </td>
-                <td>
-                    {{client.email}}
-                </td>
+    <div class="content">
+        <div class="client-header">
+            <div>
+                <h2>Lista de clientes</h2>
+                <i class="fas fa-plus-circle"></i>
+            </div>
+            <form class="fitrar-clientes" method="GET" name="filter-clients">
+                {% csrf_token %}
+                <select name="filter-by">
+                    <option value="name">
+                        Filtrar por nome
+                    </option>
+                    <option value="tag">
+                        Filtrar por tag
+                    </option>
+                </select>
+                <div class='button-holder'>
+                    <input type='text' placeholder='Search...' class='search-text-input' name="search"/>
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <table class="client-table" cellspacing="0">
+            <tr>
+                <th>Tags</th>
+                <th>Nome do contato</th>
+                <th>Status</th>
+                <th>Número</th>
+                <th>Última atualização</th>
+                <th>Email</th>
+                <th class="right-table"></th>
             </tr>
-        {% empty %}
-        {% endfor %}
-    </table>
+            {% for client in object_list %}
+                <tr class="data-row">
+                    <td>
+                        {% for tag in client.tag.all %}
+                            {{tag.name}}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {{client.name}}
+                    </td>
+                    <td>
+                        {% if client.status == 'INACTIVE' %}
+                            <p class="client-inactive">Inativo</p>
+                        {% else %}
+                            <p class="client-active">Ativo</p>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{client.cellphone}}
+                    </td>
+                    <td>
+                        {{client.last_update | date:"d/m/Y - H:i"}}h
+                    </td>
+                    <td>
+                        {{client.email}}
+                    </td>
+                    <td class="right-table">
+                        <img class="call-icons" src="{% static 'img/call.png' %}">
+                    </td>
+                </tr>
+            {% empty %}
+            {% endfor %}
+        </table>
 
-    {% if is_paginated %}
-    <ul class="pagination">
-    {% if page_obj.has_previous %}
-        <li>
-            <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
-        </li>
-    {% endif %}
-        <li class="">
-            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
-        </li>
-    {% if page_obj.has_next %}
-        <li>
-            <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
-        </li>
-    {% endif %}
-    </ul>
-    {% else %}
-        <h3>Your File Exam</h3>
-        <p>File not yet available</p>
-    {% endif %}
+        {% if is_paginated %}
+        <ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li>
+                <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+            </li>
+        {% endif %}
+            <li class="">
+                <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+            </li>
+        {% if page_obj.has_next %}
+            <li>
+                <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+            </li>
+        {% endif %}
+        </ul>
+        {% else %}
+            <h3>Your File Exam</h3>
+            <p>File not yet available</p>
+        {% endif %}
 
-
+    </div>
 {% endblock content %}
 
 {% block scripts %}

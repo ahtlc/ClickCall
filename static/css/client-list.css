@@ -1,0 +1,134 @@
+.content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 60px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.client-table{
+    background-color: #DFDFDF;
+    border: 1px solid #EFEFEF;
+    color: #4D4D4D;
+}
+
+tr{
+    text-align: center;
+}
+
+th{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #EFEFEF;
+    font-weight: 100;
+}
+
+th,td{
+    border-right: 1px solid #DFDFDF;
+}
+
+td{
+    background-color:#FFFFFF;
+    border-bottom: 1px solid #DFDFDF;
+    padding:8px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.right-table{
+    border-right: 0;
+}
+
+.call-icons{
+    width: 26px;
+    height: 26px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.client-inactive{
+    margin:0;
+    color:#F03B3B;
+}
+.client-active{
+    margin:0;
+    color:#4ABE57;
+}
+
+.client-header{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.client-header div,.client-header form{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.client-header h2{
+    font-weight: 100;
+    color:#4D4D4D;
+    margin:0;
+    margin-right: 30px;
+}
+
+.client-header i{
+    color:#27B2FF;
+    font-size: 1.5em;
+    margin-top: auto;
+    margin-block-end: auto;
+}
+
+.data-row:hover td{
+    background-color: #E5F6FF;
+}
+
+.fitrar-clientes{
+    font-family: 'Work Sans', sans-serif;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fitrar-clientes select{
+    border:1px solid #AAAAAA;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    color: #4D4D4D;
+}
+
+.search-text-input{
+    float:left;
+    height:17px;
+    outline:0;
+    padding:.4em 0 .3em .6em;
+    border:none;
+}
+  
+.button-holder{
+    cursor:pointer;
+    float:left;
+    height:27px;
+    text-align:center;
+    border-bottom: 1px solid #AAAAAA;
+    margin-left: 10px;
+    color: #AAAAAA;
+}
+
+.button-holder button{
+    border:none;
+    background-color: transparent;
+    cursor: pointer;   
+    padding: 0; 
+}
+  
+.button-holder i{
+    margin:4px;
+    width:20px;
+    padding-bottom:0.3em;
+    font-size: 1.1em;
+    color: #AAAAAA;
+}
