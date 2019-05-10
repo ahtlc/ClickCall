@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="history">    
     <h1>Histórico de Atividades</h1>
     <button id="today-expand" class="button-expand" onclick="expandHistory('today')">
         Hoje, {{today.day}}/{{today.month}}/{{today.year}}
@@ -110,5 +111,5 @@
             Nenhuma ligação foi realizada ontem.
         {% endfor %}
     </div>
-    <script src="{% static 'js/history-activities.js' %}"></script>
+</div>
 {% endblock %}
