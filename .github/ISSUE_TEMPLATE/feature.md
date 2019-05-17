@@ -1,8 +1,8 @@
 ---
-name: Feature
+name: Front-end
 about: Uma nova funcionalidade
 title: ''
-labels: Feature
+labels: front-end
 assignees: ''
 
 ---
@@ -13,5 +13,5 @@ Fale um pouco sobre o que é necessário fazer
 **Referências Úteis**
 Bibliotecas, artigos e outras coisas que podem ajudar
 
-**Mockup (Opcional)**
+**Mockup**
 Insira aqui screenshots do mockup se disponível
