@@ -24,7 +24,9 @@
                  {% if request.path == '/activities/metrics' %}
                      navbar-item-active 
                  {% endif %}"/>
-                    Métricas do Sistema
+                    <a href="{% url "activities:system_metrics" %}">
+                      Métricas do Sistema
+                    </a>
                 </div>
 
                 <div class="navbar-item-subitem

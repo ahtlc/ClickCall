@@ -22,6 +22,9 @@ class PopulateView(generic.View):
     def get(self, request, *args, **kwargs):
         return create()
 
+class SystemMetricsView(generic.TemplateView):
+    template_name = "system-metrics.html"
+
 
 class GetTotalCallsView(generic.View):
     """
