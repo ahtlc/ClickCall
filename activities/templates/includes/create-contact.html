@@ -83,10 +83,29 @@
         <label for="new-contact-tags">
             <span class="new-contact-number">7</span> Tag's <sup>(Max 3)</sup>
         </label>
-        <div data-name = "tags" class = "tags-input"></div>
-            {% render_field form.raw_tags name="tags" id="hidden-tag-input" %}
-            <!-- <input type="hidden" name="tags" id="hidden-tag-input" value="">        -->
-        </div>
+            <!-- Tags -->
+            <div id="contact-tags" class="tag-widget">
+                <div class="selected-tags">
+                    <button type="button" class="tag">cancelado</span>
+                    <button type="button" class="tag">pago</button>
+                </div>
+                
+                <button class="arrow" type="button">
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        width="24" 
+                        height="24" 
+                        viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                </button>
+                <div class="avaliable-tags">
+                    <button type="button" class="tag">cancelado</button>
+                    <button type="button" class="tag">pago</button>
+                    <button type="button" class="tag">não selecionado</button>
+                </div>
+            </div>
         <button type="submit" class="new-contact-submit"> Cadastrar </button>
     </form>
 </div>
