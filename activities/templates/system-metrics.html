@@ -8,11 +8,33 @@
 {% endblock %}
 
 {% block content %}
-  <canvas id="myChart"></canvas>
+  <section class="chart-section">
+    <div class="filter-selector">
+      <h2>Desempenho</h2>
+      <button onclick="filterChart('yearly')" id="yearly-filter" class="filter-button">
+        Anual
+      </button>
+      <button onclick="filterChart('monthly')" id="monthly-filter" class="filter-button">
+        Mensal
+      </button>
+      <button onclick="filterChart('daily')" id="daily-filter" class="filter-button">
+        Diário
+      </button>
+    </div>
+    <div style="width: 100%">
+      <div class="chart-header">
+        <p class="received-title">Recebidas</p>
+        <p class="answered-title">Atendidas</p>
+        <p class="not-answered-title">Não Atendidas</p>
+        <p class="declined-title">Abandonadas</p>
+      </div>
+      <canvas id="callChart" class="call-chart"></canvas>
+    </div>
+  </section>
 {% endblock %}  
 
 {% block scripts %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src = {% static 'js/Chart.min.js' %}></script>
   <script src = {% static 'js/system-metrics.js' %}></script>
-  <script src = {% static 'js/Chart.min.js' %}></script>
 {% endblock %}

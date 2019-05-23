@@ -1,0 +1,55 @@
+.chart-section{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+}
+
+.filter-button{
+    font-size: 1em;
+    border: none;
+    width: 100px;
+    background-color: transparent;
+    cursor: pointer;
+    color: #4D4D4D;
+    font-weight: 100;
+}
+.filter-button:focus{
+    outline: none;
+}
+.filter-selector{
+    display: flex;
+    justify-content: center;
+    color: #4D4D4D;
+}
+
+.filter-selector h2{
+    font-weight: 100;
+}
+
+.chart-header{
+    display: flex;
+    justify-content: space-around;
+}
+
+.chart-header .received-title{
+    color:#F8BD1D;
+    font-size: 0.9em;
+}
+
+.chart-header .answered-title{
+    color:#4ABE57;
+    font-size: 0.9em;
+}
+
+.chart-header .declined-title{
+    color:#F03B3B;
+    font-size: 0.9em;
+}
+
+.chart-header .not-answered-title{
+    color:#FF9F2F;
+    font-size: 0.9em;
+}

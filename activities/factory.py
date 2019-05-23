@@ -11,6 +11,7 @@ fake = Faker()
 
 import datetime
 STATUS_IDS = [x[0] for x in Contact.STATUS_CHOICES]
+
 class ContactFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Contact
@@ -40,6 +41,9 @@ class SubjectFactory(factory.django.DjangoModelFactory):
         model = Subject
     name = factory.fuzzy.FuzzyText(length=12)
 
+
+
+CALL_STATUS_IDS = [x[0] for x in Call.STATUS_CHOICES]
 class CallFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Call
@@ -50,6 +54,7 @@ class CallFactory(factory.django.DjangoModelFactory):
     contact = factory.Iterator(models.Contact.objects.all())
     notes = fake.text()
     date = factory.fuzzy.FuzzyDate(datetime.date(2009, 1, 1))
+    status = factory.fuzzy.FuzzyChoice(CALL_STATUS_IDS)
     @factory.post_generation
     def subjects(self, create, extracted, **kwargs):
         if not create:
