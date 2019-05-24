@@ -108,16 +108,6 @@ class ScheduleView(generic.ListView):
     model = Call
     template_name = "call-history.html"
     context_object_name = 'calls'
-
-class ScheduleDetailView(DetailView):
-    model = Call
-    template_name = "call-history-detail.html"
-
-
-class HistoryActivitiesView(generic.ListView):
-    template_name = "history-agenda.html"
-    model = Call
-    context_object_name = 'call'
     queryset = Call.objects.all()
 
     today = datetime.datetime.now()
@@ -136,7 +126,7 @@ class HistoryActivitiesView(generic.ListView):
     )
 
     def get_context_data(self, **kwargs):
-        context = super(HistoryActivitiesView, self).get_context_data(**kwargs)
+        context = super(ScheduleView, self).get_context_data(**kwargs)
         context.update({
             'today': self.today,
             'today_calls': self.today_calls,
@@ -145,6 +135,15 @@ class HistoryActivitiesView(generic.ListView):
         })
         return context
 
+class ScheduleDetailView(DetailView):
+    model = Call
+    template_name = "call-history-detail.html"
+
+
+class HistoryActivitiesView(generic.ListView):
+    template_name = "history-agenda.html"
+    model = Call
+    
 
 class ContactRegisterView(CreateView):
     model = Contact
