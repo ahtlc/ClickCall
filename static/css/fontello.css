@@ -55,11 +55,11 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-call:before { content: '\e801'; font-size:21px;} /* '' */
+.icon-call:before { content: '\e801';} /* '' */
 .icon-email-white-blue:before { content: '\e802'; } /* '' */
-.icon-pay:before { content: '\e803'; font-size:19px; } /* '' */
+.icon-pay:before { content: '\e803';} /* '' */
 .icon-trash-white:before { content: '\e807'; } /* '' */
 .icon-phone-blue:before { content: '\e808'; } /* '' */
-.icon-email:before { content: '\e809'; font-size:18px; } /* '' */
+.icon-email:before { content: '\e809';} /* '' */
 .icon-wait-call:before { content: '\e80c'; } /* '' */
 .icon-plus-button:before { content: '\e80d'; } /* '' */

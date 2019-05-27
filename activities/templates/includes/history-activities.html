@@ -1,6 +1,15 @@
 
 {% load static from staticfiles %}
-<div class="history">
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/history-activities.css' %}" >
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/fontello.css' %}" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+{% endblock %}
+
+{% block content %}
+<div class="history">    
     <h1>Histórico de Atividades</h1>
     <button id="today-expand" class="button-expand" onclick="expandHistory('today')">
         Hoje, {{today.day}}/{{today.month}}/{{today.year}}
@@ -101,5 +110,6 @@
         {% empty %}
             Nenhuma ligação foi realizada ontem.
         {% endfor %}
-    </div>    
+    </div>
 </div>
+{% endblock %}

@@ -8,6 +8,12 @@
     <link rel="stylesheet" href={% static 'css/base.css' %}>
     <link rel="stylesheet" href={% static 'css/toasty.min.css' %}>
     <link rel="stylesheet" href={% static 'css/navbar.css' %} media="all"/>    
+    {% block head %}
+    {% endblock head %}
+    
+    {% block css %}
+    {% endblock css %}
+
     {% block links %}
     {% endblock links %}
 

@@ -52,6 +52,21 @@ e iniciar o servidor de desenvolvimento com
 ```
 python manage.py runserver
 ``` 
+### PRs
+Em inglês, segundo o seguinte padrão:
+```markdown
+# Additions
+- add navbar
+- add color mixins
+# How to test?
+Open `locahost:8000/test` and see the styles
+```
+## Populando o DB:
+* Rode o projeto e vá para a url:
+```
+localhost:8000/activities/populate-db/
+```
+* Aguarde pois o processo demora. Quando o povoamento terminar, irá aparecer uma mensagem no browser.
 
 ## Realizando Deploy
 ### Heroku
