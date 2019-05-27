@@ -1,32 +1,45 @@
-/* --- --- */
-const tagWidget = $("contact-tags");
-
-/* --- Settings ---*/
+/* --- Settings and vars---*/
+const tags = document.querySelector('#contact-tags');
 const maxTags = 3; 
-const APIEndpoint = "/activities/api/tags/";
+const APIEndpoint = '/activities/api/tags/';
+const domSelectedTags = document.querySelector('#contact-tags > .selected-tags');
+const domAvaliableTags = document.querySelector('#contact-tags > .avaliable-tags');
+let editMode = false;
+let avaliableTags = [];
+let selectedTags = [];
+let selectedTagsNumber = 0;
 
-/* --- Lists ---*/
-const domSelectedTags = document.querySelector("#contact-tags > .selected-tags").children;
-const selectedTags = Array.prototype.map.call(domSelectedTags, tag => {
-    return tag.innerText;
-}); 
-
-const domAvaliableTags = document.querySelector("#contact-tags > .avaliable-tags").children;
-const avaliableTags = Array.prototype.map.call(domAvaliableTags, tag => {
-    return tag.innerText;
-}); 
+const updateTagLists = () => {
+    avaliableTags = Array.prototype.map.call(domAvaliableTags.children, tag => {
+        return tag.innerText;
+    }); 
+    selectedTags = Array.prototype.map.call(domSelectedTags.children, tag => {
+        return tag.innerText;
+    }); 
+}
 
 /* Changes the tag between selected and avaliable list */
 const toggleTag = (tagElement) => {
-    
-}
-
-/* 
- * Makes a AJAX GET request to get the tags list 
- * from the tags API endpoint and returns a list
- * with the parsed data
- */
-const getTagList = () => {
+    if(editMode === true){
+        if(tagElement.parentElement.classList.contains('avaliable-tags') == true
+           && tags.classList.contains('-blocked') == false){
+            domSelectedTags.append(tagElement);
+            selectedTagsNumber += 1;
+            
+            if(selectedTagsNumber == maxTags){
+                tags.classList.add('-blocked');
+            } 
+        } else{
+            if(tagElement.parentElement.classList.contains('selected-tags')){
+                domAvaliableTags.append(tagElement); 
+                selectedTagsNumber -= 1;
+                if(selectedTagsNumber < maxTags){
+                    tags.classList.remove('-blocked');
+                }
+            }
+        }
+        updateTagLists();
+    }
 }
 
 /*
@@ -34,12 +47,6 @@ const getTagList = () => {
  * lists locally.
  */
 const editTags = () => {
-}
-
-/* 
- * Makes a AJAX PUT with the updated content
- * to the tags API endpoint
- *
- */
-const saveModifications = () => {
+    tags.classList.toggle('-expanded');
+    editMode = !editMode;
 }
