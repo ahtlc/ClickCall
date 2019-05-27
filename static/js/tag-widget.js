@@ -16,6 +16,7 @@ const updateTagLists = () => {
     selectedTags = Array.prototype.map.call(domSelectedTags.children, tag => {
         return tag.innerText;
     }); 
+    document.querySelector("#contact-tags input[type=hidden]")["value"]=selectedTags.toString();
 }
 
 /* Changes the tag between selected and avaliable list */
