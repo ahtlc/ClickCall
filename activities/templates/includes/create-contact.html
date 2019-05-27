@@ -86,11 +86,9 @@
             <!-- Tags -->
             <div id="contact-tags" class="tag-widget">
                 <div class="selected-tags">
-                    <button type="button" class="tag">cancelado</span>
-                    <button type="button" class="tag">pago</button>
                 </div>
                 
-                <button class="arrow" type="button">
+                <button class="arrow" type="button" onclick="editTags()">
                     <svg 
                         xmlns="http://www.w3.org/2000/svg" 
                         width="24" 
@@ -101,11 +99,20 @@
                     </svg>
                 </button>
                 <div class="avaliable-tags">
-                    <button type="button" class="tag">cancelado</button>
-                    <button type="button" class="tag">pago</button>
-                    <button type="button" class="tag">não selecionado</button>
+                    {% for tag in tags %}
+                        <button type="button"
+                            class="tag"
+                            onclick="toggleTag(this)">
+                            {{tag.name}}
+                        </button>
+                    {% empty %}
+                        <div class="empty">
+                            Nenhuma tag foi registrada ainda
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
+            {% render_field form.raw_tags %}
         <button type="submit" class="new-contact-submit"> Cadastrar </button>
     </form>
 </div>
