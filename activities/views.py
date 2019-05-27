@@ -17,7 +17,7 @@ from calls.models import (
     Contact,
     Tag,
 )
-from .forms import ContactForm
+from .forms import ContactForm, CallSchedulingForm
 
 import datetime
 
@@ -203,3 +203,21 @@ class ClientsView(CreateView):
 
     def form_invalid(self, form):
         return super(ClientsView, self).form_invalid(form)
+        # import ipdb
+        # ipdb.set_trace()
+
+class CallSchedulingRegisterView(CreateView):
+    model = Call
+    template_name = 'call-scheduling.html'
+    form_class = CallSchedulingForm
+    success_url = reverse_lazy('activities:call-scheduling')
+
+    def form_valid(self, form):
+        # import ipdb
+        # ipdb.set_trace()
+        return super(CallSchedulingRegisterView, self).form_valid(form)
+
+    def form_invalid(self, form):
+        # import ipdb
+        # ipdb.set_trace()
+        return super(CallSchedulingRegisterView, self).form_invalid(form)
