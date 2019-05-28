@@ -11,28 +11,27 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 6vw; 
-    padding-right: 2vw;
-    width: 70vw;
+    margin-left: 6vw; 
+    margin-right: 51vw;
+    width: 25vw;
 }
 
 .call-icon {
     width: 3rem;
-    margin-right: 1vw;
+    margin-right: 2vw;
 }
 
 .pNumber {
-    left: 100px;
-    height: 3vh;
+    height: 4vh;
     width: 25vh;
     border-radius: 8px;
     border: 1px solid lightgray;
 }
 
 .call-btn {
-    margin-left: 1vw;
-    height: 4vh;
-    width: 4vw;
+    margin-left: 2vw;
+    height: 4.5vh;
+    width: 4.5vw;
     box-shadow: 0px 0px 0px transparent;
     text-shadow: 0px 0px 0px transparent;
 	border: none;
@@ -42,19 +41,17 @@
     font-size: 1rem;
     background-color: #27B2FF;
     border-radius: 20px;
-    transition: 0.4s;
+    transition: 0.2s;
 }
 
 .call-btn:hover {
     background-color: rgb(103, 202, 255);
 }
 
-.pause-call {
-    margin-left: 1vw;
-    width: 3rem;
+.logout-btn {
+    justify-content: end;
 }
 
-.logout-btn {
-    padding-left: 40vw;
-    justify-content: end;
+.logout-btn > img {
+    width: 2.5rem;
 }
