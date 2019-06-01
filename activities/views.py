@@ -3,7 +3,6 @@ from django.http import HttpResponse
 
 from django.shortcuts import render
 from django.views import generic
-from django.views.generic import DetailView
 from calls.models import Call
 from activities.objects import Year
 from activities.factory import create
@@ -16,16 +15,18 @@ from django.urls import reverse_lazy
 import datetime
 
 
-class ClientsView(generic.TemplateView):
-    template_name = "clients.html"
-
-
 class PopulateView(generic.View):
+    """
+    Populates de database
+    """
     def get(self, request, *args, **kwargs):
         return create()
 
 
 class GetTotalCallsView(generic.View):
+    """
+    Returns info about the calls in JSON format
+    """
     def get(self, request, *args, **kwargs):
         wish = request.GET.get('filterby')
         if(wish == 'yearly'):
@@ -36,12 +37,14 @@ class GetTotalCallsView(generic.View):
             return HttpResponse(self.daily())
 
     def yearly(self, *args, **kwargs):
+        """
+        Returns the calls grouped by year
+        """
         json_response = []
         this_year = datetime.datetime.now().year
-        for year in range(this_year, this_year-10,-1):
+        for year in range(this_year, this_year-10, -1):
             year_object = {}
             this_year_calls = Call.objects.filter(date__year=year)
-            import ipdb ; ipdb.set_trace()
             number_of_calls = this_year_calls.count()
             year_object['year'] = year
             year_object['calls'] = number_of_calls
@@ -53,18 +56,21 @@ class GetTotalCallsView(generic.View):
         return simplejson.dumps(json_response)
 
     def monthly(self, *args, **kwargs):
+        """
+        Returns the calls grouped by month
+        """
         json_response = []
         this_year = datetime.datetime.now().year
         this_month = datetime.datetime.now().month
         count = 0
         month = this_month
         year = this_year
-        while(count!=13):
+        while(count != 13):
             month_object = {}
             if(month == 0):
                 month = 12
-                year-=1
-            elif(month>=0):
+                year -= 1
+            elif(month >= 0):
                 month_object['month'] = month
                 month_object['year'] = year
                 month_calls = Call.objects.filter(date__year=year, date__month=month)
@@ -74,17 +80,22 @@ class GetTotalCallsView(generic.View):
                 month_object['declined'] = month_calls.filter(status='ABANDONADA').count()
                 month_object['not_answered'] = month_calls.filter(status='NAO_ATENDIDA').count()
                 json_response.append(month_object)
-                month-=1
-            count+=1
+                month -= 1
+            count += 1
         return simplejson.dumps(json_response)
-    
+
     def daily(self, *args, **kwargs):
+        """
+        Returns the calls grouped by day
+        """
         today = datetime.datetime.now()
         days_ago = today - datetime.timedelta(days=31)
         days_and_months = []
         end_loop_date = today + datetime.timedelta(days=1)
 
-        while(days_ago.day != end_loop_date.day or days_ago.month != end_loop_date.month):
+        while(days_ago.day != end_loop_date.day or
+              days_ago.month != end_loop_date.month):
+
             days_and_months.append({
                 'day': days_ago.day,
                 'month': days_ago.month,
@@ -92,10 +103,17 @@ class GetTotalCallsView(generic.View):
             })
             days_ago = days_ago + datetime.timedelta(days=1)
         json_response = []
+
         for search_date in days_and_months:
             day_object={}
             day_object['date'] = search_date
-            day_calls = Call.objects.filter(date__year=search_date['year'], date__month=search_date['month'],date__day=search_date['day'])
+
+            day_calls = Call.objects.filter(
+                date__year=search_date['year'],
+                date__month=search_date['month'],
+                date__day=search_date['day']
+            )
+
             day_object['calls'] = day_calls.count()
             day_object['received'] = day_calls.filter(status='RECEBIDA').count()
             day_object['answered'] = day_calls.filter(status='ATENDIDA').count()
@@ -103,6 +121,7 @@ class GetTotalCallsView(generic.View):
             day_object['not_answered'] = day_calls.filter(status='NAO_ATENDIDA').count()
             json_response.append(day_object)
         return simplejson.dumps(json_response)
+
 
 class ScheduleView(generic.ListView):
     model = Call
@@ -114,15 +133,15 @@ class ScheduleView(generic.ListView):
     yesterday = today - datetime.timedelta(days=1)
 
     today_calls = Call.objects.filter(
-            date__year=today.year,
-            date__month=today.month,
-            date__day=today.day
+        date__year=today.year,
+        date__month=today.month,
+        date__day=today.day
     )
 
     yesterday_calls = Call.objects.filter(
-            date__year=yesterday.year,
-            date__month=yesterday.month,
-            date__day=yesterday.day
+        date__year=yesterday.year,
+        date__month=yesterday.month,
+        date__day=yesterday.day
     )
 
     def get_context_data(self, **kwargs):
@@ -135,28 +154,26 @@ class ScheduleView(generic.ListView):
         })
         return context
 
-class ScheduleDetailView(DetailView):
-    model = Call
-    template_name = "call-history-detail.html"
-
 
 class HistoryActivitiesView(generic.ListView):
+    """
+    View to access the history of acitivities
+    """
     template_name = "history-agenda.html"
     model = Call
-    
 
-class ContactRegisterView(CreateView):
+
+class ClientsView(CreateView):
+    """
+    View to handles the clients
+    """
     model = Contact
-    template_name = 'new_contact.html'
+    template_name = 'clients.html'
     form_class = ContactForm
-    success_url = reverse_lazy('activities:contact_new')
+    success_url = reverse_lazy('activities:clients')
 
     def form_valid(self, form):
-        # import ipdb
-        # ipdb.set_trace()
-        return super(ContactRegisterView, self).form_valid(form)
+        return super(ClientsView, self).form_valid(form)
 
     def form_invalid(self, form):
-        # import ipdb
-        # ipdb.set_trace()
-        return super(ContactRegisterView, self).form_invalid(form)
+        return super(ClientsView, self).form_invalid(form)
