@@ -23,7 +23,7 @@
                 <div class="navbar-item-subitem
                  {% if request.path == '/activities/metrics' %}
                      navbar-item-active 
-                 {% endif %}"/>
+                 {% endif %}">
                     <a href="{% url "activities:system_metrics" %}">
                       Métricas do Sistema
                     </a>
@@ -32,7 +32,7 @@
                 <div class="navbar-item-subitem
                  {% if request.path == '/activities/ranking' %}
                      navbar-item-active 
-                 {% endif %}"/>
+                 {% endif %}">
                     Ranking dos Funcionários
                 </div>
             </div>
@@ -40,7 +40,7 @@
             <div class="navbar-item
                  {% if request.path == '/metas' %}
                      navbar-item-active 
-                 {% endif %}"/>
+                 {% endif %}">
                 <a href="#">
                     Metas
                 </a>
@@ -49,7 +49,7 @@
             <div class="navbar-item
                  {% if request.path == '/clients' %}
                      navbar-item-active 
-                 {% endif %}"/>
+                 {% endif %}">
                 <a href="#">
                     Clientes 
                 </a>
@@ -58,7 +58,7 @@
             <div class="navbar-item
             {% if request.path == '/users/profile' %}
                 navbar-item-active 
-            {% endif %}"/>
+            {% endif %}">
                 <a href="#">
                     Meu Perfil
                 </a>
@@ -67,7 +67,7 @@
             <div class="navbar-item
             {% if request.path == '/tutorials' %}
                 navbar-item-active 
-            {% endif %}"/>
+            {% endif %}">
                 <a href="#">
                     Treinamentos
                 </a>
@@ -75,7 +75,6 @@
         </div>
 
         <div class="column">
-            <!-- Simulate callbar -->
             <div class="callbar">
                 <div class="call-align">
                     <div class="call-items">
@@ -86,9 +85,9 @@
                     <a class="logout-btn" href={% url 'users:logout' %}>
                         <img src="{% static 'img/shut-down-icon.png' %}" alt="shut-down-icon">
                     </a>
-                    </div>
                 </div>
             </div>
+
             <div class="app-viewport">
                 {% block app_content %}
                 {% endblock %}
