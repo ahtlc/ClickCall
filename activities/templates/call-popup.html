@@ -1,0 +1,22 @@
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href = "{% static 'css/call-scheduling.css' %}">
+<link rel="stylesheet" type="text/css" href="../../static/datetimepicker-2.5.20/jquery.datetimepicker.css"/ >
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/call-popup.css' %}">
+{% endblock %}
+
+{% block content %}
+        
+    <div class = "popup">
+        <div class="new-call" method = "POST" autocomplete="off">
+            
+            <h1 class="new-call-title">Popup de chamada</h1>
+            <div class="pop">
+                    <a get-data="data-pk">lalala</a>
+            </div>
+        </div>
+    </div>
+        
+{% endblock %}
+

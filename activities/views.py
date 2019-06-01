@@ -168,7 +168,6 @@ class ScheduleView(generic.ListView):
         })
         return context
 
-
 class HistoryActivitiesView(generic.ListView):
     """
     View to access the history of acitivities
@@ -212,6 +211,17 @@ class CallSchedulingRegisterView(CreateView):
     form_class = CallSchedulingForm
     success_url = reverse_lazy('activities:call-scheduling')
 
+    def change_date_scheduling(request, pk):
+        call = Call.objects.get(pk=pk)
+        call.date_scheduling = request.POST['date_scheduling']
+        call.save()
+        return redirect(request, 'call-scheduling')
+
+    # def view(request):
+    #     if request.method == 'POST':
+    #         date_scheduling = request.POST['date_scheduling']
+    # # You can now manipulate the form data.
+
     def form_valid(self, form):
         # import ipdb
         # ipdb.set_trace()
@@ -221,3 +231,7 @@ class CallSchedulingRegisterView(CreateView):
         # import ipdb
         # ipdb.set_trace()
         return super(CallSchedulingRegisterView, self).form_invalid(form)
+
+class CallPopUpDetailView(DetailView):
+    model = Call
+    template_name = 'call-popup.html'

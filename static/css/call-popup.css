@@ -1,0 +1,36 @@
+.pop{
+    display: flex;
+    background-color: red;
+}
+.new-call-title{
+    text-align: center;
+    font-size: 1.9rem;
+    font-weight: 500;
+    color: #4D4D4D;
+}
+
+.new-call{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 30%;
+    height: auto;
+    background: #FFFFFF;
+    border-radius: 1.3rem;
+    margin: 2rem;
+    padding: 1rem 2.5rem 2rem 2.5rem;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+@media screen and (max-width: 800px){
+    .new-call{
+        width: 80%;
+    }
+}
+
+
+.popup{
+    height: 100vh;
+    display: none;
+}

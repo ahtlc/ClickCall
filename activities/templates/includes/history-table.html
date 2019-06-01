@@ -17,19 +17,20 @@
             <th class="status">Status</th>
         </tr>
         {% for call in calls %}
-            <tr id="call-{{call.pk}}" onclick="showDetail()" class="table-row">
+            <tr id="call-{{call.pk}}" class="table-row" data-name="{{call.contact.name| title}}" data-company="{{call.contact.company_name| title}}" data-cellphone="{{call.contact.cellphone|title}}" data-email="{{call.contact.email}}" data-value="{{call.value}}" data-pk="{{call.pk}}" data-date="{{call.date_scheduling|date:"d/m/Y" }}" data-tag="{{call.contact.tag.name}}" data-notes="{{call.notes}}">
                 <td>{{call.contact.name | title}}</td>
-                <td>{{call.date | date:'d/m/y'}} - {{call.hour}}h</td>
+                <td>{{call.date_scheduling |date:"d/m/Y"}} - {{call.date_scheduling |time:"H:i"}}h</td>
+
                 <td class="last-contact-cell">
-                    <button onclick="changeIndicator(this)"><i class="icon-call"></i></button>
-                    <button onclick="changeIndicator(this)"><i class="icon-pay"></i></button>
-                    <button onclick="changeIndicator(this)"><i class="icon-email"></i></button>
+                    <button onclick="changeIndicator(this)"><i class="icon-call-2"></i></button>
+                    <button onclick="changeIndicator(this)"><i class="icon-pay-2"></i></button>
+                    <button onclick="changeIndicator(this)"><i class="icon-email-2"></i></button>
                 </td>
                 <td>R$ {{call.value}}</td>
                 <td class="status-busy">{{call.status|lower|title}}</td>
                 
             </tr>
-            {% endfor %}
+        {% endfor %}
             
         </table>
         

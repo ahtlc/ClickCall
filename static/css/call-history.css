@@ -198,3 +198,6 @@ body{
         margin-left: 6rem;
     }
 }
+.table-row{
+    cursor: pointer;
+}

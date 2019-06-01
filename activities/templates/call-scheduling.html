@@ -3,14 +3,14 @@
 {% load widget_tweaks %}
 
 {% block links %}
-<link rel="stylesheet" type="text/css" href = "{% static 'css/main.css' %}">
+<link rel="stylesheet" type="text/css" href = "{% static 'css/call-scheduling.css' %}">
 <link rel="stylesheet" type="text/css" href="../../static/datetimepicker-2.5.20/jquery.datetimepicker.css"/ >
 {% endblock %}
 
 {% block content %}
         
     <div class = "popup">
-        <form class="new-contact" method = "POST" autocomplete="off">
+        <form class="new-date" method = "POST" autocomplete="off">
             {% csrf_token %}
             {% if form.errors %}
                 <div class="alert alert-error">
@@ -26,16 +26,16 @@
                 </ul>
                 </div>
             {% endif %}
-            <h1 class="new-contact-title">Agendar Chamada</h1>
+            <h1 class="new-date-title">Agendar Chamada</h1>
     
             <!-- Name -->
-            <div class="new-contact-input">
-                <label for="new-contact-name">
-                    <span class="new-contact-number">1</span> Data e hora da chamada
+            <div class="new-date-input">
+                <label for="new-date-name">
+                    <span class="new-date-number">1</span> Data e hora da chamada
                 </label>
                 {% render_field form.date_scheduling class="form-control" %}
             </div>
-            <button type="submit" class="new-contact-submit">Agendar</button>
+            <button type="submit" class="new-date-submit">Agendar</button>
         </form>
     </div>
         
