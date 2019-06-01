@@ -1,3 +1,8 @@
+const receivedTotal = document.getElementById('received-total');
+const answeredTotal = document.getElementById('answered-total');
+const notAnsweredTotal = document.getElementById('not-answered-total');
+const declinedTotal = document.getElementById('declined-total');
+
 var ctx = document.getElementById('callChart').getContext('2d');
 const chart = new Chart(ctx,{
     type: 'line',        
@@ -35,6 +40,11 @@ function constructChart(filterby){
 }
 
 function constructChartData(data, filterby){
+  let receivedTotalNumber = 0;
+  let answeredTotalNumber = 0;
+  let notAnsweredTotalNumber = 0;
+  let declinedTotalNumber = 0;
+
   let labels = [];
   let received = {
         data : [],
@@ -83,11 +93,19 @@ function constructChartData(data, filterby){
       labels.push(element.month+'/'+element.year);
     }
     received.data.push(element.received);
+    receivedTotalNumber += element.received;
     answered.data.push(element.answered);
+    answeredTotalNumber += element.answered;
     declined.data.push(element.declined);
+    notAnsweredTotalNumber += element.declined;
     not_answered.data.push(element.not_answered);
+    declinedTotalNumber += element.not_answered;
   });
   let datasets = [received,answered,declined,not_answered];
+  receivedTotal.innerHTML = receivedTotalNumber;
+  answeredTotal.innerHTML = answeredTotalNumber;
+  notAnsweredTotal.innerHTML = notAnsweredTotalNumber;
+  declinedTotal.innerHTML = declinedTotalNumber;
   return {
     datasets: datasets,
     labels: labels
@@ -96,8 +114,8 @@ function constructChartData(data, filterby){
 
 function filterChart(filterby){
   constructChart(filterby);
-  document.getElementById('yearly-filter').style.color="#4D4D4D";
-  document.getElementById('monthly-filter').style.color="#4D4D4D";
-  document.getElementById('daily-filter').style.color="#4D4D4D";
-  document.getElementById(filterby+'-filter').style.color="#27B2FF";
+  document.getElementById('yearly-filter').classList.remove("active");
+  document.getElementById('monthly-filter').classList.remove("active");
+  document.getElementById('daily-filter').classList.remove("active");
+  document.getElementById(filterby+'-filter').classList.add("active");
 }

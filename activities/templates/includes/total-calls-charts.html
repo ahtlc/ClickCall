@@ -1,0 +1,57 @@
+{% load staticfiles %}
+
+{% block content %}
+<link rel= "stylesheet" href = {% static 'css/system-metrics.css' %}>
+<link rel= "stylesheet" href = {% static 'css/Chart.min.css' %}>
+
+<section class="chart-section">
+    <div class="stats">
+        <h2>Total de Chamadas</h2>
+        <div class="stats-content">
+            <div class="stat-card card">
+                <h3 class="received-title" >Recebidas</h3>
+                <p id="received-total" class="received-total total"></p>
+            </div>
+            <div class="stat-card card">
+                <h3 class="answered-title" >Atendidas</h3>
+                <p id="answered-total" class="total answered-total"></p>
+            </div>
+            <div class="stat-card card">
+                <h3 class="not-answered-title">Não Atendidas</h3>
+                <p id="not-answered-total" class="total not-answered-total"></p>
+            </div>
+            <div class="stat-card card">
+                <h3 class="declined-title" >Abandonadas</h3>
+                <p id="declined-total" class="total declined-total"></p>
+            </div>
+        </div>
+    </div>
+    <div class="filter-selector">
+        <h2>Desempenho</h2>
+        <button onclick="filterChart('yearly')" id="yearly-filter" class="filter-button active">
+        Anual
+        </button>
+        <button onclick="filterChart('monthly')" id="monthly-filter" class="filter-button">
+        Mensal
+        </button>
+        <button onclick="filterChart('daily')" id="daily-filter" class="filter-button">
+        Diário
+        </button>
+    </div>
+    <div class="justify-center">
+        <div class="card card-chart">
+            <div class="chart-header">
+            <p class="received-title">Recebidas</p>
+            <p class="answered-title">Atendidas</p>
+            <p class="not-answered-title">Não Atendidas</p>
+            <p class="declined-title">Abandonadas</p>
+            </div>
+            <canvas id="callChart" class="call-chart"></canvas>
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src = {% static 'js/Chart.min.js' %}></script>
+<script src = {% static 'js/system-metrics.js' %}></script>
+{% endblock %}
