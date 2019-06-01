@@ -75,18 +75,21 @@
         <div class="column">
             <!-- Simulate callbar -->
             <div class="callbar">
-                <div class="call-items">
-                    <img src="{% static 'img/call.png' %}" alt="call-icon" class="call-icon">
-                    <input type="text" name="pNumber" class="pNumber">
-                    <button class="call-btn">Ligar</button>
+                <div class="call-align">
+                    <div class="call-items">
+                        <img src="{% static 'img/call.png' %}" alt="call-icon" class="call-icon">
+                        <input type="text" name="pNumber" class="pNumber">
+                        <button class="call-btn">Ligar</button>
+                    </div>
+                    <a class="logout-btn" href={% url 'users:logout' %}>
+                        <img src="{% static 'img/shut-down-icon.png' %}" alt="shut-down-icon">
+                    </a>
+                    </div>
+                    <div class="app-viewport">
+                        {% block app_content %}
+                        {% endblock %}
+                    </div>
                 </div>
-                <a class="logout-btn" href={% url 'users:logout' %}>
-                    <img src="{% static 'img/shut-down-icon.png' %}" alt="shut-down-icon">
-                </a>
-            </div>
-            <div class="app-viewport">
-                {% block app_content %}
-                {% endblock %}  
             </div>
         </div>
     </div>

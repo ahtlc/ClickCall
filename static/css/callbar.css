@@ -7,17 +7,23 @@
     margin-left: 15rem;
 }
 
+.call-align {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-left: 8vw;
+    margin-right: 2vw;
+}
+
 .call-items {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 6vw; 
-    margin-right: 51vw;
-    width: 25vw;
 }
 
 .call-icon {
-    width: 3rem;
+    width: 2.5rem;
     margin-right: 2vw;
 }
 
@@ -30,8 +36,8 @@
 
 .call-btn {
     margin-left: 2vw;
-    height: 4.5vh;
-    width: 4.5vw;
+    height: 2.5rem;
+    width: 4rem;
     box-shadow: 0px 0px 0px transparent;
     text-shadow: 0px 0px 0px transparent;
 	border: none;
@@ -53,5 +59,11 @@
 }
 
 .logout-btn > img {
-    width: 2.5rem;
+    width: 2rem;
+}
+
+@media screen and (max-width: 600px){
+    .callbar{
+        margin-left: 6rem;
+    }
 }

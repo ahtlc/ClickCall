@@ -46,8 +46,15 @@
 .extern{
     display: flex;
     flex-direction: column;
-    padding-left: 20vw;
-    padding-top: 10vh;
+    margin-left: 20vw;
+    margin-top: 5vh;
+}
+
+.table-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .container{
@@ -184,4 +191,10 @@ body{
 	transition-property: all;
 	transition-duration: 2s;
 	transition-timing-function: cubic-bezier(0, 2, 2, 1);
+}
+
+@media screen and (max-width: 600px){
+    .input-search{
+        margin-left: 6rem;
+    }
 }
