@@ -24,7 +24,9 @@
                  {% if request.path == '/activities/metrics' %}
                      navbar-item-active 
                  {% endif %}"/>
-                    Métricas do Sistema
+                    <a href="{% url "activities:system_metrics" %}">
+                      Métricas do Sistema
+                    </a>
                 </div>
 
                 <div class="navbar-item-subitem
@@ -85,11 +87,11 @@
                         <img src="{% static 'img/shut-down-icon.png' %}" alt="shut-down-icon">
                     </a>
                     </div>
-                    <div class="app-viewport">
-                        {% block app_content %}
-                        {% endblock %}
-                    </div>
                 </div>
+            </div>
+            <div class="app-viewport">
+                {% block app_content %}
+                {% endblock %}
             </div>
         </div>
     </div>

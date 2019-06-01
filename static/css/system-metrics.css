@@ -1,0 +1,121 @@
+.chart-section{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.filter-button{
+    font-size: 1em;
+    border: none;
+    width: 100px;
+    background-color: transparent;
+    cursor: pointer;
+    color: #4D4D4D;
+    font-weight: 100;
+}
+.filter-button:focus{
+    outline: none;
+}
+.filter-selector{
+    display: flex;
+    justify-content: center;
+    color: #4D4D4D;
+}
+
+h2{
+    font-weight: 100;
+}
+
+.chart-header{
+    display: flex;
+    justify-content: space-around;
+}
+
+.received-title{
+    color:#F8BD1D;
+    font-size: 0.9em;
+}
+
+.answered-title{
+    color:#4ABE57;
+    font-size: 0.9em;
+}
+
+.declined-title{
+    color:#F03B3B;
+    font-size: 0.9em;
+}
+
+.not-answered-title{
+    color:#FF9F2F;
+    font-size: 0.9em;
+}
+
+.active{
+    color:#27B2FF;
+    font-weight: 600;
+}
+
+.card{
+    border-radius:21px;
+    border: 1px solid #DEDEDE;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card p{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.stats{
+    width: 100%;
+}
+
+.card-chart{
+    width:65%; 
+}
+.justify-center{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.stats-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-card{
+    padding: 10px;
+    width: 150px;
+}
+
+.stat-card h3{
+    margin: 0;
+}
+
+.stat-card .total{
+    font-size: 2.5em;
+    font-weight: 100;
+    margin: 0;
+    margin-top: 5px;
+}
+.received-total{
+    color:#F8BD1D;
+}
+.answered-total{
+    color:#4ABE57;
+}
+.not-answered-total{
+    color:#FF9F2F;
+}
+.declined-total{
+    color:#F03B3B;
+}
