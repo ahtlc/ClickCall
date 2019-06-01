@@ -7,7 +7,7 @@
 <div class="history">    
     <h1>Histórico de Atividades</h1>
     <button id="today-expand" class="button-expand" onclick="expandHistory('today')">
-        Hoje, {{today.day}}/{{today.month}}/{{today.year}}
+        Hoje, {{today|date:"d/m/Y" }}
     </button>
     <div id="today" class="expand" style="max-height: 0px;">
         {% for call in today_calls %}
@@ -57,7 +57,7 @@
         {% endfor %}
     </div>
     <button id="today-expand" class="button-expand" onclick="expandHistory('yesterday')">
-        Ontem, {{yesterday.day}}/{{yesterday.month}}/{{yesterday.year}}
+        Ontem, {{yesterday|date:"d/m/Y" }}
     </button>
     <div id="yesterday" class="expand" style="max-height: 0px;">
         {% for call in yesterday_calls %}
