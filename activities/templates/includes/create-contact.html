@@ -3,123 +3,121 @@
 {% load widget_tweaks %}
 
 {% block links %}
-<link rel= "stylesheet" href = {% static 'css/new_contact.css' %}>
+  <link rel= "stylesheet" href = {% static 'css/new_contact.css' %}>
 {% endblock %}
 
 {% block content %}
-
 <div class = "popup">
-    <form class="new-contact" method = "POST">
-        {% csrf_token %}
-        {% if form.errors %}
-            <div class="alert alert-error">
-            <p>Por favor, corrija os seguintes erros antes de salvar novamente: </p>
-            <ul>
-                {% for field in form %}
-                    {% if field.errors %}
-                        {% for error in field.errors %}
-                        <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
-                        {% endfor %}
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            </div>
-        {% endif %}
-        <h1 class="new-contact-title">Cadastrar Contato</h1>
+  <form class="new-contact" method = "POST">
+    {% csrf_token %}
+    {% if form.errors %}
+      <div class="alert alert-error">
+        <p>Por favor, corrija os seguintes erros antes de salvar novamente: </p>
+        <ul>
+          {% for field in form %}
+            {% if field.errors %}
+              {% for error in field.errors %}
+                <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    <h1 class="new-contact-title">Cadastrar Contato</h1>
 
-        <!-- Name -->
-        <div class="new-contact-input">
-            <label for="new-contact-name">
-                <span class="new-contact-number">1</span> Nome do Contato
-            </label>
-            {% render_field form.name %}
-        </div>
+    <!-- Name -->
+    <div class="new-contact-input">
+      <label for="new-contact-name">
+        <span class="new-contact-number">1</span> Nome do Contato
+      </label>
+      {% render_field form.name %}
+    </div>
 
-        <!-- Company -->
-        <div class="new-contact-input">
-            <label for="new-contact-company">
-                <span class="new-contact-number">2</span> Nome da Empresa
-            </label>
-            {% render_field form.company_name %}
-        </div>
+    <!-- Company -->
+    <div class="new-contact-input">
+      <label for="new-contact-company">
+        <span class="new-contact-number">2</span> Nome da Empresa
+      </label>
+      {% render_field form.company_name %}
+    </div>
 
-        <!-- Email -->
-        <div class="new-contact-input">
-            <label for="new-contact-email">
-                <span class="new-contact-number">3</span> Email
-            </label>
-            {% render_field form.email type="email" %}
-        </div>
+    <!-- Email -->
+    <div class="new-contact-input">
+      <label for="new-contact-email">
+        <span class="new-contact-number">3</span> Email
+      </label>
+      {% render_field form.email type="email" %}
+    </div>
 
-        <!-- Phones -->
-        <div class="new-contact-phones">
-            <!-- Cellphone -->
-            <div class="new-contact-input">
-                <label for="new-contact-cellphone">
-                    <span class="new-contact-number">4</span> Celular
-                </label>
-                {% render_field form.cellphone type="tel" id="new-contact-cellphone" %}
-            </div>
-            
-            <!-- Landline -->
-            <div class="new-contact-input">
-                <label for="new-contact-landline">
-                    <span class="new-contact-number">5</span> Tel. Fixo
-                </label>
-                {% render_field form.phone type="tel" id="new-contact-landline" %}
-            </div>
-        </div>
-
-        <!-- Address -->
-        <div class="new-contact-input">
-            <label for="new-contact-address">
-                <span class="new-contact-number">6</span> Endereço
-            </label>
-            {% render_field form.adress type="text" id="new-contact-address" %}
-        </div>
-        
-        <!-- Tags (WIP) -->
-        <div class="new-contact-input">
-        <label for="new-contact-tags">
-            <span class="new-contact-number">7</span> Tag's <sup>(Max 3)</sup>
+    <!-- Phones -->
+    <div class="new-contact-phones">
+      <!-- Cellphone -->
+      <div class="new-contact-input">
+        <label for="new-contact-cellphone">
+          <span class="new-contact-number">4</span> Celular
         </label>
-            <!-- Tags -->
-            <div id="contact-tags" class="tag-widget">
-                <div class="selected-tags">
-                </div>
-                
-                <button class="arrow" type="button" onclick="editTags()">
-                    <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        width="24" 
-                        height="24" 
-                        viewBox="0 0 24 24">
-                        <path d="M7 10l5 5 5-5z"/>
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                    </svg>
-                </button>
-                <div class="avaliable-tags">
-                    {% for tag in tags %}
-                        <button type="button"
-                            class="tag"
-                            onclick="toggleTag(this)">
-                            {{tag.name}}
-                        </button>
-                    {% empty %}
-                        <div class="empty">
-                            Nenhuma tag foi registrada ainda
-                        </div>
-                    {% endfor %}
-                </div>
-            {% render_field form.raw_tags %}
+        {% render_field form.cellphone type="tel" id="new-contact-cellphone" %}
+      </div>
+
+      <!-- Landline -->
+      <div class="new-contact-input">
+        <label for="new-contact-landline">
+          <span class="new-contact-number">5</span> Tel. Fixo
+        </label>
+        {% render_field form.phone type="tel" id="new-contact-landline" %}
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="new-contact-input">
+      <label for="new-contact-address">
+        <span class="new-contact-number">6</span> Endereço
+      </label>
+      {% render_field form.adress type="text" id="new-contact-address" %}
+    </div>
+
+    <!-- Tags (WIP) -->
+    <div class="new-contact-input">
+      <label for="new-contact-tags">
+        <span class="new-contact-number">7</span> Tag's <sup>(Max 3)</sup>
+      </label>
+      <!-- Tags -->
+      <div id="contact-tags" class="tag-widget">
+        <div class="selected-tags">
+        </div>
+
+        <button class="arrow" type="button" onclick="editTags()">
+          <svg xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24">
+            <path d="M7 10l5 5 5-5z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+        </button>
+        <div class="avaliable-tags">
+          {% for tag in tags %}
+            <button type="button"
+                    class="tag"
+                    onclick="toggleTag(this)">
+              {{tag.name}}
+            </button>
+          {% empty %}
+            <div class="empty">
+              Nenhuma tag foi registrada ainda
             </div>
-        <button type="submit" class="new-contact-submit"> Cadastrar </button>
-    </form>
+          {% endfor %}
+        </div>
+        {% render_field form.raw_tags %}
+      </div>
+      <button type="submit" class="new-contact-submit"> Cadastrar </button>
+  </form>
 </div>
 {% endblock %}  
 
 {% block scripts %}
-<script src = {% static 'js/tag-input.js' %}></script>
+  <script src={% static 'js/tag-input.js' %}></script>
 {% endblock %}
 
 

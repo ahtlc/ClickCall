@@ -29,7 +29,11 @@ class PopulateView(generic.View):
     def get(self, request, *args, **kwargs):
         return create()
 
+
 class SystemMetricsView(generic.TemplateView):
+    """
+    View to render the system metrics
+    """
     template_name = "system-metrics.html"
 
 
@@ -188,6 +192,13 @@ class ClientsView(CreateView):
         return context
 
     def form_valid(self, form):
+        form.save()
+        raw_tags = form.cleaned_data['raw_tags'].split(',')
+
+        for raw_tag in raw_tags:
+            tag = Tag.objects.filter(name=raw_tag)
+            form.instance.tag.add(tag.get(name=raw_tag))
+
         return super(ClientsView, self).form_valid(form)
 
     def form_invalid(self, form):
