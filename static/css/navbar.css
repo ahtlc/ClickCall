@@ -3,12 +3,16 @@
     flex-direction: column;
     position: fixed;
     z-index: 1;
-    width: 15rem;
+    width: 13rem;
     min-height: 100vh;
     background: black;
     color: white;
     font-size: 0.9em;
     font-weight: 300;
+}
+.navbar-item-logo{
+    background: black;
+    width: 13rem !important;
 }
 
 .navbar a{
