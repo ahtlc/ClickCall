@@ -1,6 +1,8 @@
 import json as simplejson
 from django.http import HttpResponse
-
+from datetime import datetime
+import datetime
+import pytz
 from django.shortcuts import render
 from django.views import generic
 
@@ -157,7 +159,7 @@ class ScheduleView(generic.ListView):
         date__month=yesterday.month,
         date__day=yesterday.day
     )
-
+    
     def get_context_data(self, **kwargs):
         context = super(ScheduleView, self).get_context_data(**kwargs)
         context.update({
@@ -210,23 +212,20 @@ class CallSchedulingRegisterView(CreateView):
     template_name = 'call-scheduling.html'
     form_class = CallSchedulingForm
     success_url = reverse_lazy('activities:call-scheduling')
+    
 
-    def change_date_scheduling(request, pk):
-        call = Call.objects.get(pk=pk)
-        call.date_scheduling = request.POST['date_scheduling']
-        call.save()
-        return redirect(request, 'call-scheduling')
-
-    # def view(request):
-    #     if request.method == 'POST':
-    #         date_scheduling = request.POST['date_scheduling']
-    # # You can now manipulate the form data.
 
     def form_valid(self, form):
+        from datetime import datetime, timezone
+        call = Call.objects.get(pk = self.request.GET.get('pk'))
+        date_scheduling = self.request.POST['date_scheduling']
+        valid_datetime = datetime.strptime(date_scheduling, '%d/%m/%Y %H:%M')
+        call.date_scheduling = valid_datetime
         # import ipdb
         # ipdb.set_trace()
+        call.save(update_fields=['date_scheduling'])
         return super(CallSchedulingRegisterView, self).form_valid(form)
-
+        
     def form_invalid(self, form):
         # import ipdb
         # ipdb.set_trace()
