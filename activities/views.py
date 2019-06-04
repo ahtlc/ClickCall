@@ -6,12 +6,16 @@ import pytz
 from django.shortcuts import render
 from django.views import generic
 
+
 from django.views.generic import (
     DetailView,
     CreateView,
+    TemplateView
 )
 
 from django.urls import reverse_lazy
+from calls.models import Call
+from activities.objects import Year
 from activities.factory import create
 
 from calls.models import (
@@ -20,8 +24,6 @@ from calls.models import (
     Tag,
 )
 from .forms import ContactForm, CallSchedulingForm
-
-import datetime
 
 
 class PopulateView(generic.View):
@@ -231,6 +233,6 @@ class CallSchedulingRegisterView(CreateView):
         # ipdb.set_trace()
         return super(CallSchedulingRegisterView, self).form_invalid(form)
 
-class CallPopUpDetailView(DetailView):
+class CallPopUpView(TemplateView):
     model = Call
     template_name = 'call-popup.html'

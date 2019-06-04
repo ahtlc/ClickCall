@@ -6,7 +6,7 @@ from .views import (
         ScheduleView,
         ScheduleDetailView,
         CallSchedulingRegisterView,
-        CallPopUpDetailView,
+        CallPopUpView,
         PopulateView,
         SystemMetricsView,
 )
@@ -19,7 +19,7 @@ urlpatterns = [
     path('getdata/', GetTotalCallsView.as_view(), name="getdata"),
     path('schedule/', ScheduleView.as_view(), name="schedule"),
     path('system_metrics/', SystemMetricsView.as_view(), name="system_metrics"),
-    path('call_popup/<int:pk>', CallPopUpDetailView.as_view(), name= "call_popup"),
+    path('call_popup/', CallPopUpView.as_view(), name= "call_popup"),
     path('call_scheduling/', CallSchedulingRegisterView.as_view(), name="call_scheduling"),
     path('populate-db/', PopulateView.as_view(), name="populate-db"),
 ]
