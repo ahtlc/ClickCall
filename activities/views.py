@@ -213,19 +213,17 @@ class CallSchedulingRegisterView(CreateView):
     model = Call
     template_name = 'call-scheduling.html'
     form_class = CallSchedulingForm
-    success_url = reverse_lazy('activities:call-scheduling')
-    
-
+    success_url = reverse_lazy('activities:call_scheduling')
 
     def form_valid(self, form):
         from datetime import datetime, timezone
-        call = Call.objects.get(pk = self.request.GET.get('pk'))
+        call = Call.objects.get(pk = int (self.request.GET.get('pk')))
         date_scheduling = self.request.POST['date_scheduling']
         valid_datetime = datetime.strptime(date_scheduling, '%d/%m/%Y %H:%M')
-        call.date_scheduling = valid_datetime
-        # import ipdb
-        # ipdb.set_trace()
-        call.save(update_fields=['date_scheduling'])
+        form = CallSchedulingForm(instance=call, data=self.request.POST)
+        instance = form.save(commit=False)
+        instance.date_scheduling = valid_datetime
+        instance.save()
         return super(CallSchedulingRegisterView, self).form_valid(form)
         
     def form_invalid(self, form):
