@@ -164,20 +164,11 @@ class Call (models.Model):
         max_length=3
     )
 
-    date = models.DateField(
-        default=datetime.date.today,
-        verbose_name="Data da Ligação"
-    )
     status = models.CharField(
         max_length = 12, 
         choices = STATUS_CHOICES, 
         default = RECEBIDA, 
         verbose_name = "Status"
-    )
-
-    hour = models.TimeField(
-        default=datetime.time,
-        verbose_name= "Hora da Ligação"
     )
     value = models.DecimalField(
         default=0,

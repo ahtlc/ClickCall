@@ -151,24 +151,34 @@ class ScheduleView(generic.ListView):
     yesterday = today - datetime.timedelta(days=1)
 
     today_calls = Call.objects.filter(
-        date__year=today.year,
-        date__month=today.month,
-        date__day=today.day
+            date_scheduling__date__year=today.year,
+            date_scheduling__date__month=today.month,
+            date_scheduling__date__day=today.day
     )
 
     yesterday_calls = Call.objects.filter(
-        date__year=yesterday.year,
-        date__month=yesterday.month,
-        date__day=yesterday.day
+            date_scheduling__date__year=yesterday.year,
+            date_scheduling__date__month=yesterday.month,
+            date_scheduling__date__day=yesterday.day
     )
     
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):    
+        today = datetime.datetime.now()
+        yesterday = today - datetime.timedelta(days=1)
         context = super(ScheduleView, self).get_context_data(**kwargs)
         context.update({
             'today': self.today,
-            'today_calls': self.today_calls,
+            'today_calls': Call.objects.filter(
+                                date_scheduling__date__year=today.year,
+                                date_scheduling__date__month=today.month,
+                                date_scheduling__date__day=today.day
+                                ),
             'yesterday': self.yesterday,
-            'yesterday_calls': self.yesterday_calls
+            'yesterday_calls': Call.objects.filter(
+                                date_scheduling__date__year=yesterday.year,
+                                date_scheduling__date__month=yesterday.month,
+                                date_scheduling__date__day=yesterday.day
+                                )
         })
         return context
 
