@@ -2,29 +2,29 @@
 {% load static %}
 
 {% block content %}
-    <div class="row top-row">
-        <!-- Navbar -->
-        <div class="navbar-item navbar-item-logo">
-            <img class="navbar-brand navbar-brand-desktop" 
-                 src={% static 'img/clickcall_logo_white.png' %}
-                 alt="Brand"/>
-
-            <img class="navbar-brand navbar-brand-mobile" 
-                 src={% static 'img/clickcall_icon_white.png' %}
-                 alt="Brand Mobile"/>
-        </div>
-        <div class="call-items">
-            <img src="{% static 'img/call.png' %}" alt="call-icon" class="call-icon">
-            <input type="text" name="pNumber" class="pNumber">
-            <button class="call-btn">Ligar</button>
-        </div>
-        <a class="logout-btn" href={% url 'users:logout' %}>
-            <img src="{% static 'img/shut-down-icon.png' %}" alt="shut-down-icon">
-        </a>
-    </div>
 
     <div class="row">
         <div class="navbar">
+            <div class="row top-row">
+                <!-- Navbar -->
+                <div class="navbar-item navbar-item-logo">
+                    <img class="navbar-brand navbar-brand-desktop" 
+                        src={% static 'img/clickcall_logo_white.png' %}
+                        alt="Brand"/>
+            
+                    <img class="navbar-brand navbar-brand-mobile" 
+                        src={% static 'img/clickcall_icon_white.png' %}
+                        alt="Brand Mobile"/>
+                </div>
+                <div class="call-items">
+                    <img src="{% static 'img/call.png' %}" alt="call-icon" class="call-icon">
+                    <input type="text" name="pNumber" class="pNumber">
+                    <button class="call-btn">Ligar</button>
+                </div>
+                <a class="logout-btn" href={% url 'users:logout' %}>
+                    <img src="{% static 'img/shut-down-icon.png' %}" alt="shut-down-icon">
+                </a>
+            </div>
             <div class="navbar-item">
                 <img class="navbar-brand navbar-brand-desktop" 
                         src={% static 'img/clickcall_logo_white.png' %}
@@ -99,5 +99,5 @@
             </div>
         </div>
 </div>
-    {% endblock %}
+{% endblock %}
     
