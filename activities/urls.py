@@ -4,7 +4,6 @@ from .views import (
         HistoryActivitiesView,
         GetTotalCallsView,
         ScheduleView,
-        ScheduleDetailView,
         CallSchedulingRegisterView,
         CallPopUpView,
         PopulateView,

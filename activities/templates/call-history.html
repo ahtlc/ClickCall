@@ -15,19 +15,37 @@
 {% endblock %}
 
 {% block app_content %}
-    {% include "includes/history-table.html" %}
-    {% include "includes/history-activities.html" %}
+    <div class="extern">
+      {% include "includes/history-table.html" %}
+      {% include "includes/history-activities.html" %}
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{% static 'js/change-indicator.js' %}"></script>
     <script src="{% static 'js/show-detail.js' %}"></script>
     <script> 
-        $(document).ready(function(){
-          $(".table-row").click(function(e){
-            if(!$(e.target).hasClass('icon-call') && !$(e.target).hasClass('icon-pay') && !$(e.target).hasClass('icon-email')){
-              $(".container-detail").slideToggle("slow");
-              $(".container-detail").css("display", "flex");
+        $(document).ready(function () {
+          let pk;
+          let flag = -1;
+          let currentPk;
+          $(".table-row").click(function (e) {
+            if (pk === e.currentTarget.getAttribute(`data-pk`) || !pk || flag === -1) {
+              if (!$(e.target).hasClass('icon-call-2') && !$(e.target).hasClass('icon-pay-2') && !$(e.target).hasClass('icon-email-2')) {
+                $(".container-detail").slideToggle("slow");
+                $(".container-detail").css("display", "flex");
+                flag *= -1;
+              }
             }
+            pk = e.currentTarget.getAttribute(`data-pk`);
+            const inputs = ["company", "name", "cellphone", "email", "value", "pk", "date", "tag", "notes"];
+            inputs.forEach((input) => {
+              $(`span[get-data=data-${input}]`).html(e.currentTarget.getAttribute(`data-${input}`));
+            });
+            $(`a[get-data=data-pk]`).attr("href", `/activities/call_scheduling/?pk=${e.currentTarget.getAttribute('data-pk')}`);
+            $('#button_id').click(function (e){
+              window.location.href= `/activities/call_popup/?pk=${pk}`
+            })
           });
+          
         });
     </script>
 {% endblock %}
