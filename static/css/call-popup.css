@@ -90,18 +90,18 @@ body{
     padding: 10px 0 10px 0;
 }
 .call{
-    height: 60px;
-    width: 60px;
+    height: 55px;
+    width: 55px;
     cursor: pointer;
 }
 .wait{
-    height: 60px;
-    width: 60px;
+    height: 55px;
+    width: 55px;
     cursor: pointer;
 }
 .off{
-    height: 60px;
-    width: 60px;
+    height: 55px;
+    width: 55px;
     cursor: pointer;
 }
 .divisor{
@@ -115,12 +115,18 @@ body{
 }
 .date{
     padding-bottom: 10px;
+    text-decoration: none;
+    text-decoration-color: #4D4D4D;
 }
 .price{
     padding-bottom: 10px;
 }
 .tags{
     padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-items: baseline;
 }
 .calendar{
     padding-right: 2px;
@@ -133,7 +139,7 @@ body{
     height: 15px;
 }
 .tag{
-    padding-right: 2px;
+    padding-right: 7px;
     width: 15px;
     height: 15px;
 }
@@ -161,4 +167,29 @@ textarea {
 .box-informations{
     display: flex;
     flex-direction: column;
+}
+.tag-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #DEDEDE;
+    border-radius: 20px;
+    color: #4D4D4D;
+    width: 47px;
+    height: 13px;
+    margin-top: 8px;
+}
+.group-tags{
+    display: flex;
+    flex-direction: row;
+    max-height: 50px;
+    overflow: auto;
+    max-width: 100px;
+    justify-content: space-between;
+    width: 100px;
+    flex-wrap: wrap;
+}
+.row-tag{
+    display: flex;
+    flex-direction: row;
 }
