@@ -3,6 +3,8 @@
 
 {% block links %}
 <!-- <link rel="stylesheet" type="text/css" href = "{% static 'css/call-scheduling.css' %}"> -->
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/fontello.css' %}" />
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../../static/datetimepicker-2.5.20/jquery.datetimepicker.css"/ >
 <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/call-popup.css' %}">
 {% endblock %}
@@ -60,10 +62,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="update-buttons">
+                        <div class="encapsulate-call">
+                            <button><i class="icon-call-2"></i></button>
+                        </div>
+                        <div class="encapsulate-pay">
+                            <button><i class="icon-pay-2"></i></button>
+                        </div>
+                        <div class="encapsulate-email">
+                            <button><i class="icon-email-2"></i></button>
+                        </div>
+                    </div>
                     </div>
                     <div class="notes">
                         <span class="description">Anotações:</span>
-                        <textarea cols="30" rows="10"></textarea>
+                        <textarea></textarea>
+                        <button class="button-note" type="submit">Salvar</button>
                     </div>
                 </div>
             </div>

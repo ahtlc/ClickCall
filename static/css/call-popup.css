@@ -23,14 +23,14 @@ body{
     border-radius: 1.3rem;
     margin: 2rem;
     padding: 1rem 2.5rem 2rem 2.5rem;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    /* box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16); */
 }
 
-@media screen and (max-width: 800px){
+/* @media screen and (max-width: 800px){
     .new-call{
         width: 80%;
     }
-}
+} */
 
 .close::after{
     content: "×";
@@ -50,6 +50,7 @@ body{
     justify-content: center;
     padding: 0 20px 0 20px;
     width: 50;
+    margin: 30px 0 30px 0;
 }
 .profile{
   vertical-align: middle;
@@ -71,6 +72,9 @@ body{
 .company{
     font-size: 0.85rem;
     font-weight: 500;
+}
+.number{
+    font-weight: 300;
 }
 .call-number{
     display: flex;
@@ -111,7 +115,7 @@ body{
     width: 0;
     height: 12em;
     /* border-left: 1px solid #ccc; */
-    border-right: 2.5px solid #EFEFEF;
+    border-right: 2px solid #EFEFEF;
 }
 .date{
     padding-bottom: 10px;
@@ -155,9 +159,10 @@ body{
 }
 textarea {
     resize: vertical;
-    min-height: 145px;
+    /* min-height: 145px; */
     max-height: 200px;
-    min-width: 250px;
+    /* min-width: 250px; */
+    height: 60px;
     border: solid 1px #DEDEDE;
     border-radius: 10px;
 }
@@ -175,21 +180,150 @@ textarea {
     background-color: #DEDEDE;
     border-radius: 20px;
     color: #4D4D4D;
-    width: 47px;
-    height: 13px;
+    width: 57px;
+    height: 20px;
     margin-top: 8px;
 }
 .group-tags{
     display: flex;
     flex-direction: row;
-    max-height: 50px;
+    max-height: 60px;
     overflow: auto;
-    max-width: 100px;
+    max-width: 123px;
     justify-content: space-between;
-    width: 100px;
+    width: 123px;
     flex-wrap: wrap;
 }
 .row-tag{
     display: flex;
     flex-direction: row;
 }
+.general-information{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.update-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 145px;
+    padding-left: 30px;
+}
+.icon-call-2{
+    font-size: 21px;
+    position: relative;
+    z-index: 99;
+    padding: 6px 1px 3px 0;
+}
+.icon-email-2{ 
+    font-size:18px; 
+    z-index: 99;
+} 
+.icon-pay-2{ 
+    font-size:19px; 
+    z-index: 99;
+    padding: 6px 1px 3px 0;
+}
+.update-buttons button{
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+.encapsulate-email{
+    background-color: #E5E5E5;
+    position: relative;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+}
+.encapsulate-call{
+    background-color: #E5E5E5;
+    position: relative;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.encapsulate-pay{
+    background-color: #E5E5E5;
+    position: relative;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-call-2:before{
+    padding: 4px 4px 3px 0;
+}
+.icon-pay-2:before{
+    padding: 3px 0px 3px 0;
+    font-size:20px; 
+}
+.icon-email-2:before{
+    padding: 3px 5px 0 0;
+    font-size: 16px;
+}
+.button-note{
+    background-color: #27B2FF;
+    border-radius: 15px;
+    color: #FFFFFF;
+    font-weight: 300;
+    width: 64px;
+    height: 30px;
+    border: none;
+    align-self: center;
+    margin-top: 10px;
+}
+.popup{
+    background-color: #FFFFFF;
+}
+@media screen and (max-width: 705px){
+    .new-call{
+        display: flex;
+        flex-direction: column;
+    }
+    .divisor{
+        height: 0;
+        width: 185px;
+        border-bottom: 2px solid #EFEFEF;
+    }
+    .general-information{
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    .box-informations{
+        align-items: center;
+    }
+    .call-contact{
+        width: 100%;
+        padding-top: 20px;
+        margin: 0;
+    }
+    textarea{
+        height: 114px;
+        width: 195px;
+    }
+    .description{
+        align-self: center;
+        padding-top: 6px;
+    }
+}
+@media screen and (max-width: 380px){
+    .call-contact{
+        padding-top: 100px;
+        margin: 0;
+    }
+@media screen and (max-width: 330px){
+    .call-contact{
+        padding-top: 180px;
+        margin: 0;
+    }
