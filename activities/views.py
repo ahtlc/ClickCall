@@ -3,14 +3,21 @@ from django.http import HttpResponse
 
 from django.shortcuts import render
 from django.views import generic
-from calls.models import Call
-from activities.objects import Year
+
+from django.views.generic import (
+    DetailView,
+    CreateView,
+)
+
+from django.urls import reverse_lazy
 from activities.factory import create
 
-from calls.models import Contact
+from calls.models import (
+    Call,
+    Contact,
+    Tag,
+)
 from .forms import ContactForm
-from django.views. generic import CreateView
-from django.urls import reverse_lazy
 
 import datetime
 
@@ -22,7 +29,11 @@ class PopulateView(generic.View):
     def get(self, request, *args, **kwargs):
         return create()
 
+
 class SystemMetricsView(generic.TemplateView):
+    """
+    View to render the system metrics
+    """
     template_name = "system-metrics.html"
 
 
@@ -175,7 +186,19 @@ class ClientsView(CreateView):
     form_class = ContactForm
     success_url = reverse_lazy('activities:clients')
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, *kwargs)
+        context["tags"] = Tag.objects.all()
+        return context
+
     def form_valid(self, form):
+        form.save()
+        raw_tags = form.cleaned_data['raw_tags'].split(',')
+
+        for raw_tag in raw_tags:
+            tag = Tag.objects.filter(name=raw_tag)
+            form.instance.tag.add(tag.get(name=raw_tag))
+
         return super(ClientsView, self).form_valid(form)
 
     def form_invalid(self, form):

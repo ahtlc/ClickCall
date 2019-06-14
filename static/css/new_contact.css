@@ -94,13 +94,15 @@ body{
 
 .new-contact-submit{
     border-radius: 2rem;
+    margin: auto;
     font-size: 1rem;
     border: none;
     background: #27B2FF; 
     padding: 1rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    width: auto;
+    width: 50%;
+    min-width: min-content;
     margin-top: 1.5rem;
     color: white;
     box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.16);
