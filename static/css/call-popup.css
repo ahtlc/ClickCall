@@ -26,6 +26,21 @@ body{
     /* box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16); */
 }
 
+::-webkit-scrollbar-thumb {
+    background:#EFEFEF; 
+    border-radius: 10px;
+    height: 2px;
+    
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #DEDEDE; 
+}
+::-webkit-scrollbar {
+    width: 4px;
+    max-height: 1px;
+    margin-top: 400px;
+}
+
 /* @media screen and (max-width: 800px){
     .new-call{
         width: 80%;
@@ -182,16 +197,17 @@ textarea {
     color: #4D4D4D;
     width: 57px;
     height: 20px;
-    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-right: 5px;
 }
 .group-tags{
     display: flex;
     flex-direction: row;
-    max-height: 60px;
+    max-height: 55px;
     overflow: auto;
-    max-width: 123px;
+    max-width: 138px;
     justify-content: space-between;
-    width: 123px;
+    width: 138px;
     flex-wrap: wrap;
 }
 .row-tag{
@@ -282,6 +298,7 @@ textarea {
     border: none;
     align-self: center;
     margin-top: 10px;
+    cursor: pointer;
 }
 .popup{
     background-color: #FFFFFF;
@@ -322,8 +339,10 @@ textarea {
         padding-top: 100px;
         margin: 0;
     }
+}
 @media screen and (max-width: 330px){
     .call-contact{
         padding-top: 180px;
         margin: 0;
     }
+}
