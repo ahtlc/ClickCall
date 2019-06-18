@@ -245,3 +245,11 @@ class CallSchedulingRegisterView(CreateView):
 class CallPopUpView(TemplateView):
     model = Call
     template_name = 'call-popup.html'
+    def get_context_data(self):
+        call = Call.objects.get(pk = int(self.request.GET.get('pk')))
+        tags = call.contact.tag.all()
+        context = {
+            'call': call,
+            'tags': tags
+        }
+        return context
