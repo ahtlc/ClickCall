@@ -56,10 +56,14 @@
 }
  
 .icon-call:before { content: '\e801';} /* '' */
+.icon-call-2:before { content: '\e801'; font-size: 22px;} /* '' */
 .icon-email-white-blue:before { content: '\e802'; } /* '' */
+.icon-email-white-blue-2:before { content: '\e802'; } /* '' */
 .icon-pay:before { content: '\e803';} /* '' */
+.icon-pay-2:before { content: '\e803'; font-size: 22px;} /* '' */
 .icon-trash-white:before { content: '\e807'; } /* '' */
 .icon-phone-blue:before { content: '\e808'; } /* '' */
 .icon-email:before { content: '\e809';} /* '' */
+.icon-email-2:before { content: '\e809'; font-size: 18px;  margin-bottom: 1px;} /* '' */
 .icon-wait-call:before { content: '\e80c'; } /* '' */
 .icon-plus-button:before { content: '\e80d'; } /* '' */

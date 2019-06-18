@@ -1,15 +1,21 @@
 import json as simplejson
 from django.http import HttpResponse
-
+from datetime import datetime
+import datetime
+import pytz
 from django.shortcuts import render
 from django.views import generic
+
 
 from django.views.generic import (
     DetailView,
     CreateView,
+    TemplateView
 )
 
 from django.urls import reverse_lazy
+from calls.models import Call
+from activities.objects import Year
 from activities.factory import create
 
 from calls.models import (
@@ -17,9 +23,7 @@ from calls.models import (
     Contact,
     Tag,
 )
-from .forms import ContactForm
-
-import datetime
+from .forms import ContactForm, CallSchedulingForm
 
 
 class PopulateView(generic.View):
@@ -147,27 +151,36 @@ class ScheduleView(generic.ListView):
     yesterday = today - datetime.timedelta(days=1)
 
     today_calls = Call.objects.filter(
-        date__year=today.year,
-        date__month=today.month,
-        date__day=today.day
+            date_scheduling__date__year=today.year,
+            date_scheduling__date__month=today.month,
+            date_scheduling__date__day=today.day
     )
 
     yesterday_calls = Call.objects.filter(
-        date__year=yesterday.year,
-        date__month=yesterday.month,
-        date__day=yesterday.day
+            date_scheduling__date__year=yesterday.year,
+            date_scheduling__date__month=yesterday.month,
+            date_scheduling__date__day=yesterday.day
     )
-
-    def get_context_data(self, **kwargs):
+    
+    def get_context_data(self, **kwargs):    
+        today = datetime.datetime.now()
+        yesterday = today - datetime.timedelta(days=1)
         context = super(ScheduleView, self).get_context_data(**kwargs)
         context.update({
             'today': self.today,
-            'today_calls': self.today_calls,
+            'today_calls': Call.objects.filter(
+                                date_scheduling__date__year=today.year,
+                                date_scheduling__date__month=today.month,
+                                date_scheduling__date__day=today.day
+                                ),
             'yesterday': self.yesterday,
-            'yesterday_calls': self.yesterday_calls
+            'yesterday_calls': Call.objects.filter(
+                                date_scheduling__date__year=yesterday.year,
+                                date_scheduling__date__month=yesterday.month,
+                                date_scheduling__date__day=yesterday.day
+                                )
         })
         return context
-
 
 class HistoryActivitiesView(generic.ListView):
     """
@@ -203,3 +216,31 @@ class ClientsView(CreateView):
 
     def form_invalid(self, form):
         return super(ClientsView, self).form_invalid(form)
+        # import ipdb
+        # ipdb.set_trace()
+
+class CallSchedulingRegisterView(CreateView):
+    model = Call
+    template_name = 'call-scheduling.html'
+    form_class = CallSchedulingForm
+    success_url = reverse_lazy('activities:call_scheduling')
+
+    def form_valid(self, form):
+        from datetime import datetime, timezone
+        call = Call.objects.get(pk = int (self.request.GET.get('pk')))
+        date_scheduling = self.request.POST['date_scheduling']
+        valid_datetime = datetime.strptime(date_scheduling, '%d/%m/%Y %H:%M')
+        form = CallSchedulingForm(instance=call, data=self.request.POST)
+        instance = form.save(commit=False)
+        instance.date_scheduling = valid_datetime
+        instance.save()
+        return super(CallSchedulingRegisterView, self).form_valid(form)
+        
+    def form_invalid(self, form):
+        # import ipdb
+        # ipdb.set_trace()
+        return super(CallSchedulingRegisterView, self).form_invalid(form)
+
+class CallPopUpView(TemplateView):
+    model = Call
+    template_name = 'call-popup.html'

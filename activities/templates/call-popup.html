@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<!-- <link rel="stylesheet" type="text/css" href = "{% static 'css/call-scheduling.css' %}"> -->
+<link rel="stylesheet" type="text/css" href="../../static/datetimepicker-2.5.20/jquery.datetimepicker.css"/ >
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/call-popup.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class = "popup">
+        <div class="new-call">
+            <h1 class="new-call-title">POPUP</h1>
+            <a>llllll</a>
+            
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        let params = new URLSearchParams(document.location.search.substring(1))
+        let pk = params.get("pk")
+        $(`a`).attr("href", `/activities/call_scheduling/?pk=${pk}`);
+    </script>
+{% endblock %}
+

@@ -14,34 +14,35 @@
     {% block content %}
     <div class="container-detail" id="container-detail-a">
         <div class="information">
-            <span class="company-name">Nome da Empresa</span>
-            <span class="basic-information">Telefone:(81) X XXXX-XXXX</span>
-            <span class="basic-information">Contato: Luiz Felipe</span>
-            <span class="basic-information">Email: luis.felipe@empresa.com</span>
+            <span class="company-name" get-data="data-company"></span>
+            <span class="basic-information">Telefone: <span get-data="data-cellphone"></span></span>
+            <span class="basic-information">Contato: <span get-data="data-name"></span></span>
+            <span class="basic-information">Email: <span get-data="data-email"></span></span>
             <div class="calendar">
                 <img src="../../static/img/calendar.png">
-                <span>21/10/18</span>
+                <span get-data="data-date"></span>
             </div>
             <div class="money">
                 <img src="../../static/img/coin.png">
-                <span>13.800,00</span>
+                <span><span get-data="data-value"></span></span>
             </div>
         </div>
         <div class="information-buttons">
             <img src="../../static/img/information-email.png">
             <img src="../../static/img/trash.png">
             <img src="../../static/img/waiting-call.png">
-            <img src="../../static/img/call.png">
+            <img id="button_id" src="../../static/img/call.png">
+             
         </div>
         <div class="notes">
             <span>Anotações:</span>
-            <textarea></textarea>
+            <textarea get-data="data-notes"></textarea>
         </div>
         <div class="tags">
             <span>Tags:</span>
             <div class="tag-row">
-                <div class="tag-box">exemplo</div>
-                <div class="tag-box">exemplo</div>
+                <div get-data="data-tag"class="tag-box"></div>
+                <div get-data="data-tag"class="tag-box"></div>
             </div>
         </div>
     </div>

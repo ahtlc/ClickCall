@@ -1,5 +1,6 @@
 from django import forms
-from calls.models import Contact, Tag
+from django.forms import DateTimeField
+from calls.models import Contact, Tag, Call
 
 
 class ContactForm(forms.ModelForm):
@@ -26,3 +27,10 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = '__all__'
         exclude = ['tag', 'last_update', 'status']
+
+class CallSchedulingForm(forms.ModelForm):
+    # date_scheduling = DateTimeField(input_formats=["%d %m %Y %H:%M"])
+    class Meta:
+        model = Call
+        fields = ['date_scheduling']
+       

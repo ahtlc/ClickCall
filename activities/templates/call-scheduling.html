@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href = "{% static 'css/call-scheduling.css' %}">
+<link rel="stylesheet" type="text/css" href="../../static/datetimepicker-2.5.20/jquery.datetimepicker.css"/ >
+{% endblock %}
+
+{% block content %}
+        
+    <div class = "popup">
+        <form class="new-date" method = "POST" autocomplete="off">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="alert alert-error">
+                <p>Por favor, corrija os seguintes erros antes de salvar novamente: </p>
+                <ul>
+                    {% for field in form %}
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                            <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                </div>
+            {% endif %}
+            <h1 class="new-date-title">Agendar Chamada</h1>
+    
+            <!-- Name -->
+            <div class="new-date-input">
+                <label for="new-date-name">
+                    <span class="new-date-number">1</span> Data e hora da chamada
+                </label>
+                {% render_field form.date_scheduling class="form-control" %}
+            </div>
+            <button type="submit" class="new-date-submit">Agendar</button>
+        </form>
+    </div>
+        
+{% endblock %}
+
+{% block scripts %}
+<script src="../../static/datetimepicker-2.5.20/jquery.js"></script>
+<script src="../../static/datetimepicker-2.5.20/build/jquery.datetimepicker.full.min.js"></script>
+<script src="../../static/js/main.js"></script>
+<script>
+        jQuery.datetimepicker.setLocale('pt-BR');
+        jQuery('#id_date_scheduling').datetimepicker({
+            i18n:{
+            de:{
+            months:[
+            'Janeiro','Fevereiro','Março','Abril',
+            'Maio','Junho','Julho','Agosto',
+            'Setembro','Outubro','Novembro','Dezembro',
+            ],
+            dayOfWeek:[
+            "So.", "Mo", "Di", "Mi", 
+            "Do", "Fr", "Sa.",
+            ]
+            }
+            },
+            format:'d/m/Y H:i',
+        });
+</script>
+
+{% endblock %}
+
+    

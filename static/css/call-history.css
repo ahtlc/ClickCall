@@ -44,10 +44,8 @@
 }
 
 .extern{
-    display: flex;
-    flex-direction: column;
-    margin-left: 20vw;
-    margin-top: 5vh;
+    margin-left: 25px;
+    margin-top: 5px;
 }
 
 .table-align {
@@ -197,4 +195,7 @@ body{
     .input-search{
         margin-left: 6rem;
     }
+}
+.table-row{
+    cursor: pointer;
 }

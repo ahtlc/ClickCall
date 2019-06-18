@@ -124,13 +124,13 @@ class Call (models.Model):
 
     call_id = models.AutoField(
         primary_key=True,
-        verbose_name="Número da Ligação"
+        verbose_name="Número da Ligação",
     )
 
-    duration = models.TimeField(
-        auto_now=False,
-        verbose_name="Duração"
-    )
+    # duration = models.TimeField(
+    #     auto_now=False,
+    #     verbose_name="Duração"
+    # )
 
     call_24_hours = models.BooleanField(
         default=False,
@@ -164,26 +164,21 @@ class Call (models.Model):
         max_length=3
     )
 
-    date = models.DateField(
-        default=datetime.date.today,
-        verbose_name="Data da Ligação"
-    )
     status = models.CharField(
         max_length = 12, 
         choices = STATUS_CHOICES, 
         default = RECEBIDA, 
         verbose_name = "Status"
     )
-
-    hour = models.TimeField(
-        default=datetime.time,
-        verbose_name= "Hora da Ligação"
-    )
     value = models.DecimalField(
         default=0,
         max_digits=8,
         decimal_places=2,
         verbose_name="Valor"
+    )
+    date_scheduling = models.DateTimeField(
+        auto_now = False,
+        verbose_name = "Data e Hora da ligação"
     )
 
     class Meta:
