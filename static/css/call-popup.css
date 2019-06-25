@@ -150,18 +150,18 @@ body{
     align-items: baseline;
 }
 .calendar{
-    padding-right: 2px;
+    padding-right: 4px;
     width: 15px;
     height: 15px;
 }
 .coin{
-    padding-right: 2px;
+    padding-right: 4px;
     width: 15px;
     height: 15px;
 }
 .tag{
     padding-right: 7px;
-    width: 15px;
+    width: 22px;
     height: 15px;
 }
 .description{
