@@ -162,8 +162,8 @@ class ScheduleView(generic.ListView):
             date_scheduling__date__month=yesterday.month,
             date_scheduling__date__day=yesterday.day
     )
-    
-    def get_context_data(self, **kwargs):    
+
+    def get_context_data(self, **kwargs):  
         today = datetime.datetime.now()
         yesterday = today - datetime.timedelta(days=1)
         context = super(ScheduleView, self).get_context_data(**kwargs)
@@ -253,3 +253,53 @@ class CallPopUpView(TemplateView):
             'tags': tags
         }
         return context
+
+# class ChangeBooleanView(TemplateView):
+#     model = Call
+#     template_name = 'call-history-detail.html'
+#     def get_context_data(self):
+#         call = Call.objects.get(pk = int(self.request.GET.get('pk')))
+#         tags = call.contact.tag.all()
+#         context = {
+#             'call': call,
+#             'tags': tags
+#         }
+#         return context
+def change_boolean(request):
+    # import ipdb
+    # ipdb.set_trace()
+    pk = request.GET.get('pk')
+    name = request.GET.get('name')
+    value = request.GET.get('value')
+    print(pk)
+    print(name)
+    print(value)
+    call = Call.objects.get(pk=pk)
+    if value == 'call':  #verify click button
+        if (call.call_24_hours == True):
+            call.call_24_hours = False
+            call.save()
+            print(call.call_24_hours)
+        else:
+            call.call_24_hours = True
+            call.save()
+            print('mudou botao de chamada pra true')
+    if value == 'pay':
+        if (call.paid == True):
+            call.paid = False
+            call.save()
+            print('mudou botao de pagamento pra true')
+        else:
+            call.paid = True
+            call.save()
+            print('mudou botao de pagamento pra true')
+    if value == 'email':
+        if (call.email_sended == True):
+            call.email_sended = False
+            call.save()
+            print('mudou botao de email pra false')
+        else:
+            call.email_sended = True
+            call.save()
+            print('mudou botao de email pra true')
+    return HttpResponse(status=200)
