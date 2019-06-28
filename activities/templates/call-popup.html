@@ -13,7 +13,7 @@
     <div class = "popup">
         <div class="new-call">
             <div class="call-contact">
-                <img class="profile" src="../../static/img/call-perfil.png">
+                <img class="profile" src="{% static 'img/call-perfil.png' %}">
                 <div class="title">
                     <span class="contact">{{call.contact.name|title}}</span>
                     <span class="company">{{call.contact.company_name|title}}</span>
@@ -23,9 +23,9 @@
                     <span class="number">{{call.contact.phone}}</span>
                 </div>
                 <div class="buttons">
-                    <img src="../../static/img/call-2.png" class="call">
-                    <img src="../../static/img/aguardar.png" class="wait">
-                    <img src="../../static/img/desligar.png" class="off">
+                    <img src="{% static 'img/call-2.png' %}" class="call">
+                    <img src="{% static 'img/aguardar.png' %}" class="wait">
+                    <img src="{% static 'img/desligar.png' %}" class="off">
                 </div>
 
             </div>
@@ -34,33 +34,21 @@
                 <div class="general-information">
                     <div class="box-informations">
                         <a class="date">
-                            <img class="calendar" src="../../static/img/calendar.png">
+                            <img class="calendar" src="{% static 'img/calendar.png' %}">
                             <span class="description">{{call.date_scheduling|date:"d/m/Y"}}</span>
                         </a>
                         <div class="price">
-                            <img class="coin" src="../../static/img/coin.png">
+                            <img class="coin" src="{% static 'img/coin.png' %}">
                             <span class="description">Adicionar preço</span>
                         </div>
                         <div class="tags">
-                            <img class="tag" src="../../static/img/tag-black-shape.png">
+                            <img class="tag" src="{% static 'img/tag-black-shape.png' %}">
                             <div class="group-tags">
                                 {% for tag in tags %}
                                 <div class="row-tag">
                                     <div class="tag-box">{{tag.name}}</div>
                                 </div>
                                 {% endfor %}
-                                <!-- <div class="row-tag">
-                                        <div class="tag-box"></div>
-                                </div>
-                                <div class="row-tag">
-                                        <div class="tag-box"></div>
-                                </div>
-                                <div class="row-tag">
-                                        <div class="tag-box"></div>
-                                </div>
-                                <div class="row-tag">
-                                        <div class="tag-box"></div>
-                                </div> -->
                             </div>
                         </div>
                     </div>
