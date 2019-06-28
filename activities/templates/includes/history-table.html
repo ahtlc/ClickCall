@@ -17,7 +17,7 @@
             <th class="status">Status</th>
         </tr>
         {% for call in calls %}
-            <tr id="call-{{call.pk}}" class="table-row" data-name="{{call.contact.name| title}}" data-company="{{call.contact.company_name| title}}" data-cellphone="{{call.contact.cellphone|title}}" data-email="{{call.contact.email}}" data-value="{{call.value}}" data-pk="{{call.pk}}" data-date="{{call.date_scheduling|date:"d/m/Y" }}" data-tag="{{call.contact.tag.name}}" data-notes="{{call.notes}}">
+            <tr id="call-{{call.pk}}" class="table-row" data-name="{{call.contact.name| title}}" data-company="{{call.contact.company_name| title}}" data-cellphone="{{call.contact.cellphone|title}}" data-email="{{call.contact.email}}" data-value="{{call.value| floatformat:2}}" data-pk="{{call.pk}}" data-date="{{call.date_scheduling|date:"d/m/Y" }}" data-tag="{{call.contact.tag.name}}" data-notes="{{call.notes}}">
                 <td>{{call.contact.name | title}}</td>
                 <td>{{call.date_scheduling |date:"d/m/Y"}} - {{call.date_scheduling |time:"H:i"}}h</td>
 
@@ -38,7 +38,7 @@
                     <button onclick="changeIndicator(this)" name="email" value="email" type="submit" data-pk="{{call.pk}}"><i class="icon-email-2"></i></button>
                     {% endif %}
                 </td>
-                <td>R$ {{call.value}}</td>
+                <td>R$ {{call.value| floatformat:2}}</td>
                 <td class="status-busy">{{call.status|lower|title}}</td>
                 
             </tr>

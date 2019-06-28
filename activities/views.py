@@ -254,17 +254,6 @@ class CallPopUpView(TemplateView):
         }
         return context
 
-# class ChangeBooleanView(TemplateView):
-#     model = Call
-#     template_name = 'call-history-detail.html'
-#     def get_context_data(self):
-#         call = Call.objects.get(pk = int(self.request.GET.get('pk')))
-#         tags = call.contact.tag.all()
-#         context = {
-#             'call': call,
-#             'tags': tags
-#         }
-#         return context
 def change_boolean(request):
     # import ipdb
     # ipdb.set_trace()
@@ -279,27 +268,21 @@ def change_boolean(request):
         if (call.call_24_hours == True):
             call.call_24_hours = False
             call.save()
-            print(call.call_24_hours)
         else:
             call.call_24_hours = True
             call.save()
-            print('mudou botao de chamada pra true')
     if value == 'pay':
         if (call.paid == True):
             call.paid = False
             call.save()
-            print('mudou botao de pagamento pra true')
         else:
             call.paid = True
             call.save()
-            print('mudou botao de pagamento pra true')
     if value == 'email':
         if (call.email_sended == True):
             call.email_sended = False
             call.save()
-            print('mudou botao de email pra false')
         else:
             call.email_sended = True
             call.save()
-            print('mudou botao de email pra true')
     return HttpResponse(status=200)
