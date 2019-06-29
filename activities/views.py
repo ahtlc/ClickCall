@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.views import generic
 
 
+
 from django.views.generic import (
     DetailView,
     CreateView,
@@ -14,7 +15,7 @@ from django.views.generic import (
 )
 
 from django.urls import reverse_lazy
-from calls.models import Call
+
 from activities.objects import Year
 from activities.factory import create
 
@@ -244,3 +245,11 @@ class CallSchedulingRegisterView(CreateView):
 class CallPopUpView(TemplateView):
     model = Call
     template_name = 'call-popup.html'
+    def get_context_data(self):
+        call = Call.objects.get(pk = int(self.request.GET.get('pk')))
+        tags = call.contact.tag.all()
+        context = {
+            'call': call,
+            'tags': tags
+        }
+        return context

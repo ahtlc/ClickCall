@@ -3,6 +3,8 @@
 
 {% block links %}
 <!-- <link rel="stylesheet" type="text/css" href = "{% static 'css/call-scheduling.css' %}"> -->
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/fontello.css' %}" />
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../../static/datetimepicker-2.5.20/jquery.datetimepicker.css"/ >
 <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/call-popup.css' %}">
 {% endblock %}
@@ -10,8 +12,67 @@
 {% block content %}
     <div class = "popup">
         <div class="new-call">
-            <h1 class="new-call-title">POPUP</h1>
-            <a>llllll</a>
+            <div class="call-contact">
+                <img class="profile" src="{% static 'img/call-perfil.png' %}">
+                <div class="title">
+                    <span class="contact">{{call.contact.name|title}}</span>
+                    <span class="company">{{call.contact.company_name|title}}</span>
+                </div>
+                <div class="call-number">
+                    <span class="status">Ligando...</span>
+                    <span class="number">{{call.contact.phone}}</span>
+                </div>
+                <div class="buttons">
+                    <img src="{% static 'img/call-2.png' %}" class="call">
+                    <img src="{% static 'img/aguardar.png' %}" class="wait">
+                    <img src="{% static 'img/desligar.png' %}" class="off">
+                </div>
+
+            </div>
+            <span class="divisor"></span>
+            <div class="call-information">
+                <div class="general-information">
+                    <div class="box-informations">
+                        <a class="date">
+                            <img class="calendar" src="{% static 'img/calendar.png' %}">
+                            <span class="description">{{call.date_scheduling|date:"d/m/Y"}}</span>
+                        </a>
+                        <div class="price">
+                            <img class="coin" src="{% static 'img/coin.png' %}">
+                            <span class="description">Adicionar preço</span>
+                        </div>
+                        <div class="tags">
+                            <img class="tag" src="{% static 'img/tag-black-shape.png' %}">
+                            <div class="group-tags">
+                                {% for tag in tags %}
+                                <div class="row-tag">
+                                    <div class="tag-box">{{tag.name}}</div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="update-buttons">
+                        <div class="encapsulate-call">
+                            <button><i class="icon-call-2"></i></button>
+                        </div>
+                        <div class="encapsulate-pay">
+                            <button><i class="icon-pay-2"></i></button>
+                        </div>
+                        <div class="encapsulate-email">
+                            <button><i class="icon-email-2"></i></button>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="notes">
+                        <span class="description">Anotações:</span>
+                        <textarea></textarea>
+                        <button class="button-note" type="submit">Salvar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <h1 class="new-call-title">POPUP</h1>
+            <a>llllll</a> -->
             
         </div>
     </div>
