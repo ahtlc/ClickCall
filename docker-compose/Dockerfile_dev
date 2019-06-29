@@ -1,0 +1,25 @@
+FROM python:3.7
+
+ENV PYTHONIOENCODING UTF-8
+ENV PYTHONHTTPSVERIFY 0
+
+
+LABEL "project"="clickcall"
+LABEL "target"="development"
+LABEL "year"="2019"
+LABEL "author"="@jrmmendes <jrmmendes@outlook.com>"
+
+COPY ./requirements/ /tmp/requirements/
+
+RUN apt-get update && apt-get upgrade -y
+RUN pip install -r /tmp/requirements/dev.txt
+
+RUN mkdir /app/
+COPY . /app/
+WORKDIR /app/
+
+VOLUME [/app]
+
+EXPOSE 8000
+
+ENTRYPOINT ["python", "manage.py", "runserver", "0.0.0.0:8000"]
