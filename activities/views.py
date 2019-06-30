@@ -260,9 +260,6 @@ def change_boolean(request):
     pk = request.GET.get('pk')
     name = request.GET.get('name')
     value = request.GET.get('value')
-    print(pk)
-    print(name)
-    print(value)
     call = Call.objects.get(pk=pk)
     if value == 'call':  #verify click button
         if (call.call_24_hours == True):
