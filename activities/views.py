@@ -1,5 +1,5 @@
 import json as simplejson
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from datetime import datetime
 import datetime
 import pytz
@@ -283,3 +283,20 @@ def change_boolean(request):
             call.email_sended = True
             call.save()
     return HttpResponse(status=200)
+
+def show_tag(request):
+    pk = request.GET.get('pk')
+    call = Call.objects.get(pk=pk)
+    tags = call.contact.tag.all()
+    tags_list = list(tags.values())
+    print(list(tags.values()))
+    # tag_list = []
+    # for i in tags.length():
+    #     tag_list[tag] = tags
+    context = {
+        # 'call': call,
+        'tags': tags_list
+    }
+    # print (pk)
+    print (context)
+    return JsonResponse(context)

@@ -8,7 +8,8 @@ from .views import (
         CallPopUpView,
         PopulateView,
         SystemMetricsView,
-        change_boolean
+        change_boolean,
+        show_tag
 )
 
 app_name = 'activities'
@@ -23,6 +24,7 @@ urlpatterns = [
     path('call_popup/', CallPopUpView.as_view(), name= "call_popup"),
     path('call_scheduling/', CallSchedulingRegisterView.as_view(), name="call_scheduling"),
     path('populate-db/', PopulateView.as_view(), name="populate-db"),
+    path('schedule/tag', show_tag, name="schedule_detail"),
 ]
 
 from django.conf import settings
