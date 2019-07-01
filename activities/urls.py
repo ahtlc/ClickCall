@@ -8,6 +8,7 @@ from .views import (
         CallPopUpView,
         PopulateView,
         SystemMetricsView,
+        change_boolean
 )
 
 app_name = 'activities'
@@ -17,6 +18,7 @@ urlpatterns = [
     path('test-history/', HistoryActivitiesView.as_view(), name="test-history"),
     path('getdata/', GetTotalCallsView.as_view(), name="getdata"),
     path('schedule/', ScheduleView.as_view(), name="schedule"),
+    path('schedule/button', change_boolean, name="change"),
     path('system_metrics/', SystemMetricsView.as_view(), name="system_metrics"),
     path('call_popup/', CallPopUpView.as_view(), name= "call_popup"),
     path('call_scheduling/', CallSchedulingRegisterView.as_view(), name="call_scheduling"),

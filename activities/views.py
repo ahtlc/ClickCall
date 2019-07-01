@@ -162,8 +162,8 @@ class ScheduleView(generic.ListView):
             date_scheduling__date__month=yesterday.month,
             date_scheduling__date__day=yesterday.day
     )
-    
-    def get_context_data(self, **kwargs):    
+
+    def get_context_data(self, **kwargs):  
         today = datetime.datetime.now()
         yesterday = today - datetime.timedelta(days=1)
         context = super(ScheduleView, self).get_context_data(**kwargs)
@@ -253,3 +253,33 @@ class CallPopUpView(TemplateView):
             'tags': tags
         }
         return context
+
+def change_boolean(request):
+    # import ipdb
+    # ipdb.set_trace()
+    pk = request.GET.get('pk')
+    name = request.GET.get('name')
+    value = request.GET.get('value')
+    call = Call.objects.get(pk=pk)
+    if value == 'call':  #verify click button
+        if (call.call_24_hours == True):
+            call.call_24_hours = False
+            call.save()
+        else:
+            call.call_24_hours = True
+            call.save()
+    if value == 'pay':
+        if (call.paid == True):
+            call.paid = False
+            call.save()
+        else:
+            call.paid = True
+            call.save()
+    if value == 'email':
+        if (call.email_sended == True):
+            call.email_sended = False
+            call.save()
+        else:
+            call.email_sended = True
+            call.save()
+    return HttpResponse(status=200)
