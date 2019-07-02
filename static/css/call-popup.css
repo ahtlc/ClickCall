@@ -141,6 +141,8 @@ body{
 }
 .price{
     padding-bottom: 10px;
+    text-decoration: none;
+    text-decoration-color: #4D4D4D
 }
 .tags{
     padding-bottom: 10px;
@@ -174,13 +176,14 @@ body{
     display: flex;
     flex-direction: column;
 }
-textarea {
-    resize: none;
+.notes-popup {
+    display: flex;
+    /* resize: none; */
     /* min-height: 145px; */
     max-height: 200px;
     /* min-width: 250px; */
     height: 60px;
-    border: solid 1px #DEDEDE;
+    border: solid 1px red;
     border-radius: 10px;
 }
 .call-information{

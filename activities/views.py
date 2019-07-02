@@ -7,7 +7,6 @@ from django.shortcuts import render
 from django.views import generic
 
 
-
 from django.views.generic import (
     DetailView,
     CreateView,
@@ -24,7 +23,7 @@ from calls.models import (
     Contact,
     Tag,
 )
-from .forms import ContactForm, CallSchedulingForm
+from .forms import ContactForm, CallSchedulingForm, ChangePriceForm, NotesForm
 
 
 class PopulateView(generic.View):
@@ -242,10 +241,47 @@ class CallSchedulingRegisterView(CreateView):
         # ipdb.set_trace()
         return super(CallSchedulingRegisterView, self).form_invalid(form)
 
-class CallPopUpView(TemplateView):
+class ChangePriceView(CreateView):
+    model = Call
+    template_name = 'change-price.html'
+    form_class = ChangePriceForm
+    success_url = reverse_lazy('activities:change_price')
+
+    def form_valid(self, form):
+        call = Call.objects.get(pk = int (self.request.GET.get('pk')))
+        price = self.request.POST['value']
+        form = ChangePriceForm(instance=call, data=self.request.POST)
+        instance = form.save(commit=False)
+        instance.value = price
+        instance.save()
+        return super(ChangePriceView, self).form_valid(form)
+        
+    def form_invalid(self, form):
+        # import ipdb
+        # ipdb.set_trace()
+        return super(ChangePriceView, self).form_invalid(form)
+
+class CallPopUpView(CreateView):
     model = Call
     template_name = 'call-popup.html'
-    def get_context_data(self):
+    form_class = NotesForm
+    success_url = reverse_lazy('activities:call_popup')
+
+    def form_valid(self, form):
+        call = Call.objects.get(pk = int (self.request.GET.get('pk')))
+        notes = self.request.POST['notes']
+        form = NotesForm(instance=call, data=self.request.POST)
+        instance = form.save(commit=False)
+        instance.notes = notes
+        instance.save()
+        return super(CallPopUpView, self).form_valid(form)
+        
+    def form_invalid(self, form):
+        # import ipdb
+        # ipdb.set_trace()
+        return super(CallPopUpView, self).form_invalid(form)
+
+    def get_context_data(self, **kwargs):
         call = Call.objects.get(pk = int(self.request.GET.get('pk')))
         tags = call.contact.tag.all()
         context = {

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block links %}
 <!-- <link rel="stylesheet" type="text/css" href = "{% static 'css/call-scheduling.css' %}"> -->
@@ -37,10 +38,10 @@
                             <img class="calendar" src="{% static 'img/calendar.png' %}">
                             <span class="description">{{call.date_scheduling|date:"d/m/Y"}}</span>
                         </a>
-                        <div class="price">
+                        <a class="price">
                             <img class="coin" src="{% static 'img/coin.png' %}">
                             <span class="description">Adicionar preço</span>
-                        </div>
+                        </a>
                         <div class="tags">
                             <img class="tag" src="{% static 'img/tag-black-shape.png' %}">
                             <div class="group-tags">
@@ -66,8 +67,28 @@
                     </div>
                     <div class="notes">
                         <span class="description">Anotações:</span>
-                        <textarea></textarea>
-                        <button class="button-note" type="submit">Salvar</button>
+                        <form method="POST" autocomplete="off"></form>
+                            {% csrf_token %}
+
+                            {% if form.errors %}
+                                <div class="alert alert-error">
+                                <p>Por favor, corrija os seguintes erros antes de salvar novamente: </p>
+                                <ul>
+                                    {% for field in form %}
+                                        {% if field.errors %}
+                                            {% for error in field.errors %}
+                                            <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                                </div>
+                            {% endif %}
+                            {% render_field form.notes class+="notes-popup" %}
+                            <!-- {{ form.as_p }} -->
+                                
+                            <button class="button-note" type="submit">Salvar</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -82,7 +103,8 @@
     <script>
         let params = new URLSearchParams(document.location.search.substring(1))
         let pk = params.get("pk")
-        $(`a`).attr("href", `/activities/call_scheduling/?pk=${pk}`);
+        $('.date').attr("href", `/activities/call_scheduling/?pk=${pk}`);
+        $('.price').attr("href", `/activities/change_price/?pk=${pk}`);
     </script>
 {% endblock %}
 

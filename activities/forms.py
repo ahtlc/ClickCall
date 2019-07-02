@@ -33,4 +33,14 @@ class CallSchedulingForm(forms.ModelForm):
     class Meta:
         model = Call
         fields = ['date_scheduling']
+
+class ChangePriceForm(forms.ModelForm):
+    class Meta:
+        model = Call
+        fields = ['value']
        
+class NotesForm(forms.ModelForm):
+    class Meta:
+        model = Call
+        fields = ['notes']
+        # fields = '__all__'

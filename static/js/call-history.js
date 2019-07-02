@@ -37,14 +37,9 @@ $(document).ready(function () {
       inputs.forEach((input) => {
         $(`span[get-data=data-${input}]`).html(e.currentTarget.getAttribute(`data-${input}`));
       });
-      $(`a[get-data=data-pk]`).attr("href", `/activities/call_scheduling/?pk=${e.currentTarget.getAttribute('data-pk')}`);
       $('#button_id').click(function (e){
         window.location.href= `/activities/call_popup/?pk=${pk}`
       })
-      $('#call').click(function (e){
-        
-      });
-      // history.pushState(null, '', `?pk=${pk}`);
     });
     
 });

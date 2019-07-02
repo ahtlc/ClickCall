@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href = "{% static 'css/change-price.css' %}">
+{% endblock %}
+
+{% block content %}
+        
+    <div class = "popup">
+        <form class="new-price" method = "POST" autocomplete="off">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="alert alert-error">
+                <p>Por favor, corrija os seguintes erros antes de salvar novamente: </p>
+                <ul>
+                    {% for field in form %}
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                            <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                </div>
+            {% endif %}
+            <h1 class="new-price-title">Modificar Valor</h1>
+    
+            <!-- Name -->
+            <div class="new-price-input">
+                <label for="new-price-name">
+                    <span class="new-price-number">1</span> Valor
+                </label>
+                {% render_field form.value class="form-control" %}
+            </div>
+            <button type="submit" class="new-price-submit">Modificar</button>
+        </form>
+    </div>
+        
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+    

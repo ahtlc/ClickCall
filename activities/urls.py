@@ -8,6 +8,7 @@ from .views import (
         CallPopUpView,
         PopulateView,
         SystemMetricsView,
+        ChangePriceView,
         change_boolean,
         show_tag
 )
@@ -23,6 +24,7 @@ urlpatterns = [
     path('system_metrics/', SystemMetricsView.as_view(), name="system_metrics"),
     path('call_popup/', CallPopUpView.as_view(), name= "call_popup"),
     path('call_scheduling/', CallSchedulingRegisterView.as_view(), name="call_scheduling"),
+    path('change_price/', ChangePriceView.as_view(), name="change_price"),
     path('populate-db/', PopulateView.as_view(), name="populate-db"),
     path('schedule/tag', show_tag, name="schedule_detail"),
 ]

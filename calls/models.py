@@ -171,7 +171,7 @@ class Call (models.Model):
         verbose_name = "Status"
     )
     value = models.DecimalField(
-        default=0,
+        # default=0,
         max_digits=8,
         decimal_places=2,
         verbose_name="Valor"
