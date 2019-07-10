@@ -67,7 +67,27 @@
                     </div>
                     <div class="notes">
                         <span class="description">Anotações:</span>
-                        <form method="POST" autocomplete="off"></form>
+                        <form class="new-note"method = "POST" autocomplete="off">
+                            {% csrf_token %}
+                            {% if form.errors %}
+                                <div class="alert alert-error">
+                                <p>Por favor, corrija os seguintes erros antes de salvar novamente: </p>
+                                <ul>
+                                    {% for field in form %}
+                                        {% if field.errors %}
+                                            {% for error in field.errors %}
+                                            <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                                </div>
+                            {% endif %}
+                            
+                                {% render_field form.notes class="form-control notes-popup" %}
+                            <button type="submit" class="button-note"><a class="test">Salvar</a></button>
+                        </form>
+                        <!-- <form method="POST" autocomplete="off"></form>
                             {% csrf_token %}
 
                             {% if form.errors %}
@@ -85,10 +105,8 @@
                                 </div>
                             {% endif %}
                             {% render_field form.notes class+="notes-popup" %}
-                            <!-- {{ form.as_p }} -->
-                                
                             <button class="button-note" type="submit">Salvar</button>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
             </div>
@@ -105,6 +123,7 @@
         let pk = params.get("pk")
         $('.date').attr("href", `/activities/call_scheduling/?pk=${pk}`);
         $('.price').attr("href", `/activities/change_price/?pk=${pk}`);
+        // $('.test').attr("href", `/activities/call_popup/?pk=${pk}`);
     </script>
 {% endblock %}
 

@@ -265,18 +265,22 @@ class CallPopUpView(CreateView):
     model = Call
     template_name = 'call-popup.html'
     form_class = NotesForm
-    success_url = reverse_lazy('activities:call_popup')
+    success_url = reverse_lazy('activities:schedule')
 
     def form_valid(self, form):
         call = Call.objects.get(pk = int (self.request.GET.get('pk')))
         notes = self.request.POST['notes']
         form = NotesForm(instance=call, data=self.request.POST)
+        # import ipdb
+        # ipdb.set_trace()
+        print('puta merda q saco')
         instance = form.save(commit=False)
         instance.notes = notes
         instance.save()
         return super(CallPopUpView, self).form_valid(form)
         
     def form_invalid(self, form):
+        print('ai cacete pega logo')
         # import ipdb
         # ipdb.set_trace()
         return super(CallPopUpView, self).form_invalid(form)
@@ -284,10 +288,11 @@ class CallPopUpView(CreateView):
     def get_context_data(self, **kwargs):
         call = Call.objects.get(pk = int(self.request.GET.get('pk')))
         tags = call.contact.tag.all()
-        context = {
+        context = super(CallPopUpView, self).get_context_data(**kwargs)
+        context.update({
             'call': call,
             'tags': tags
-        }
+        })
         return context
 
 def change_boolean(request):

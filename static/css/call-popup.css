@@ -178,12 +178,12 @@ body{
 }
 .notes-popup {
     display: flex;
-    /* resize: none; */
+    resize: none;
     /* min-height: 145px; */
     max-height: 200px;
     /* min-width: 250px; */
     height: 60px;
-    border: solid 1px red;
+    border: solid 1px #DEDEDE;
     border-radius: 10px;
 }
 .call-information{
@@ -309,6 +309,11 @@ body{
 }
 .popup{
     background-color: #FFFFFF;
+}
+.new-note{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 @media screen and (max-width: 705px){
     .new-call{
