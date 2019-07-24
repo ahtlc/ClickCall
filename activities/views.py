@@ -273,14 +273,12 @@ class CallPopUpView(CreateView):
         form = NotesForm(instance=call, data=self.request.POST)
         # import ipdb
         # ipdb.set_trace()
-        print('puta merda q saco')
         instance = form.save(commit=False)
         instance.notes = notes
         instance.save()
         return super(CallPopUpView, self).form_valid(form)
         
     def form_invalid(self, form):
-        print('ai cacete pega logo')
         # import ipdb
         # ipdb.set_trace()
         return super(CallPopUpView, self).form_invalid(form)
@@ -331,11 +329,7 @@ def show_tag(request):
     tags = call.contact.tag.all()
     tags_list = list(tags.values())
     print(list(tags.values()))
-    # tag_list = []
-    # for i in tags.length():
-    #     tag_list[tag] = tags
     context = {
-        # 'call': call,
         'tags': tags_list
     }
     # print (pk)

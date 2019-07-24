@@ -77,21 +77,34 @@ body{
     flex-direction: column;
     margin-top: 15px;
     outline: none;
+    width: 250px;
+    flex-wrap: wrap;
 }
-.notes span{
+.notes-title{
     font-size: 0.85rem;
-    padding-left: 10px;
+    padding-left: 4px;
     margin-bottom: 8px;
+    /* width: 250px; */
 }
 .notes-box{
     background-color: #FFFFFF;
     resize: none;
-    min-height: 145px;
-    max-height: 200px;
-    min-width: 250px;
+    height: 145px;
+    /* max-height: 200px; */
+    max-width: 250px;
     border: solid 1px #DEDEDE;
     border-radius: 10px;
     padding: 6px 6px 6px 6px;
+    width: 250px;
+}
+.notes-text{
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+  word-break: break-all;
+  max-height: 140px;
+  font-size: 0.9rem;
+  font-family: 'Work Sans', sans-serif
 }
 .tags{
     font-family: 'Work Sans', sans-serif;
