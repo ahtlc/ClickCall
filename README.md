@@ -86,5 +86,5 @@ Para realizar deploy na Heroku, basta criar um novo app, configurar as mesmas va
 * **Carolina Vieira** - *Mockup*
 
 ```markdown
-Made with `markdown` and love by CITi
+Made with </> and love by CITi
 ```
