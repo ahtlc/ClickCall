@@ -9,12 +9,57 @@ Siga estes passos caso queira ter uma cópia do projeto configurada e executando
 - Python 3
 - Pip
 - Virtualenv
-- Pip
 - Pipenv
 
 
 ## Instalação em ambiente de desenvolvimento
 Após clonar e acessar a pasta raiz do repositório
+
+### Windows
+Instale o python3, pip e virtualenv na sua máquina e garanta que todos estejam sendo reconhecidos como variáveis de ambiente - "PATH"
+
+Abra o terminal na pasta clonada e crie uma pasta para conter seu projeto e acesse-o:
+
+```
+mkdir clickcall
+cd clickcall
+```
+
+Crie um ambiente virtual usando o virtualenv e ative-o:
+
+```
+virtualenv env
+C:\(path_de_onde_você_está)>virtualenv\env\Scripts\activate
+```
+
+Aparecerá isto na sua linha de comando:
+
+```
+(env) C:\(path_de_onde_você_está)>
+```
+
+Instale as demais dependências do projeto:
+
+```
+cd ClickCall
+pip install -r requirements.txt
+```
+
+Agora aplique as migrações e rode o projeto localmente:
+
+```
+python magane.py makemigrations
+python magane.py migrate
+python magane.py runserver
+```
+
+Esse processo só precisa ser feito uma vez por máquina. Depois disso, caso queira abrir o projeto outrora, basta ativar o ambiente virtual com o comando de ativação do virtualenv, e usar o comando ```python magane.py runserver```
+
+Finalizando, acesse em seu browser o seguinte endeço:
+```http://localhost:8000/```
+
+Quando finalizar o projeto, basta desativar o virtualenv, ou fechar o cmd prompt.
+```deactivate```
 
 ### Linux (Ubuntu)
 Caso não possua, instale as dependências:
