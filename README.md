@@ -2,6 +2,9 @@
 # ClickCall
 O objetivo da Clickcall é projetar uma interface disruptiva a fim de melhorar a experiência do usuário no sistema e tornar os clientes da Ligue Comunicações mais orientados as métricas que o sistema proporciona.
 
+## Link para o mockup do projeto:
+https://xd.adobe.com/spec/89236ed9-68ce-4a94-6411-9f8564994cfe-ff12/grid
+
 ## Primeiros passos
 Siga estes passos caso queira ter uma cópia do projeto configurada e executando no seu host local para propósitos de desenvolvimento e testes. Veja a seção `Realizando Deploy` para entender como fazer a instalação em um ambiente de produção.
 
