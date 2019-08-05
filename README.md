@@ -58,8 +58,7 @@ Esse processo só precisa ser feito uma vez por máquina. Depois disso, caso que
 Finalizando, acesse em seu browser o seguinte endeço:
 ```http://localhost:8000/```
 
-Quando finalizar o projeto, basta desativar o virtualenv, ou fechar o cmd prompt.
-```deactivate```
+Quando finalizar o projeto, basta desativar o virtualenv: ```deactivate``` Ou fechar o cmd prompt.
 
 ### Linux (Ubuntu)
 Caso não possua, instale as dependências:
